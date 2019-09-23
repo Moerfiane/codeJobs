@@ -1,4 +1,4 @@
-package org.launchcode;
+package org.stlyouthjobs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

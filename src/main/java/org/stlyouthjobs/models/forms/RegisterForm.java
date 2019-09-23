@@ -1,4 +1,4 @@
-package org.launchcode.models.forms;
+package org.stlyouthjobs.models.forms;
 
 import javax.validation.constraints.NotNull;
 

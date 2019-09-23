@@ -1,8 +1,8 @@
-package org.launchcode.controllers;
+package org.stlyouthjobs.controllers;
 
-import org.launchcode.models.User;
-import org.launchcode.models.forms.LoginForm;
-import org.launchcode.models.forms.RegisterForm;
+import org.stlyouthjobs.models.User;
+import org.stlyouthjobs.models.forms.LoginForm;
+import org.stlyouthjobs.models.forms.RegisterForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;

@@ -1,8 +1,8 @@
-package org.launchcode;
+package org.stlyouthjobs;
 
-import org.launchcode.controllers.AbstractController;
-import org.launchcode.models.User;
-import org.launchcode.models.data.UserDao;
+import org.stlyouthjobs.controllers.AbstractController;
+import org.stlyouthjobs.models.User;
+import org.stlyouthjobs.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 

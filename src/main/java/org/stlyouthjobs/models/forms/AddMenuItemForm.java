@@ -1,23 +1,22 @@
 
-package org.launchcode.models.forms;
+package org.stlyouthjobs.models.forms;
 
-import org.launchcode.models.Category;
-import org.launchcode.models.Cheese;
-import org.launchcode.models.Menu;
+import org.stlyouthjobs.models.Cheese;
+import org.stlyouthjobs.models.Menu;
 
 /**
  * Created by kevinstock on 4/12/17.
  */
-public class AddCategoryItemForm {
+public class AddMenuItemForm {
 
     private Menu menu;
     private Iterable<Cheese> cheeses;
     private int menuId;
     private int cheeseId;
 
-    public AddCategoryItemForm() {}
+    public AddMenuItemForm() {}
 
-    public AddCategoryItemForm(Category category, Iterable<Cheese> cheeses) {
+    public AddMenuItemForm(Menu menu, Iterable<Cheese> cheeses) {
         this.menu = menu;
         this.cheeses = cheeses;
     }

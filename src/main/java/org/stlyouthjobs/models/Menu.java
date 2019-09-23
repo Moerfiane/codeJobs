@@ -1,5 +1,5 @@
 
-package org.launchcode.models;
+package org.stlyouthjobs.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

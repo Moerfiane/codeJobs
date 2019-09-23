@@ -1,6 +1,6 @@
-package org.launchcode.models.data;
+package org.stlyouthjobs.models.data;
 
-import org.launchcode.models.Cheese;
+import org.stlyouthjobs.models.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,7 +9,10 @@ import javax.transaction.Transactional;
 /**
  * Created by LaunchCode
  */
-@Repository
 @Transactional
-public interface CheeseDao extends CrudRepository<Cheese, Integer> {
+@Repository
+public interface UserDao extends CrudRepository<User, Integer> {
+
+    User findByUsername(String username);
+
 }

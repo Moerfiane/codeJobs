@@ -1,10 +1,10 @@
-package org.launchcode.controllers;
+package org.stlyouthjobs.controllers;
 
-import org.launchcode.models.User;
-import org.launchcode.models.data.CategoryDao;
-import org.launchcode.models.data.CheeseDao;
-import org.launchcode.models.data.MenuDao;
-import org.launchcode.models.data.UserDao;
+import org.stlyouthjobs.models.User;
+import org.stlyouthjobs.models.data.CategoryDao;
+import org.stlyouthjobs.models.data.CheeseDao;
+import org.stlyouthjobs.models.data.MenuDao;
+import org.stlyouthjobs.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 

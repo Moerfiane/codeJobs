@@ -1,4 +1,4 @@
-package org.launchcode;
+package org.stlyouthjobs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

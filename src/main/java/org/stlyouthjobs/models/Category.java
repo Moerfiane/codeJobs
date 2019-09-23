@@ -1,4 +1,4 @@
-package org.launchcode.models;
+package org.stlyouthjobs.models;
 
 
 import javax.persistence.*;
