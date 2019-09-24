@@ -39,6 +39,4 @@ public class ContactInfoController {
         return "redirect:/";
     }
 
-
-
 }
