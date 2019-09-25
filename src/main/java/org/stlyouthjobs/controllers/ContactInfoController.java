@@ -36,7 +36,7 @@ public class ContactInfoController {
             return "contactInfo/add";
         }
         contactDao.save(newcontactInfo);
-        return "redirect:/";
+        return "redirect:/aboutMe";
     }
 
 }

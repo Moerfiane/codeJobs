@@ -36,7 +36,7 @@ public class AboutMeController {
             return "aboutMe/add";
         }
         aboutMeDao.save(aboutMe);
-        return "redirect:/";
+        return "redirect:/experience";
     }
 
 }
