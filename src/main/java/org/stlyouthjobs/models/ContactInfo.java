@@ -3,12 +3,14 @@ package org.stlyouthjobs.models;
 import org.hibernate.validator.constraints.Email;
 
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+@Entity
 public class ContactInfo {
 
     @Id
@@ -26,6 +28,15 @@ public class ContactInfo {
 
     @Email
     private String email;
+
+
+
+    public ContactInfo() {
+        this.id = id;
+        this.name = name;
+        this.phoneNum = phoneNum;
+        this.email = email;
+    }
 
     public int getId() {
         return id;
