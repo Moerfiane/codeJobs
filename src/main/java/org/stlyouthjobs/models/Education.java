@@ -53,7 +53,7 @@ public class Education {
         this.description = description;
     }
 
-    //Add once all controllers are added: @ManyToOne , @ManyToMany (Mapped by="")
+    //TODO #1 Add db info once all controllers are added: @ManyToOne , @ManyToMany (Mapped by="")
 
     public int getId() {
         return id;
