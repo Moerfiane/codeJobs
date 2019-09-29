@@ -1,7 +1,5 @@
 package org.stlyouthjobs.models;
 
-import oracle.jrockit.jfr.StringConstantPool;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -55,6 +53,7 @@ public class Education {
 
     //TODO #1 Add db info once all controllers are added: @ManyToOne , @ManyToMany (Mapped by="")
 
+    //only a getter for id. other classes shouldn't be able to change the id.
     public int getId() {
         return id;
     }

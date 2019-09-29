@@ -32,6 +32,7 @@ public class CommunityInvolvementController {
     public String addCommunityInvolvement(Model model){
         model.addAttribute("title", "Add Community Involvement");
         model.addAttribute(new CommunityInvolvement());
+        model.addAttribute("volunteer", "Add Volunteer Work");
 
         return "communityInvolvement/add";
     }
@@ -40,6 +41,7 @@ public class CommunityInvolvementController {
     public String processCommunityInvolvement(Model model, @ModelAttribute @Valid CommunityInvolvement communityInvolvement, Errors errors){
         if (errors.hasErrors()){
             model.addAttribute("title", "Add Community Involvement");
+            model.addAttribute("volunteer", "Add Volunteer Work");
             return "communityInvolvement/add";
         }
         communityInvolvementDao.save(communityInvolvement);
