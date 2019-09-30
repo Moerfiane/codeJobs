@@ -28,6 +28,12 @@
         <span th:errors="*{endDate}" class="error"></span>
     </div>
 
+    <div class="form-group">
+        <label th:for="description">Description of Volunteer Work</label>
+        <input class="form-control" th:field="*{description}" />
+        <span th:errors="*{description}" class="error"></span>
+    </div>
+
     <input type="submit" value="Add Community Involvement" />
 </form>
 

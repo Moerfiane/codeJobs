@@ -21,7 +21,7 @@ public class SkillsController {
     private SkillsDao skillsDao;
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
-    public String addSkills(Model model){
+    public String add(Model model){
         model.addAttribute("nameOfSkill", "Add Skills");
         model.addAttribute(new Skills());
         return "skills/add";

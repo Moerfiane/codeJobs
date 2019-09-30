@@ -6,14 +6,15 @@
 <h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
+
 <form method="post" th:object="${skills}">
     <div class="form-group">
-        <label th:for="nameOfSkill">Skills</label>
+        <label th:for="nameOfSkill">Name of Skill</label>
         <input class="form-control" th:field="*{nameOfSkill}" />
         <span th:errors="*{nameOfSkill}" class="error"></span>
     </div>
 
-    <input type="submit" value="Add Skill" />
+    <input type="submit" value="Add Skills" />
 </form>
 
 </body>
