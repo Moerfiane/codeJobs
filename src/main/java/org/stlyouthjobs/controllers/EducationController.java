@@ -39,12 +39,12 @@ public class EducationController {
             model.addAttribute("degree", "Add Degree");
             model.addAttribute("fieldOfStudy", "Add Field of Study");
             model.addAttribute("startDate", "Add Start Date");
-            model.addAttribute("CompletionDate", "Add Commpletion Date");
+            model.addAttribute("completionDate", "Add Commpletion Date");
 
             return "education/add";
         }
         educationDao.save(newEducation);
-        return "redirect:/education";
+        return "redirect:/communityInvolvement";
 
     }
 
