@@ -1,39 +1,39 @@
 
 package org.stlyouthjobs.models.forms;
 
-import org.stlyouthjobs.models.Cheese;
-import org.stlyouthjobs.models.Menu;
+import org.stlyouthjobs.models.Question;
+import org.stlyouthjobs.models.Compare;
 
 /**
  * Created by kevinstock on 4/12/17.
  */
 public class AddMenuItemForm {
 
-    private Menu menu;
-    private Iterable<Cheese> cheeses;
+    private Compare menu;
+    private Iterable<Question> cheeses;
     private int menuId;
     private int cheeseId;
 
     public AddMenuItemForm() {}
 
-    public AddMenuItemForm(Menu menu, Iterable<Cheese> cheeses) {
+    public AddMenuItemForm(Compare menu, Iterable<Question> cheeses) {
         this.menu = menu;
         this.cheeses = cheeses;
     }
 
-    public Menu getMenu() {
+    public Compare getMenu() {
         return menu;
     }
 
-    public void setMenu(Menu menu) {
+    public void setMenu(Compare menu) {
         this.menu = menu;
     }
 
-    public Iterable<Cheese> getCheeses() {
+    public Iterable<Question> getCheeses() {
         return cheeses;
     }
 
-    public void setCheeses(Iterable<Cheese> cheeses) {
+    public void setCheeses(Iterable<Question> cheeses) {
         this.cheeses = cheeses;
     }
 

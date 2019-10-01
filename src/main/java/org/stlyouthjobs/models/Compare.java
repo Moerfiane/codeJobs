@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
-public class Menu {
+public class Compare {
 
     @Id
     @GeneratedValue
@@ -20,12 +20,12 @@ public class Menu {
     @Size(min=3, max=15)
     private String name;
 
-    @ManyToMany
-    private List<Cheese> cheeses;
+//    @ManyToMany
+//    private List<Question> questions;
 
-    public Menu() {}
+    public Compare() {}
 
-    public Menu(String name) {
+    public Compare(String name) {
         this.name = name;
     }
 
@@ -45,11 +45,4 @@ public class Menu {
         this.id = id;
     }
 
-    public List<Cheese> getCheeses() {
-        return cheeses;
-    }
-
-    public void addItem(Cheese item) {
-        cheeses.add(item);
-    }
 }
