@@ -18,14 +18,17 @@ public class CommunityInvolvement {
     private String startDate;
     private String endDate;
 
+    private String description;
+
     //empty constructor
     public CommunityInvolvement(){}
 
     //parameters to set name of fields
-    public CommunityInvolvement(String title, String startDate, String endDate) {
+    public CommunityInvolvement(String title, String startDate, String endDate, String description) {
         this.title = title;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.description = description;
     }
 
     public int getId() {
@@ -58,5 +61,13 @@ public class CommunityInvolvement {
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -28,13 +28,13 @@ public class SkillsController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processSkills(@ModelAttribute @Valid Skills newSkills, Errors errors, @RequestParam int skillsId, Model model) {
+    public String processAdd(Model model , @ModelAttribute @Valid Skills newSkills, Errors errors){
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Skills");
+            model.addAttribute("skills", "Add Skills");
             return "skills/add";
         }
 
         skillsDao.save(newSkills);
-        return "redirect:/education";
+        return "redirect:/education/add";
     }
 }
