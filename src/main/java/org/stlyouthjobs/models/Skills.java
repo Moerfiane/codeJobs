@@ -15,25 +15,25 @@ public class Skills {
 
     @NotNull
     @Size(min=3, max=50)
-    private String nameOfField;
+    private String name;
 
     //empty contructor
     public Skills(){}
 
     //parameter to set name of field
-    public Skills(String nameOfField) {
-        this.nameOfField = nameOfField;
+    public Skills(String name) {
+        this.name = name;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getNameOfField() {
-        return nameOfField;
+    public String getName() {
+        return name;
     }
 
-    public void setNameOfField(String nameOfField) {
-        this.nameOfField = nameOfField;
+    public void setName(String name) {
+        this.name = name;
     }
 }

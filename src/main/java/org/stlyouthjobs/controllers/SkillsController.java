@@ -22,7 +22,7 @@ public class SkillsController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model){
-        model.addAttribute("nameOfSkill", "Add Skills");
+        model.addAttribute("title", "Add Skills");
         model.addAttribute(new Skills());
         return "skills/add";
     }
@@ -30,9 +30,10 @@ public class SkillsController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processSkills(@ModelAttribute @Valid Skills newSkills, Errors errors, @RequestParam int skillsId, Model model) {
         if (errors.hasErrors()) {
-            model.addAttribute("nameOfSkill", "Add Skills");
+            model.addAttribute("title", "Add Skills");
             return "skills/add";
         }
+
         skillsDao.save(newSkills);
         return "redirect:/education";
     }
