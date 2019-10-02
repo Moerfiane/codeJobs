@@ -8,6 +8,8 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.stlyouthjobs.models.NewEmployer;
+import org.stlyouthjobs.models.data.NewEmployerDao;
 
 import javax.validation.Valid;
 
@@ -16,23 +18,23 @@ import javax.validation.Valid;
 public class NewEmployerController {
 
     @Autowired
-    private EmployerDao employerDao;
+    private NewEmployerDao newEmployerDao;
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String employerRegisterForm(Model model) {
         model.addAttribute("title", "Add New Employer");
-        model.addAttribute(new Employer());
+        model.addAttribute(new NewEmployer());
 
         return "employer/add";
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
-    public String employerRegisterForm (Model model, @ModelAttribute @Valid Employer employer, Errors errors) {
+    public String employerRegisterForm (Model model, @ModelAttribute @Valid NewEmployer newEmployer, Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add New Employer");
             return "employer/add";
         }
-        employerDao.save(employer);
+        newEmployerDao.save(newEmployer);
         return "redirect: /addnewjob";
     }
 
