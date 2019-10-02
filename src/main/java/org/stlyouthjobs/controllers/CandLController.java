@@ -35,6 +35,6 @@ public class CandLController {
             return "certificates/add";
         }
         candlDao.save(newcandl);
-        return "redirect:/cheese";
+        return "redirect:/skills/add";
     }
 }
