@@ -34,7 +34,7 @@ public class ExperienceController {
             return "experience/add";
         }
         experienceDao.save(experience);
-        return "redirect:/cheese";
+        return "redirect:/certificates/add";
     }
 }
 
