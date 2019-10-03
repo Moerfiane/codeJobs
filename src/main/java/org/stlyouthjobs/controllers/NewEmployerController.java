@@ -14,7 +14,7 @@ import org.stlyouthjobs.models.data.NewEmployerDao;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("employer")
+@RequestMapping("newemployer")
 public class NewEmployerController {
 
     @Autowired
@@ -22,17 +22,43 @@ public class NewEmployerController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String employerRegisterForm(Model model) {
-        model.addAttribute("title", "Add New Employer");
+        model.addAttribute("organizationName", "Organization Name");
+        model.addAttribute("contactName", "Contact Name");
+        model.addAttribute("website", "Website");
+        model.addAttribute("ein", "EIN");
+        model.addAttribute("phoneNumber", "Phone Number");
+        model.addAttribute("email", "E-mail");
+        model.addAttribute("confirmEmail", "Confirm E-mail");
+        model.addAttribute("password", "Password");
+        model.addAttribute("confirmPassword", "Confirm Password");
+        model.addAttribute("streetNumber", "Street Number");
+        model.addAttribute("streetName", "Street Name");
+        model.addAttribute("city", "City");
+        model.addAttribute("zipCode", "Zip Code");
+        model.addAttribute("neighborhood", "Neighborhood");
         model.addAttribute(new NewEmployer());
 
-        return "employer/add";
+        return "newemployer/add";
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
     public String employerRegisterForm (Model model, @ModelAttribute @Valid NewEmployer newEmployer, Errors errors) {
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Add New Employer");
-            return "employer/add";
+            model.addAttribute("organizationName", "Organization Name");
+            model.addAttribute("contactName", "Contact Name");
+            model.addAttribute("website", "Website");
+            model.addAttribute("ein", "EIN");
+            model.addAttribute("phoneNumber", "Phone Number");
+            model.addAttribute("email", "E-mail");
+            model.addAttribute("confirmEmail", "Confirm E-mail");
+            model.addAttribute("password", "Password");
+            model.addAttribute("confirmPassword", "Confirm Password");
+            model.addAttribute("streetNumber", "Street Number");
+            model.addAttribute("streetName", "Street Name");
+            model.addAttribute("city", "City");
+            model.addAttribute("zipCode", "Zip Code");
+            model.addAttribute("neighborhood", "Neighborhood");
+            return "newemployer/add";
         }
         newEmployerDao.save(newEmployer);
         return "redirect: /addnewjob";

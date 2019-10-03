@@ -38,7 +38,7 @@ public class NewEmployer {
     private String email;
 
     @NotNull
-    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "Invalid e-mail address or does not match")
+    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "Invalid e-mail address or does not match.")
     private String confirmEmail;
 
     @NotNull
@@ -48,6 +48,9 @@ public class NewEmployer {
     @NotNull
     @Size(max = 2500, message = "This field is required.")
     private String confirmPassword;
+
+    @NotNull
+    @Size(min=1, max=10, message = "Street number must have at least one number.")
     private Integer streetNumber;
 
     @NotNull
@@ -70,12 +73,28 @@ public class NewEmployer {
     @GeneratedValue
     private int id;
 
+    public NewEmployer () {}
+
+    public NewEmployer(String organizationName, String contactName, String website, Long ein, Long phoneNumber,
+                       String email, String confirmEmail, String password, String confirmPassword, Integer streetNumber,
+                       String streetName, String city, Integer zipCode, String neighborhood) {
+        this.organizationName = organizationName;
+        this.contactName = contactName;
+        this.website = website;
+        this.ein = ein;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.confirmEmail = confirmEmail;
+        this.password = password;
+        this.confirmPassword= confirmPassword;
+        this.streetNumber = streetNumber;
+        this.streetName = streetName;
+        this.city = city;
+        this.zipCode = zipCode;
+        this.neighborhood = neighborhood;
+    }
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getOrganizationName() {
