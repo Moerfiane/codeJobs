@@ -3,7 +3,6 @@ package org.stlyouthjobs.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -50,8 +49,6 @@ public class Education {
         this.current = current;
         this.description = description;
     }
-
-    //TODO #1 Add db info once all controllers are added: @ManyToOne , @ManyToMany (Mapped by="")
 
     //only a getter for id. other classes shouldn't be able to change the id.
     public int getId() {
