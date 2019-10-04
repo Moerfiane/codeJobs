@@ -1,6 +1,8 @@
 package org.stlyouthjobs.models;
 
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -34,11 +36,11 @@ public class NewEmployer {
     private Long phoneNumber;
 
     @NotNull
-    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "Invalid e-mail address.")
+    @Email
     private String email;
 
     @NotNull
-    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "Invalid e-mail address or does not match.")
+    @Email
     private String confirmEmail;
 
     @NotNull

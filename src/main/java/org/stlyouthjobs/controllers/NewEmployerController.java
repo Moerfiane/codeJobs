@@ -61,7 +61,7 @@ public class NewEmployerController {
             return "newemployer/add";
         }
         newEmployerDao.save(newEmployer);
-        return "redirect: /addnewjob";
+        return "redirect:/addNewJob";
     }
 
 }
