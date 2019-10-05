@@ -3,14 +3,20 @@ package org.stlyouthjobs.models;
 
 import org.hibernate.validator.constraints.Email;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.FetchType.EAGER;
+
 @Entity
+@Table(name = "USER")
 public class NewEmployer {
 
     @NotNull
@@ -73,8 +79,19 @@ public class NewEmployer {
 
     @Id
     @GeneratedValue
-    private int id;
+    private String uniqueID = UUID.randomUUID().toString();
 
+    @ManyToMany(mappedBy =  "newEmployers", cascade = PERSIST, fetch = EAGER)
+    private Set<User> users = new HashSet<>();
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void addUser(User user) {
+        users.add(user);
+        user.getNewEmployer().add(this);
+    }
     public NewEmployer () {}
 
     public NewEmployer(String organizationName, String contactName, String website, Long ein, Long phoneNumber,
