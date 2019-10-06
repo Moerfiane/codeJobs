@@ -27,15 +27,6 @@ public class NewEmployerController {
         model.addAttribute("website", "Website");
         model.addAttribute("ein", "EIN");
         model.addAttribute("phoneNumber", "Phone Number");
-        model.addAttribute("email", "E-mail");
-        model.addAttribute("confirmEmail", "Confirm E-mail");
-        model.addAttribute("password", "Password");
-        model.addAttribute("confirmPassword", "Confirm Password");
-        model.addAttribute("streetNumber", "Street Number");
-        model.addAttribute("streetName", "Street Name");
-        model.addAttribute("city", "City");
-        model.addAttribute("zipCode", "Zip Code");
-        model.addAttribute("neighborhood", "Neighborhood");
         model.addAttribute(new NewEmployer());
 
         return "newemployer/add";
@@ -49,15 +40,6 @@ public class NewEmployerController {
             model.addAttribute("website", "Website");
             model.addAttribute("ein", "EIN");
             model.addAttribute("phoneNumber", "Phone Number");
-            model.addAttribute("email", "E-mail");
-            model.addAttribute("confirmEmail", "Confirm E-mail");
-            model.addAttribute("password", "Password");
-            model.addAttribute("confirmPassword", "Confirm Password");
-            model.addAttribute("streetNumber", "Street Number");
-            model.addAttribute("streetName", "Street Name");
-            model.addAttribute("city", "City");
-            model.addAttribute("zipCode", "Zip Code");
-            model.addAttribute("neighborhood", "Neighborhood");
             return "newemployer/add";
         }
         newEmployerDao.save(newEmployer);
