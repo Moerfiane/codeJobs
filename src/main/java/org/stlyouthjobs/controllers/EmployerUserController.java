@@ -21,7 +21,7 @@ public class EmployerUserController {
     private EmployerUserDao employerUserDao;
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
-    public String employerRegisterForm(Model model) {
+    public String add(Model model) {
         model.addAttribute("email", "E-mail");
         model.addAttribute("confirmEmail", "Confirm E-mail");
         model.addAttribute("password", "Password");
@@ -32,7 +32,7 @@ public class EmployerUserController {
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
-    public String employerRegisterForm (Model model, @ModelAttribute @Valid EmployerUser employerUser, Errors errors) {
+    public String employerUser (Model model, @ModelAttribute @Valid EmployerUser employerUser, Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("email", "E-mail");
             model.addAttribute("confirmEmail", "Confirm E-mail");
@@ -41,6 +41,6 @@ public class EmployerUserController {
             return "newemployer/add";
         }
         employerUserDao.save(employerUser);
-        return "redirect:/";
+        return "redirect:/addNewJob";
     }
 }

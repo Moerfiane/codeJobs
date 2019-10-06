@@ -14,7 +14,7 @@ import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.FetchType.EAGER;
 
 @Entity
-@Table(name = "EMPLOYEE_USER")
+@Table(name = "EMPLOYER_USER")
 public class EmployerUser {
     @Id
     @GeneratedValue

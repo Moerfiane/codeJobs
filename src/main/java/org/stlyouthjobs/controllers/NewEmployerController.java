@@ -21,7 +21,7 @@ public class NewEmployerController {
     private NewEmployerDao newEmployerDao;
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
-    public String employerRegisterForm(Model model) {
+    public String add(Model model) {
         model.addAttribute("organizationName", "Organization Name");
         model.addAttribute("contactName", "Contact Name");
         model.addAttribute("website", "Website");

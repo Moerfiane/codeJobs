@@ -12,7 +12,7 @@ import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table(name = "EMPLOYER_ADDRESS")
-public class EmployerAddress {
+public class Address {
 
     @Id
     @GeneratedValue
@@ -50,7 +50,7 @@ public class EmployerAddress {
         employerUser.getEmployerAddress().add(this);
     }
 
-    public EmployerAddress(Integer streetNumber, String streetName, String city, Integer zipCode, String neighborhood) {
+    public Address(Integer streetNumber, String streetName, String city, Integer zipCode, String neighborhood) {
 
         this.streetNumber = streetNumber;
         this.streetName = streetName;
