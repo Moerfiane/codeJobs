@@ -41,7 +41,7 @@ public class EmployerUser {
             inverseJoinColumns = {@JoinColumn(name = "employerAddress_id")})
     private Set<NewEmployer> newEmployers = new HashSet<>();
 
-    public EmployerUser(String email, String confirmEmail, String password, String confirmPassword) {
+    public EmployerUser() {
         this.email = email;
         this.confirmEmail = confirmEmail;
         this.password = password;

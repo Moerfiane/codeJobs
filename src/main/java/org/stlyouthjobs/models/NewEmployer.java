@@ -55,7 +55,7 @@ public class NewEmployer {
 
     public void addEmployerUser(EmployerUser employerUser) {
         employerUsers.add(employerUser);
-        employerUser.getNewEmployer().add(this);
+        employerUser.getNewEmployers().add(this);
     }
     public NewEmployer () {}
 

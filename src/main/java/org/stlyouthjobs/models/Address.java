@@ -38,25 +38,29 @@ public class Address {
     @Size(max = 2500, message = "This field is required.")
     private String neighborhood;
 
-    @ManyToMany(mappedBy =  "employerAddresses", cascade = PERSIST, fetch = EAGER)
+    @ManyToMany(mappedBy =  "addresses", cascade = PERSIST, fetch = EAGER)
     private Set<EmployerUser> employerUsers = new HashSet<>();
 
     public Set<EmployerUser> getEmployerUsers() {
         return employerUsers;
     }
 
-    public void addEmployerUser(EmployerUser employerUser) {
+    /*public void addEmployerUser(EmployerUser employerUser) {
         employerUsers.add(employerUser);
-        employerUser.getEmployerAddress().add(this);
-    }
+        employerUser.getAddresses().add(this);
+    }*/
 
-    public Address(Integer streetNumber, String streetName, String city, Integer zipCode, String neighborhood) {
+    public Address() {
 
         this.streetNumber = streetNumber;
         this.streetName = streetName;
         this.city = city;
         this.zipCode = zipCode;
         this.neighborhood = neighborhood;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public Integer getStreetNumber() {
