@@ -6,9 +6,7 @@ import org.hibernate.validator.constraints.Email;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.FetchType.EAGER;
@@ -36,7 +34,10 @@ public class EmployerUser {
     @Size(max = 2500, message = "This field is required.")
     private String confirmPassword;
 
-
+    @OneToMany
+    @JoinColumn(name = "address")
+    private List<Address> Addresses = new ArrayList<>();
+    /*do I add another one to many for New Employer? Need to add one to many or many to many to address and newemployer?*/
 
     public EmployerUser() {
         this.email = email;
