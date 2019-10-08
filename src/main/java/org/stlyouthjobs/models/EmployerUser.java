@@ -18,7 +18,7 @@ import static javax.persistence.FetchType.EAGER;
 public class EmployerUser {
     @Id
     @GeneratedValue
-    private String uniqueID = UUID.randomUUID().toString();
+    private UUID uniqueID = UUID.randomUUID();
 
     @NotNull
     @Email
@@ -36,10 +36,7 @@ public class EmployerUser {
     @Size(max = 2500, message = "This field is required.")
     private String confirmPassword;
 
-    @ManyToMany(mappedBy =  "newEmployers", cascade = PERSIST, fetch = EAGER)
-    @JoinTable(name = "Employer", joinColumns = {@JoinColumn(name = "newEmployer_id")},
-            inverseJoinColumns = {@JoinColumn(name = "employerAddress_id")})
-    private Set<NewEmployer> newEmployers = new HashSet<>();
+
 
     public EmployerUser() {
         this.email = email;
@@ -48,13 +45,10 @@ public class EmployerUser {
         this.confirmPassword= confirmPassword;
     }
 
-    public String getUniqueID() {
+    public UUID getUniqueID() {
         return uniqueID;
     }
 
-    public Set<NewEmployer> getNewEmployers() {
-        return newEmployers;
-    }
 
     public String getEmail() {
         return email;

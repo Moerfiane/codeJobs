@@ -46,17 +46,7 @@ public class NewEmployer {
     @GeneratedValue
     private int id;
 
-    @ManyToMany(mappedBy =  "newEmployers", cascade = PERSIST, fetch = EAGER)
-    private Set<EmployerUser> employerUsers = new HashSet<>();
 
-    public Set<EmployerUser> getEmployerUsers() {
-        return employerUsers;
-    }
-
-    public void addEmployerUser(EmployerUser employerUser) {
-        employerUsers.add(employerUser);
-        employerUser.getNewEmployers().add(this);
-    }
     public NewEmployer () {}
 
     public NewEmployer(String organizationName, String contactName, String website, Long ein, Long phoneNumber) {

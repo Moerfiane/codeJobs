@@ -38,17 +38,9 @@ public class Address {
     @Size(max = 2500, message = "This field is required.")
     private String neighborhood;
 
-    @ManyToMany(mappedBy =  "addresses", cascade = PERSIST, fetch = EAGER)
-    private Set<EmployerUser> employerUsers = new HashSet<>();
 
-    public Set<EmployerUser> getEmployerUsers() {
-        return employerUsers;
-    }
 
-    /*public void addEmployerUser(EmployerUser employerUser) {
-        employerUsers.add(employerUser);
-        employerUser.getAddresses().add(this);
-    }*/
+
 
     public Address() {
 
