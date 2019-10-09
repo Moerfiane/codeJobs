@@ -14,8 +14,8 @@ import static javax.persistence.FetchType.EAGER;
 @Entity
 @Table(name = "EMPLOYER_USER")
 @SecondaryTables({
-        @SecondaryTable(name = "ADDRESS"),
-        @SecondaryTable(name = "NEW_EMPLOYER")
+        @SecondaryTable(name = "ADDRESS", pkJoinColumns = @PrimaryKeyJoinColumn(name = "ADDRESS_ID")),
+        @SecondaryTable(name = "NEW_EMPLOYER", pkJoinColumns = @PrimaryKeyJoinColumn(name = "NEW_EMPLOYER_ID"))
 })
 public class EmployerUser {
     @Id
@@ -38,10 +38,10 @@ public class EmployerUser {
     @Size(max = 2500, message = "This field is required.")
     private String confirmPassword;
 
-    @OneToMany
+    /*@OneToMany
     @JoinColumn(name = "address")
     private List<Address> Addresses = new ArrayList<>();
-    /*do I add another one to many for New Employer? Need to add one to many or many to many to address and newemployer?*/
+    do I add another one to many for New Employer? Need to add one to many or many to many to address and newemployer?*/
 
     public EmployerUser() {
         this.email = email;
