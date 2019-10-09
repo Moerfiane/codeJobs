@@ -13,6 +13,10 @@ import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table(name = "EMPLOYER_USER")
+@SecondaryTables({
+        @SecondaryTable(name = "ADDRESS"),
+        @SecondaryTable(name = "NEW_EMPLOYER")
+})
 public class EmployerUser {
     @Id
     @GeneratedValue
