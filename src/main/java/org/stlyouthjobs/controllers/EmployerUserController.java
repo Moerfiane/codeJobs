@@ -28,7 +28,7 @@ public class EmployerUserController {
         model.addAttribute("confirmPassword", "Confirm Password");
         model.addAttribute(new EmployerUser());
 
-        return "newemployer/add";
+        return "employeruser/add";
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
