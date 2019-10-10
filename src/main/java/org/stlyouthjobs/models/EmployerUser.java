@@ -39,11 +39,11 @@ public class EmployerUser {
     private String confirmPassword;
 
     @OneToMany
-    @JoinColumn(name = "address")
+    @JoinColumn(name = "address_id")
     private List<Address> Addresses = new ArrayList<>();
 
     @OneToMany
-    @JoinColumn(name = "newEmployer")
+    @JoinColumn(name = "newEmployer_id")
     private List<NewEmployer> newEmployers = new ArrayList<>();
 
     public EmployerUser() {
