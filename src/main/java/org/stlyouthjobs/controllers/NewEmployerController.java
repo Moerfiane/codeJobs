@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.stlyouthjobs.models.Address;
 import org.stlyouthjobs.models.EmployerUser;
 import org.stlyouthjobs.models.NewEmployer;
+import org.stlyouthjobs.models.data.EmployerAddressDao;
+import org.stlyouthjobs.models.data.EmployerUserDao;
 import org.stlyouthjobs.models.data.NewEmployerDao;
 
 import javax.validation.Valid;
@@ -21,6 +23,12 @@ public class NewEmployerController {
 
     @Autowired
     private NewEmployerDao newEmployerDao;
+
+    @Autowired
+    private EmployerUserDao employerUserDao;
+
+    @Autowired
+    private EmployerAddressDao employerAddressDao;
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model) {
