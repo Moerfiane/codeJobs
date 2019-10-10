@@ -32,13 +32,13 @@ public class NewEmployer {
     private String website;
 
     @NotNull
-    @Pattern(regexp = "\\d{9}|(?:\\d{2}-){2}\\d{7}",
-            message = "Invalid EIN")
+//    @Pattern(regexp = "\\d{9}|(?:\\d{2}-)({2}\\d{7})",
+//            message = "Invalid EIN")
     private Long ein;
 
     @NotNull
-    @Pattern(regexp = "\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}",
-            message = "Invalid phone number")
+//    @Pattern(regexp = "\\d{10}|(?:\\d{3}-)({2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4})",
+//            message = "Invalid phone number")
     private Long phoneNumber;
 
 

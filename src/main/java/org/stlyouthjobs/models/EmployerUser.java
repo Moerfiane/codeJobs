@@ -8,14 +8,19 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.*;
 
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table(name = "EMPLOYER_USER")
-
+/*@SecondaryTables({
+        @SecondaryTable(name = "ADDRESS", pkJoinColumns = @PrimaryKeyJoinColumn(name = "ADDRESS_ID")),
+        @SecondaryTable(name = "NEW_EMPLOYER", pkJoinColumns = @PrimaryKeyJoinColumn(name = "NEW_EMPLOYER_ID"))
+})*/
 public class EmployerUser {
     @Id
     @GeneratedValue
-    private int uniqueID;
+    private UUID uniqueID = UUID.randomUUID();
 
     @NotNull
     @Email
@@ -47,7 +52,7 @@ public class EmployerUser {
     }
 
 
-    public EmployerUser(int uniqueID, String email, String confirmEmail, String password, String confirmPassword) {
+    public EmployerUser(UUID uniqueID, String email, String confirmEmail, String password, String confirmPassword) {
         this.uniqueID = uniqueID;
         this.email = email;
         this.confirmEmail = confirmEmail;
@@ -55,11 +60,11 @@ public class EmployerUser {
         this.confirmPassword = confirmPassword;
     }
 
-    public int getUniqueID() {
+    public UUID getUniqueID() {
         return uniqueID;
     }
 
-    public void setUniqueID(int uniqueID) {
+    public void setUniqueID(UUID uniqueID) {
         this.uniqueID = uniqueID;
     }
 
