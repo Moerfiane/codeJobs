@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+<p></p>
+<table class="table table-bordered">
+
+    <tr>
+        <th>Edit</th>
+        <th>Name</th>
+    </tr>
+
+    <tr th:each="category : ${categories}">
+        <td><a th:href="'category/edit/' + ${category.id}" th:text="Edit"></a></td>
+        <td th:text="${category.name}"></td>
+    </tr>
+</table>
+
+<a class="btn btn-primary btn-xs" th:href="@{category/add}">Add Category</a>
+<a class="btn btn-default btn-xs" th:href="@{category/remove}">Remove Category</a>
+
+</body>
+</html>
