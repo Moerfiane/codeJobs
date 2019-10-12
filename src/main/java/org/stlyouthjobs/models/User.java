@@ -27,11 +27,16 @@ public class User extends AbstractEntity {
     @JoinColumn(name = "owner_uid")
     private List<Cheese> cheeses;
 
-    public User() {}
+//    @NotNull
+    private String access;
 
-    public User(String username, String password) {
+    public User(){
+    }
+
+    public User(String username, String password, String access) {
         this.username = username;
         this.pwHash = hashPassword(password);
+        this.access = access;
     }
 
     public String getUsername() {

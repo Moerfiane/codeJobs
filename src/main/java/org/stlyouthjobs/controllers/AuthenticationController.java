@@ -40,7 +40,7 @@ public class AuthenticationController extends AbstractController {
             return "register";
         }
 
-        User newUser = new User(form.getUsername(), form.getPassword());
+        User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
         userDao.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
