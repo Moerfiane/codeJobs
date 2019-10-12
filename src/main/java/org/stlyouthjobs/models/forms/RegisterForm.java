@@ -19,10 +19,7 @@ public class RegisterForm extends LoginForm {
         super.setPassword(password);
         checkPasswordForRegistration();
     }
-//    @Override
-//    public void setAccess(String access){
-//        super.setAccess(access);
-//    }
+
 
     public String getVerifyPassword() {
         return verifyPassword;

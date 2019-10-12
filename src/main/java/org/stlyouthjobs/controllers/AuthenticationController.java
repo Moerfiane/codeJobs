@@ -34,6 +34,8 @@ public class AuthenticationController extends AbstractController {
         }
 
         User existingUser = userDao.findByUsername(form.getUsername());
+        String access = form.getAccess();
+
 
         if (existingUser != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
@@ -44,7 +46,13 @@ public class AuthenticationController extends AbstractController {
         userDao.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        return "redirect:cheese";
+        if (form.getAccess().equals("1")) {
+            return "redirect:cheese";
+        }
+        if (form.getAccess().equals("2")){
+                return "redirect:menu";
+        }
+        return "redirect:register";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -68,6 +76,8 @@ public class AuthenticationController extends AbstractController {
             errors.rejectValue("username", "user.invalid", "The given username does not exist");
             return "login";
         }
+
+
 
         if (!theUser.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
