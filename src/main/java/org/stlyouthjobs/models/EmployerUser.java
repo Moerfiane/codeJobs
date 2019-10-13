@@ -51,7 +51,8 @@ public class EmployerUser {
     public EmployerUser() {
     }
 
-    public EmployerUser(int id, String email, String confirmEmail, String password, String confirmPassword) {
+
+    public EmployerUser(UUID uniqueID, String email, String confirmEmail, String password, String confirmPassword) {
         this.id = id;
         this.email = email;
         this.confirmEmail = confirmEmail;
@@ -63,24 +64,9 @@ public class EmployerUser {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-//    public EmployerUser(UUID uniqueID, String email, String confirmEmail, String password, String confirmPassword) {
-//        this.uniqueID = uniqueID;
-//        this.email = email;
-//        this.confirmEmail = confirmEmail;
-//        this.password = password;
-//        this.confirmPassword = confirmPassword;
-//    }
-//
-//    public UUID getUniqueID() {
-//        return uniqueID;
-//    }
-//
-//    public void setUniqueID(UUID uniqueID) {
-//        this.uniqueID = uniqueID;
-//    }
+    /*public void setUniqueID(UUID uniqueID) {
+        this.uniqueID = uniqueID;
+    }*/
 
     public String getEmail() {
         return email;
