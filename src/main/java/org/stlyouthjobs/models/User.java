@@ -16,7 +16,7 @@ import java.util.List;
 public class User extends AbstractEntity {
 
     @NotNull
-    @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9_-]{4,11}", message = "Invalid username")
+
     private String username;
 
     @NotNull
@@ -27,11 +27,15 @@ public class User extends AbstractEntity {
     @JoinColumn(name = "owner_uid")
     private List<Cheese> cheeses;
 
-    public User() {}
+    private String access;
 
-    public User(String username, String password) {
+    public User(){
+    }
+
+    public User(String username, String password, String access) {
         this.username = username;
         this.pwHash = hashPassword(password);
+        this.access = access;
     }
 
     public String getUsername() {

@@ -54,7 +54,7 @@ public class NewEmployerController {
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
-    public String employerRegisterForm (Model model, @ModelAttribute @Valid NewEmployer newEmployer, @ModelAttribute Address address, @ModelAttribute EmployerUser employerUser, Errors errors) {
+    public String employerRegisterForm (Model model, @ModelAttribute("newemployer") @Valid NewEmployer newEmployer, @ModelAttribute Address address, @ModelAttribute EmployerUser employerUser,  Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("organizationName", "Organization Name");
             model.addAttribute("contactName", "Contact Name");
@@ -75,12 +75,11 @@ public class NewEmployerController {
             model.addAttribute(new Address());
             return "newemployer/add";
         }
-
         newEmployerDao.save(newEmployer);
         employerAddressDao.save(address);
         newEmployerDao.save(newEmployer);
 
-        return "redirect:/addNewJob";
+        return "redirect:/cheese";
     }
 
 }
