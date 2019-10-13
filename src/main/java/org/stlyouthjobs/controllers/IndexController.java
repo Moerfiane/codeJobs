@@ -15,5 +15,7 @@ public class IndexController extends AbstractController {
         model.addAttribute(new RegisterForm());
         model.addAttribute("title", "Register");
         return "";
+
     }
+
 }
