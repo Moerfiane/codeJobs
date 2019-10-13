@@ -18,20 +18,21 @@ import javax.validation.Valid;
  */
 
 @Controller
+@RequestMapping("register")
 public class AuthenticationController extends AbstractController {
 
-    @RequestMapping(value = "/register")
-    public String registerForm(Model model) {
+    @RequestMapping(value = "applicant", method = RequestMethod.GET)
+    public String registerApplicantForm(Model model) {
         model.addAttribute(new RegisterForm());
         model.addAttribute("title", "Register");
-        return "register";
+        return "register/applicant";
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
+    @RequestMapping(value = "applicant", method = RequestMethod.POST)
+    public String registerApplicantForm(@ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            return "register";
+            return "register/applicant";
         }
 
         User existingUser = userDao.findByUsername(form.getUsername());
@@ -48,10 +49,75 @@ public class AuthenticationController extends AbstractController {
         setUserInSession(request.getSession(), newUser);
 
         if (form.getAccess().equals("1")) {
-            return "redirect:cheese";
+            return "redirect:/communityinvolvement/add";
         }
+
+        return "redirect:register";
+    }
+
+    @RequestMapping(value = "employer", method = RequestMethod.GET)
+    public String registerEmployerForm(Model model) {
+        model.addAttribute(new RegisterForm());
+        model.addAttribute("title", "Register");
+        return "register/employer";
+    }
+
+    @RequestMapping(value = "employer", method = RequestMethod.POST)
+    public String registerEmployerForm(@ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
+
+        if (errors.hasErrors()) {
+            return "register/employer";
+        }
+
+        User existingUser = userDao.findByUsername(form.getUsername());
+//        String access = form.getAccess();
+
+
+        if (existingUser != null) {
+            errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
+            return "register";
+        }
+
+        User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
+        userDao.save(newUser);
+        setUserInSession(request.getSession(), newUser);
+
         if (form.getAccess().equals("2")){
-                return "redirect:menu";
+            return "redirect:/newemployer/add";
+        }
+        return "redirect:register";
+    }
+
+    @RequestMapping(value = "admin", method = RequestMethod.GET)
+    public String registerAdminForm(Model model) {
+        model.addAttribute(new RegisterForm());
+        model.addAttribute("title", "Register");
+        return "register/admin";
+    }
+
+    @RequestMapping(value = "admin", method = RequestMethod.POST)
+    public String registerAdminForm(@ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
+
+        if (errors.hasErrors()) {
+            return "register/admin";
+        }
+
+        User existingUser = userDao.findByUsername(form.getUsername());
+
+
+
+        if (existingUser != null) {
+            errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
+            return "register";
+        }
+
+        User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
+        userDao.save(newUser);
+        setUserInSession(request.getSession(), newUser);
+
+
+        if (form.getAccess().equals("3")){
+            return "redirect:category";
         }
         return "redirect:register";
     }

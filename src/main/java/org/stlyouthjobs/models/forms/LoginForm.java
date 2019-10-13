@@ -16,7 +16,7 @@ public class LoginForm {
     @Pattern(regexp = "(\\S){4,20}", message = "Password must have 4-20 characters")
     private String password;
 
-    @Pattern(regexp = "[1-2]", message = "Must Enter Access Level 1 or 2")
+    @Pattern(regexp = "[1-3]")
     private String access;
 
 

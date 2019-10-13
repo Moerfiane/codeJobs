@@ -15,7 +15,7 @@ import org.stlyouthjobs.models.data.SkillsDao;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("communityInvolvement")
+@RequestMapping("communityinvolvement")
 public class CommunityInvolvementController {
 
     @Autowired
