@@ -28,6 +28,7 @@ public abstract class AbstractController {
     @Autowired
     protected MenuDao menuDao;
 
+
     public static final String userSessionKey = "user_id";
 
     protected User getUserFromSession(HttpSession session) {
