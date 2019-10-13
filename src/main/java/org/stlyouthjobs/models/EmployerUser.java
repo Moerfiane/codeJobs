@@ -20,7 +20,7 @@ import static javax.persistence.FetchType.EAGER;
 public class EmployerUser {
     @Id
     @GeneratedValue
-    private UUID uniqueID = UUID.randomUUID();
+    private int id;
 
     @NotNull
     @Email
@@ -39,11 +39,11 @@ public class EmployerUser {
     private String confirmPassword;
 
     @OneToMany
-    @JoinColumn(name = "address_id")
+    //@JoinColumn(name = "address_id")
     private List<Address> Addresses = new ArrayList<>();
 
     @OneToMany
-    @JoinColumn(name = "newEmployer_id")
+    //@JoinColumn(name = "newEmployer_id")
     private List<NewEmployer> newEmployers = new ArrayList<>();
 
 

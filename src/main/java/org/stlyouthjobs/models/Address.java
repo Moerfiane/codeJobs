@@ -19,7 +19,7 @@ public class Address {
     private int id;
 
     @NotNull
-    @Size(min=1, max=10, message = "Street number must have at least one number.")
+    //@Size(min=1, max=10, message = "Street number must have at least one number.")
     private Integer streetNumber;
 
     @NotNull
@@ -31,7 +31,7 @@ public class Address {
     private String city;
 
     @NotNull
-    @Size(max = 9, message = "This field is required.")
+    //@Size(max = 9, message = "This field is required.")
     private Integer zipCode;
 
     @NotNull
