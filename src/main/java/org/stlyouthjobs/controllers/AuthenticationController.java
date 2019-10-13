@@ -21,6 +21,7 @@ import javax.validation.Valid;
 @RequestMapping("register")
 public class AuthenticationController extends AbstractController {
 
+
     @RequestMapping(value = "applicant", method = RequestMethod.GET)
     public String registerApplicantForm(Model model) {
         model.addAttribute(new RegisterForm());
@@ -126,14 +127,14 @@ public class AuthenticationController extends AbstractController {
     public String login(Model model) {
         model.addAttribute(new LoginForm());
         model.addAttribute("title", "Log In");
-        return "login";
+        return "/register/login";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute @Valid LoginForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            return "login";
+            return "/register/login";
         }
 
         User theUser = userDao.findByUsername(form.getUsername());
@@ -141,14 +142,14 @@ public class AuthenticationController extends AbstractController {
 
         if (theUser == null) {
             errors.rejectValue("username", "user.invalid", "The given username does not exist");
-            return "login";
+            return "/register/login";
         }
 
 
 
         if (!theUser.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
-            return "login";
+            return "/register/login";
         }
 
         setUserInSession(request.getSession(), theUser);

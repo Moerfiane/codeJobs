@@ -12,7 +12,6 @@ import org.stlyouthjobs.models.Address;
 import org.stlyouthjobs.models.EmployerUser;
 import org.stlyouthjobs.models.NewEmployer;
 import org.stlyouthjobs.models.data.EmployerAddressDao;
-import org.stlyouthjobs.models.data.EmployerUserDao;
 import org.stlyouthjobs.models.data.NewEmployerDao;
 
 import javax.validation.Valid;
@@ -23,9 +22,6 @@ public class NewEmployerController {
 
     @Autowired
     private NewEmployerDao newEmployerDao;
-
-    @Autowired
-    private EmployerUserDao employerUserDao;
 
     @Autowired
     private EmployerAddressDao employerAddressDao;
@@ -75,9 +71,10 @@ public class NewEmployerController {
             model.addAttribute(new Address());
             return "newemployer/add";
         }
+
         newEmployerDao.save(newEmployer);
         employerAddressDao.save(address);
-        newEmployerDao.save(newEmployer);
+
 
         return "redirect:/cheese";
     }
