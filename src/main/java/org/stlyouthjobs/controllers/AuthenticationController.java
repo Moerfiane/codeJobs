@@ -21,6 +21,7 @@ import javax.validation.Valid;
 @RequestMapping("register")
 public class AuthenticationController extends AbstractController {
 
+
     @RequestMapping(value = "applicant", method = RequestMethod.GET)
     public String registerApplicantForm(Model model) {
         model.addAttribute(new RegisterForm());
