@@ -10,11 +10,11 @@ import org.stlyouthjobs.models.forms.RegisterForm;
 public class IndexController extends AbstractController {
 
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "")
     public String registerApplicantForm(Model model) {
         model.addAttribute(new RegisterForm());
         model.addAttribute("title", "Register");
-        return "";
+        return "index";
 
     }
 
