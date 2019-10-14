@@ -11,7 +11,7 @@ import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.FetchType.EAGER;
 
 @Entity
-@Table(name = "EMPLOYER_ADDRESS")
+@Table(name = "ADDRESS")
 public class Address {
 
     @Id
