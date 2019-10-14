@@ -4,12 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.stlyouthjobs.models.Job;
 import org.stlyouthjobs.models.data.JobDao;
+
 
 import javax.validation.Valid;
 
@@ -19,6 +17,13 @@ public class JobController {
 
     @Autowired
     private JobDao jobDao;
+
+    @RequestMapping(value = "")
+    public String index(Model model) {
+        model.addAttribute("title", "Jobs");
+        model.addAttribute("jobs", jobDao.findAll());
+        return "job/index";
+    }
 
     @RequestMapping(value = "add", method= RequestMethod.GET)
     public String add(Model model){
@@ -57,8 +62,9 @@ public class JobController {
         }
         jobDao.save(newJob);
         //need to know where this redirects to
-        return "redirect:/cheese";
+        return "redirect:/index";
 
     }
+
 
 }
