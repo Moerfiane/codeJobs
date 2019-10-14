@@ -60,6 +60,7 @@ public class NewEmployerController {
             model.addAttribute(new Address());
             return "newemployer/add";
         }
+
         newEmployerDao.save(newEmployer);
         employerAddressDao.save(address);
 
