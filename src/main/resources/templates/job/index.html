@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${jobs} and ${jobs.size()}">No Jobs have been added</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Job Title</th>
+        <th>Address</th>
+        <th>Job Category</th>
+        <th>Job Summary</th>
+        <th>Location</th>
+        <th>Schedule</th>
+        <th>Position type</th>
+        <th>Number of Positions</th>
+        <th>Dress Code</th>
+        <th>Pay Rate</th>
+        <th>Closing DAte</th>
+    </tr>
+</table>
+
+
+<!--a class="btn btn-primary btn-xs" th:href="@{job/add}">Add Add Job</a>
+<a class="btn btn-default btn-xs" th:href="@{menu/remove}">Remove Menu</a-->
+
+</body>
+</html>
