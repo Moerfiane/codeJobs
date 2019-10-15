@@ -22,11 +22,11 @@ public class Job {
     private String address;
 
     @NotNull
-    @Size(min=3, max=25)
+    @Size(min=3, max=50)
     private String jobCategory;
 
     @NotNull
-    @Size(min=3, max=25)
+    @Size(min=3, max=50)
     private String location;
 
     @NotNull
@@ -43,7 +43,7 @@ public class Job {
     private String numOfPositions;
 
     @NotNull
-    @Size(min=3, max=30)
+    @Size(min=3, max=50)
     private String dressCode;
 
     @NotNull
