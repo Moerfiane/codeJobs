@@ -44,7 +44,7 @@ public class EducationController {
             return "education/add";
         }
         educationDao.save(newEducation);
-        return "redirect:/communityInvolvement/add";
+        return "redirect:/certificates/add";
 
     }
 

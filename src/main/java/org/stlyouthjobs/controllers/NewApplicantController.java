@@ -35,6 +35,6 @@ public class NewApplicantController {
         return "newapplicant/add";
         }
         newApplicantDao.save(newApplicant);
-        return "redirect:/aboutMe";
+        return "redirect:/contactinfo/add";
     }
 }

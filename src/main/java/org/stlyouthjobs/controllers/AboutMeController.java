@@ -14,7 +14,7 @@ import org.stlyouthjobs.models.data.AboutMeDao;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("aboutMe")
+@RequestMapping("aboutme")
 public class AboutMeController {
 
     @Autowired
@@ -25,7 +25,7 @@ public class AboutMeController {
     public String add(Model model) {
         model.addAttribute("title", "Add About Me");
         model.addAttribute(new AboutMe());
-        return "aboutMe/add";
+        return "/aboutMe/add";
     }
 
     @RequestMapping(value="add", method = RequestMethod.POST)
@@ -33,10 +33,10 @@ public class AboutMeController {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add About Me");
-            return "aboutMe/add";
+            return "/aboutMe/add";
         }
         aboutMeDao.save(aboutMe);
-        return "redirect:/experience/add";
+        return "redirect:/skills/add";
     }
 
 }
