@@ -50,7 +50,7 @@ public class AuthenticationController extends AbstractController {
         setUserInSession(request.getSession(), newUser);
 
         if (form.getAccess().equals("1")) {
-            return "redirect:/communityinvolvement/add";
+            return "redirect:/newapplicant/add";
         }
 
         return "redirect:register";
