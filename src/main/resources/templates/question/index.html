@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+<p></p>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Question</th>
+        <th>Answer</th>
+    </tr>
+
+    <tr th:each="question : ${questions}">
+        <td th:text="${question.questionName}">
+        </td>
+        <td th:text="${answer}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

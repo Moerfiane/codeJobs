@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+<form method="post" style="max-width:600px;">
+    <div class="form-group" th:object="${answer}">
+        <label th:for="answerName">
+            <h3>Answer</h3></label>
+        <input class="form-control" th:field="*{answerName}" />
+        <span th:errors="*{answerName}" class="error"></span>
+    </div>
+
+
+    <input type="radio" name="tof" id="tof" th:value="1" /> True
+    <br />
+    <input type="radio" name="tof" id="tof" th:value="0" /> False
+
+
+
+<!--
+    <input type="radio" name="torf" value="false" /> False
+    <br />
+    <input type="radio" name="torf" value="true" /> True
+-->
+
+    <br />
+    <br />
+
+    <!--    <div class="form-group" th:object="${answer}">
+            <label th:for="answerName">Answer</label>
+            <input class="form-control" th:field="*{answerName}" />
+            <input type="radio" />
+            <span th:errors="*{answerName}" class="error"></span>
+        </div>-->
+
+    <div class="form-group">
+        <label th:for="type">Question</label>
+
+        <select name="questionId">
+            <option th:each="question : ${questions}"
+                    th:text="${question.questionName}"
+                    th:value="${question.id}">
+
+            </option>
+        </select>
+    </div>
+
+
+    <input class="btn btn-primary btn-xs" type="submit" value="Add" />
+
+</form>
+
+</body>
+</html>
