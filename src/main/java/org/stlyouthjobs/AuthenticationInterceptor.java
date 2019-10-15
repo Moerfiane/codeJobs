@@ -5,16 +5,13 @@ import org.stlyouthjobs.models.User;
 import org.stlyouthjobs.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by LaunchCode
- */
+
 public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
     @Autowired
