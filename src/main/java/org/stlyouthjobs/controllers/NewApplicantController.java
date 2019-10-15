@@ -8,35 +8,33 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.stlyouthjobs.models.ContactInfo;
-import org.stlyouthjobs.models.data.ContactDao;
+import org.stlyouthjobs.models.NewApplicant;
+import org.stlyouthjobs.models.data.NewApplicantDao;
 
 import javax.validation.Valid;
 
-
 @Controller
-@RequestMapping("contactinfo")
-public class ContactInfoController {
+@RequestMapping("newapplicant")
+public class NewApplicantController {
 
     @Autowired
-    private ContactDao contactDao;
+    private NewApplicantDao newApplicantDao;
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model) {
-        model.addAttribute("title", "Add Contact");
-        model.addAttribute(new ContactInfo());
-        return "contactInfo/add";
+        model.addAttribute("title", "New Applicant");
+        model.addAttribute(new NewApplicant());
+        return "newapplicant/add";
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid ContactInfo newcontactInfo, Errors errors) {
+    public String add(Model model, @ModelAttribute @Valid NewApplicant newApplicant, Errors errors) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Contact");
-            return "contactInfo/add";
+        model.addAttribute("title", "New Applicant");
+        return "newapplicant/add";
         }
-        contactDao.save(newcontactInfo);
-        return "redirect:/address/add";
+        newApplicantDao.save(newApplicant);
+        return "redirect:/contactinfo/add";
     }
-
 }

@@ -14,7 +14,7 @@ import org.stlyouthjobs.models.data.AddressDao;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("employerAddress")
+@RequestMapping("address")
 public class AddressController {
 
     @Autowired
@@ -29,7 +29,7 @@ public class AddressController {
         model.addAttribute("neighborhood", "Neighborhood");
         model.addAttribute(new Address());
 
-        return "newemployer/add";
+        return "address/add";
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
@@ -40,10 +40,10 @@ public class AddressController {
             model.addAttribute("city", "City");
             model.addAttribute("zipCode", "Zip Code");
             model.addAttribute("neighborhood", "Neighborhood");
-            return "newemployer/add";
+            return "address/add";
         }
         addressDao.save(address);
-        return "redirect:/addNewJob";
+        return "redirect:/aboutme/add";
     }
 }
 

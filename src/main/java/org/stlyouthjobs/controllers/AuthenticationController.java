@@ -50,7 +50,7 @@ public class AuthenticationController extends AbstractController {
         setUserInSession(request.getSession(), newUser);
 
         if (form.getAccess().equals("1")) {
-            return "redirect:/communityinvolvement/add";
+            return "redirect:/newapplicant/add";
         }
 
         return "redirect:register";
@@ -154,7 +154,7 @@ public class AuthenticationController extends AbstractController {
 
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:cheese";
+        return "redirect:/cheese";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
