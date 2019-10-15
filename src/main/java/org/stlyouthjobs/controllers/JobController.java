@@ -68,8 +68,8 @@ public class JobController {
         return "redirect:/cheese";
     }
 
-   @RequestMapping(value = "edit/{JobId}", method = RequestMethod.GET)
-    public String editJobDisplay(Model model, @PathVariable int jobId) {
+    @RequestMapping(value = "edit/{jobId}", method = RequestMethod.GET)
+    public String displayEditJobForm(Model model, @PathVariable int jobId) {
 
         model.addAttribute("title", "Edit Job");
         model.addAttribute("job", jobDao.findOne(jobId));
