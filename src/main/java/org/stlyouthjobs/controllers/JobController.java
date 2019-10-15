@@ -46,7 +46,7 @@ public class JobController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAdd(Model model, @ModelAttribute @Valid Job newJob, Errors errors) {
+    public String processJobAdd(Model model, @ModelAttribute @Valid Job newJob, Errors errors) {
 
         if (errors.hasErrors()) {
             model.addAttribute("jobTitle", "Add Job Title");
@@ -60,10 +60,10 @@ public class JobController {
             model.addAttribute("dressCode", "Add Dress Code");
             model.addAttribute("payRate", "Add Pay Rate");
             model.addAttribute("closingDate", "Add Closing Date");
-
             return "job/add";
         }
         jobDao.save(newJob);
+
         return "redirect:/cheese";
     }
 }
