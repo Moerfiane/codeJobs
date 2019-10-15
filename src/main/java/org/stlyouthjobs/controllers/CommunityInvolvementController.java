@@ -49,6 +49,6 @@ public class CommunityInvolvementController {
             return "communityInvolvement/add";
         }
         communityInvolvementDao.save(communityInvolvement);
-        return "redirect:/cheese";
+        return "redirect:/job";
     }
 }
