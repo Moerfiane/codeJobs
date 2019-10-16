@@ -22,7 +22,7 @@ public class Job {
     private String address;
 
     @NotNull
-    @Size(min=3, max=50)
+    @Size(min=3, max=60)
     private String jobCategory;
 
     @NotNull

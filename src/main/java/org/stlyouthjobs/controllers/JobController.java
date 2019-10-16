@@ -66,7 +66,7 @@ public class JobController {
         }
         jobDao.save(newJob);
 
-        return "redirect:/cheese";
+        return "redirect:/job";
     }
 
    @RequestMapping(value = "edit/{jobId}", method = RequestMethod.GET)
