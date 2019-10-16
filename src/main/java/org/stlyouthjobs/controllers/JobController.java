@@ -30,6 +30,7 @@ public class JobController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model) {
+        model.addAttribute("title", "Add Job");
         model.addAttribute("jobTitle", "Add Job Title");
         model.addAttribute("address", "Add Address");
         model.addAttribute("jobCategory", "Select Job Category");
@@ -68,7 +69,7 @@ public class JobController {
         return "redirect:/cheese";
     }
 
-   @RequestMapping(value = "edit/{JobId}", method = RequestMethod.GET)
+   @RequestMapping(value = "edit/{jobId}", method = RequestMethod.GET)
     public String editJobDisplay(Model model, @PathVariable int jobId) {
 
         model.addAttribute("title", "Edit Job");
@@ -101,7 +102,7 @@ public class JobController {
         editedJob.setClosingDate(newJob.getClosingDate());
         jobDao.save(editedJob);
 
-        return "redirect:/cheese";
+        return "redirect:/job";
     }
 
 }
