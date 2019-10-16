@@ -27,7 +27,7 @@
         </tr>
 
         <tr th:each="job : ${jobs}">
-            <td><a th:href="'job/edit/' + ${job.id}" th:text="Update"></a></td>
+            <td><a th:href="'job/edit/' + ${job.id}" th:text="Edit"></a></td>
             <td th:text="${job.jobTitle}"></td>
             <td th:text="${job.address}"></td>
             <td th:text="${job.jobCategory}"></td>
