@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.stlyouthjobs.models.Job;
 import org.stlyouthjobs.models.data.JobDao;
 
@@ -69,8 +66,8 @@ public class JobController {
         return "redirect:/job";
     }
 
-   @RequestMapping(value = "edit/{jobId}", method = RequestMethod.GET)
-    public String editJobDisplay(Model model, @PathVariable int jobId) {
+    @RequestMapping(value="edit/{jobId}", method=RequestMethod.GET)
+    public String displayEditJobForm(Model model, @PathVariable int jobId) {
 
         model.addAttribute("title", "Edit Job");
         model.addAttribute("job", jobDao.findOne(jobId));
@@ -78,13 +75,12 @@ public class JobController {
         return "job/edit";
     }
 
-    @RequestMapping(value = "edit/{jobId}", method = RequestMethod.POST)
-    public String processJobEditForm(Model model, @PathVariable int jobId, @ModelAttribute @Valid Job newJob, Errors errors) {
+    @RequestMapping(value="edit/{jobId}", method = RequestMethod.POST)
+    public String processEditForm(Model model, @PathVariable int jobId, @ModelAttribute  @Valid Job newJob,
+                                  Errors errors) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Job");
-            //model.addAttribute("job", jobDao.findOne(jobId));
-
             return "job/edit";
         }
 

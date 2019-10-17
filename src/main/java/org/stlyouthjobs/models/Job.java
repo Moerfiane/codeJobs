@@ -14,11 +14,11 @@ public class Job {
     private int id;
 
     @NotNull
-    @Size(min=3, max=50)
+    //@Size(min=3, max=50)
     private String jobTitle;
 
     @NotNull
-    @Size(min=3, max=50)
+    //@Size(min=3, max=50)
     private String address;
 
     @NotNull
