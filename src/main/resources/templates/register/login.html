@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
 </head>
 <header>
-    <img src="./../../photos/stlyouthjobslogo1.png" height="125" width="250" />
+    <img th:src="@{../../photos/stlyouthjobslogo1.png}" height="150" width="325" />
 </header>
 
 <body class="container">
@@ -25,14 +25,15 @@
     <input class="submit" type="submit" value="Log In" />
 
 </form>
-</div>
-<form method="post" action="/register/applicant.html">
-<input type="submit" class="buttons" href="/register/applicant" value="Register Applicant" />
-</form>
 
-<form action="/register/employer.html">
-<input type="submit" class="button" href="/register/employer" value="Register Employer" />
-</form>
+</div>
+<div class="buttons" method="post" action="/register/applicant.html">
+    <input type="submit" href="/register/applicant" value="Register Applicant" />
+</div>
+
+<div class="button" action="/register/employer.html">
+    <input type="submit" href="/register/employer" value="Register Employer" />
+</div>
 
 </body>
 </html>

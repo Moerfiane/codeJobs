@@ -4,50 +4,80 @@ body {
     padding: 20px;
 }
 
+.container {
+    display:inline-grid;
+    grid-template-columns: 400px 400px 400px;
+    grid-template-rows: 400px 400px 400px;
+}
+
 .buttons {
-    display: grid;
-    padding-top: 50px;
-    grid-template-columns: 25% 1fr 25%;
-    grid-template-rows: repeat(1fr);
+
     background: orangeRed;
-    display: inline-block;
     font-size: 25px;
     margin: 20px auto;
     text-align: center;
-    padding: 14px 10px;
+
     width: 300px;
     height: 200px;
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.buttons input[type="submit"] {
+    background: orangeRed;
+    font-size: 25px;
+
+    text-align: center;
+
+    width: 300px;
+    height: 200px;
     cursor: pointer;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
 
 .button {
-    display: grid;
-    padding-top: 50px;
-    grid-template-columns: 25% 1fr 25%;
-    grid-template-rows: repeat(1fr);
+
     background: orangeRed;
-    display: inline-block;
-    float: right;
     font-size: 25px;
     margin: 20px auto;
     text-align: center;
-    padding: 14px 10px;
+
     width: 300px;
     height: 200px;
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+}
+
+.button input[type="submit"] {
+    background: orangeRed;
+    font-size: 25px;
+
+    text-align: center;
+
+    width: 300px;
+    height: 200px;
     cursor: pointer;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
 
 .box {
-    width: 300px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    width: 325px;
     padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background: darkorange;
     text-align: center;
 }
@@ -81,11 +111,4 @@ body {
     cursor: pointer;
 }
 
-/*.form-control {
-    width: 100x;
-    height: 20px;
-    display: block;
-    border: 2px solid orangeRed;
-    padding: 14px 10px;
 
-}*/
