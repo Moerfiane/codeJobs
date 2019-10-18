@@ -1,87 +1,109 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+  <body class="container">
+    <h1 th:text="${title}">Default Title</h1>
 
-<body class="container">
-<h1 th:text="${title}">Default Title</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
+    <nav>
+        <a class="btn btn-primary btn-xs" href="/job">Job Home</a>
+    </nav>
 
-<form method="post" th:object="${job}" >
-    <div class="form-group">
-    <label th:for="jobTitle">Job Title</label>
-    <input class="form-control" th:field="*{jobTitle}" />
-    <span th:errors="*{jobTitle}" class="error"></span>
-    </div>
+    <form method="post" style="max-width:600px;" th:object="${job}">
+        <div class="form-group">
+            <label th:for="jobTitle">Job Title</label>
+            <input class="form-control" th:field="*{jobTitle}" />
+            <span th:errors="*{jobTitle}" class="error"></span>
+        </div>
 
-    <div class="form-group">
-    <label th:for="address">Address</label>
-    <input class="form-control" th:field="*{address}" />
-    <span th:errors="*{address}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="address">Address</label>
+            <input class="form-control" th:field="*{address}" />
+            <span th:errors="*{address}" class="error"></span>
+        </div>
 
-    <div class="form-group">
-        <label th:for="jobCategory">Job Category</label>
-        <!--Needs drop down list-->
-        <input class="form-control" th:field="*{jobCategory}" />
-        <span th:errors="*{jobCategory}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="jobCategory">Job Category</label><br />
+            <input class="form-control" th:field="*{jobCategory}" />
+            <span th:errors="*{jobCategory}" class="error"></span>
+        </div>
 
-    <div class="form-group">
-        <label th:for="location">Location</label>
-        <input class="form-control" th:field="*{location}" />
-        <span th:errors="*{location}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="location">Location</label>
+            <input class="form-control" th:field="*{location}" />
+            <span th:errors="*{location}" class="error"></span>
+        </div>
 
-    <div class="form-group">
-        <label th:for="schedule">Schedule</label>
-        <input class="form-control" th:field="*{schedule}" />
-        <span th:errors="*{schedule}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="schedule">Schedule</label>
+            <input class="form-control" th:field="*{schedule}" />
+            <span th:errors="*{schedule}" class="error"></span>
+        </div>
 
-    <div class="form-group">
-        <label th:for="jobSummary">Job Summary</label>
-        <!--input class="form-control" th:field="*{jobSummary}" /-->
-        <textarea name="jobSummary" th:field="*{jobSummary}">Enter Job Summary</textarea>
-        <span th:errors="*{jobSummary}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="jobSummary">Job Summary</label><br />
+            <textarea name="jobSummary" th:field="*{jobSummary}" rows="4" cols="60">Enter Job Summary</textarea>
+            <span th:errors="*{jobSummary}" class="error"></span>
+        </div>
 
-    <div class="form-group">
-        <label th:for="positionType">Position Type</label>
-        <!--input class="form-control" th:field="*positionType}" /-->
-        <select name="positionType" th:field="*{positionType}">
-            <option value="full-time">Full-Time</option>
-            <option value="part-time">Part-Time</option>
-        </select>
-        <span th:errors="*{positionType}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="positionType">Position Type</label><br />
+            <select name="positionType" th:field="*{positionType}">
+                <option value="full-time">Full-Time</option>
+                <option value="part-time">Part-Time</option>
+            </select>
+            <span th:errors="*{positionType}" class="error"></span>
+        </div>
 
-    <div class="form-group">
-        <label th:for="numOfPositions">Number of Positions</label>
-        <input class="form-control" th:field="*{numOfPositions}" />
-        <span th:errors="*{numOfPositions}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="numOfPositions">Number of Positions</label><br />
+            <!--input class="form-control" th:field="*{numOfPositions}" /-->
+            <select name="numOfPositions" th:field="*{numOfPositions}">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21+">21+</option>
+            </select>
+            <span th:errors="*{numOfPositions}" class="error"></span>
+        </div>
 
-    <div class="form-group">
-        <label th:for="dressCode">Dress Code</label>
-        <input class="form-control" th:field="*{dressCode}" />
-        <span th:errors="*{dressCode}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="dressCode">Dress Code</label>
+            <input class="form-control" th:field="*{dressCode}" />
+            <span th:errors="*{dressCode}" class="error"></span>
+        </div>
 
-    <div class="form-group">
-        <label th:for="payRate">Pay Rate</label>
-        <input class="form-control" th:field="*{payRate}" />
-        <span th:errors="*{payRate}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="payRate">Pay Rate</label>
+            <input class="form-control" th:field="*{payRate}" />
+            <span th:errors="*{payRate}" class="error"></span>
+        </div>
 
-    <div class="form-group">
-        <label th:for="closingDate">Closing Date</label>
-        <input class="form-control" th:field="*{closingDate}" />
-        <span th:errors="*{closingDate}" class="error"></span>
-    </div>
+        <div class="form-group">
+            <label th:for="closingDate">Closing Date</label>
+            <input class="form-control" th:field="*{closingDate}" />
+            <span th:errors="*{closingDate}" class="error"></span>
+        </div>
 
-    <input type="submit" value="Add Job" />
-</form>
+        <input type="submit" value="Add Job" />
+    </form>
 
 </body>
 </html>
