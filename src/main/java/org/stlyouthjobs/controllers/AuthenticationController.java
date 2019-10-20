@@ -1,6 +1,6 @@
 package org.stlyouthjobs.controllers;
 
-import org.stlyouthjobs.models.User;
+//import org.stlyouthjobs.models.User;
 import org.stlyouthjobs.models.forms.LoginForm;
 import org.stlyouthjobs.models.forms.RegisterForm;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ import javax.validation.Valid;
  * Created by LaunchCode
  */
 
-@Controller
+/*@Controller
 @RequestMapping("register")
 public class AuthenticationController extends AbstractController {
 
@@ -163,4 +163,4 @@ public class AuthenticationController extends AbstractController {
         return "redirect:/";
     }
 
-}
+}*/

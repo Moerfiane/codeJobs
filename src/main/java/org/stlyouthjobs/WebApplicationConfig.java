@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * Created by LaunchCode
  */
-@Configuration
+/*@Configuration
 public class WebApplicationConfig extends WebMvcConfigurerAdapter {
 
     // Create managed bean to allow autowiring
@@ -22,4 +22,4 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
         registry.addInterceptor( authenticationInterceptor() );
     }
 
-}
+}*/

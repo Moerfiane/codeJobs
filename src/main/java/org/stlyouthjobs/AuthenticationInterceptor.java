@@ -1,6 +1,6 @@
 package org.stlyouthjobs;
 
-import org.stlyouthjobs.controllers.AbstractController;
+/*import org.stlyouthjobs.controllers.AbstractController;
 import org.stlyouthjobs.models.User;
 import org.stlyouthjobs.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,4 +46,4 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
         return true;
     }
 
-}
+}*/

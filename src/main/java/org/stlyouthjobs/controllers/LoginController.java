@@ -1,6 +1,6 @@
 package org.stlyouthjobs.controllers;
 
-import org.springframework.ui.Model;
+/*import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,4 +46,4 @@ public class LoginController extends AbstractController{
 
         return "redirect:cheese";
     }
-}
+}*/

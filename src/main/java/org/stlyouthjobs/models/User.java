@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by LaunchCode
  */
-@Entity
+/*@Entity
 public class User extends AbstractEntity {
 
     @NotNull
@@ -58,4 +58,4 @@ public class User extends AbstractEntity {
         return cheeses;
     }
 
-}
+}*/
