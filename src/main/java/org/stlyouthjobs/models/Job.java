@@ -162,4 +162,7 @@ public class Job {
     public void setClosingDate(String closingDate) {
         this.closingDate = closingDate;
     }
+
+    public void setUser(Integer name) {
+    }
 }
