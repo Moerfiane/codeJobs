@@ -76,17 +76,17 @@ public class AuthenticationController extends AbstractController {
 
         if (existingUser != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
-            return "register/employer";
+            return "register";
         }
 
         User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
         userDao.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        if (form.getAccess().equals("2")){
+        if (form.getAccess().equals("2")) {
             return "redirect:/newemployer/add";
         }
-        return "redirect:register/employer";
+        return "redirect:register";
     }
 
     @RequestMapping(value = "admin", method = RequestMethod.GET)
