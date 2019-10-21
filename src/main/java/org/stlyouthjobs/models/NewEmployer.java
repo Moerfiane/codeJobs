@@ -12,15 +12,15 @@ import javax.validation.constraints.*;
 public class NewEmployer {
 
     @NotNull
-//    @Size(min = 3, max = 30, message = "This field is required.")
+    @Size(min = 3, max = 30, message = "This field is required.")
     private String organizationName;
 
     @NotNull
-//    @Size(min = 2, max = 30, message = "Contact name is required")
+    @Size(min = 2, max = 30, message = "Contact name is required")
     private String contactName;
 
     @NotNull
-//    @Size(min = 3, max = 25, message = "This field is required.")
+    @Size(min = 3, max = 25, message = "This field is required.")
     private String website;
 
     @NotNull(message = "Invalid EIN")
@@ -43,11 +43,11 @@ public class NewEmployer {
     private String confirmEmail;
 
     @NotNull
-//    @Size(max = 2500, message = "This field is required.")
+    @Size(max = 2500, message = "This field is required.")
     private String password;
 
     @NotNull
-//    @Size(max = 2500, message = "This field is required.")
+    @Size(max = 2500, message = "This field is required.")
     private String confirmPassword;
 
     @NotNull
@@ -56,11 +56,11 @@ public class NewEmployer {
     private Integer streetNumber;
 
     @NotNull
-//    @Size(max = 2500, message = "This field is required.")
+    @Size(max = 2500, message = "This field is required.")
     private String streetName;
 
     @NotNull
-//    @Size(max = 2500, message = "This field is required.")
+    @Size(max = 2500, message = "This field is required.")
     private String city;
 
     @NotNull
@@ -70,7 +70,7 @@ public class NewEmployer {
     private Integer zipCode;
 
     @NotNull
-//    @Size(max = 2500, message = "This field is required.")
+    @Size(max = 2500, message = "This field is required.")
     private String neighborhood;
 
     @Id
