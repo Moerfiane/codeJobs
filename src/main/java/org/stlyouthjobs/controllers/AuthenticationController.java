@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 /**
@@ -121,6 +122,9 @@ public class AuthenticationController extends AbstractController {
             return "redirect:category";
         }
         return "redirect:register";
+    }
+
+    public void setUserInSession(HttpSession session, User newUser) {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)

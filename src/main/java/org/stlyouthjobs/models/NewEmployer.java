@@ -6,12 +6,6 @@ import org.hibernate.validator.constraints.Email;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
-
-import static javax.persistence.CascadeType.PERSIST;
-import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table(name = "NEW_EMPLOYER")
