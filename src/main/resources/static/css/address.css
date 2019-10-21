@@ -5,9 +5,9 @@ body {
 }
 
 .container {
-    display:inline-grid;
-    grid-template-columns: 30% 60% 30%;
-    grid-template-rows: 30% 60% 30%;
+    display:grid;
+    grid-template-columns: 35% 35% 35%;
+
 }
 
 .address {
@@ -48,4 +48,9 @@ body {
     border-radius: 24px;
     transition: 0.25s;
     cursor: pointer;
+}
+
+img {
+    height: 150;
+    width: auto;
 }
