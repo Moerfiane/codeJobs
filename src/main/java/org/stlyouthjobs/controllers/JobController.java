@@ -73,8 +73,7 @@ public class JobController {
         Integer name =(Integer)session.getAttribute("username");
         System.out.println(name+" is session name");
         User user = userDao.findOne(name);
-        newJob.setUser(name);
-
+        newJob.setUser(user);
         HttpSession session1 = request.getSession();
         session1.setAttribute("username",name);
         jobDao.save(newJob);

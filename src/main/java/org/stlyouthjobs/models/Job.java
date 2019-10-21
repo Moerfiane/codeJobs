@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.Size;
 
 @Entity
 public class Job {
@@ -22,18 +22,18 @@ public class Job {
     private String address;
 
     @NotNull
-//    @Size(min=3, max=60)
+    @Size(min=3, max=60)
     private String jobCategory;
 
     @NotNull
-//    @Size(min=3, max=50)
+    @Size(min=3, max=50)
     private String location;
 
     @NotNull
     private String schedule;
 
     @NotNull
-//    @Size(min=3, max = 250)
+    @Size(min=3, max = 250)
     private String jobSummary;
 
     @NotNull
@@ -43,11 +43,11 @@ public class Job {
     private String numOfPositions;
 
     @NotNull
-//    @Size(min=3, max=50)
+    @Size(min=3, max=50)
     private String dressCode;
 
     @NotNull
-    private Integer payRate;
+    private Double payRate;
 
     @NotNull
     private String closingDate;
@@ -56,26 +56,8 @@ public class Job {
     public Job(){}
 
     //parameter to set name of field
-
-
-//    public Job(int id, String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
-//               String positionType, String numOfPositions, String dressCode, Integer payRate, String closingDate) {
-//        this.id = id;
-//        this.jobTitle = jobTitle;
-//        this.address = address;
-//        this.jobCategory = jobCategory;
-//        this.location = location;
-//        this.schedule = schedule;
-//        this.jobSummary = jobSummary;
-//        this.positionType = positionType;
-//        this.numOfPositions = numOfPositions;
-//        this.dressCode = dressCode;
-//        this.payRate = payRate;
-//        this.closingDate = closingDate;
-//    }
-
     public Job(String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
-               String positionType, String numOfPositions, String dressCode, Integer payRate, String closingDate) {
+               String positionType, String numOfPositions, String dressCode, Double payRate, String closingDate) {
         this.jobTitle = jobTitle;
         this.address = address;
         this.jobCategory = jobCategory;
@@ -91,10 +73,6 @@ public class Job {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getJobTitle() {
@@ -169,11 +147,11 @@ public class Job {
         this.dressCode = dressCode;
     }
 
-    public Integer getPayRate() {
+    public Double getPayRate() {
         return payRate;
     }
 
-    public void setPayRate(Integer payRate) {
+    public void setPayRate(Double payRate) {
         this.payRate = payRate;
     }
 
@@ -186,5 +164,8 @@ public class Job {
     }
 
     public void setUser(Integer name) {
+    }
+
+    public void setUser(User user) {
     }
 }
