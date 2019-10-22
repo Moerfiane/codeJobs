@@ -158,7 +158,7 @@ public class AuthenticationController extends AbstractController {
             errors.rejectValue("password", "password.invalid", "Invalid password");
             return "/register/login";
         }
-        session.setAttribute("username",theUser.getUsername());
+        session.setAttribute("userId",theUser.getUid());
         setUserInSession(request.getSession(), theUser);
 
         return "redirect:/cheese";

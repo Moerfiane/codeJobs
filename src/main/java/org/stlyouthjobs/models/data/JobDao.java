@@ -12,4 +12,6 @@ import java.util.List;
 @Repository
 @Transactional
 public interface JobDao extends CrudRepository<Job, Integer> {
+
+//    Integer findAll(Integer userId);
 }

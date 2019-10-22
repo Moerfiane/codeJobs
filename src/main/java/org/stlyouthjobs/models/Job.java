@@ -3,6 +3,7 @@ package org.stlyouthjobs.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -51,6 +52,9 @@ public class Job {
 
     @NotNull
     private String closingDate;
+
+//    @ManyToOne
+//    private User user;
 
     //empty constructor
     public Job(){}

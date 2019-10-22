@@ -9,11 +9,16 @@ import org.stlyouthjobs.models.Job;
 import org.stlyouthjobs.models.User;
 import org.stlyouthjobs.models.data.JobDao;
 import org.stlyouthjobs.models.data.UserDao;
+import org.yaml.snakeyaml.events.Event;
 
+import javax.persistence.Id;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.rmi.server.UID;
+import java.util.Collections;
 
 @Controller
 @RequestMapping("job")
@@ -26,10 +31,10 @@ public class JobController {
     private UserDao userDao;
 
     @RequestMapping(value="")
-    public String index(Model model, HttpSession session){
-        String name=(String)session.getAttribute("username");
-        User user = userDao.findByUsername(name);
-        model.addAttribute("jobs", jobDao.findAll());
+    public String index(Model model, HttpSession session, HttpServletRequest request){
+        Integer userId = (Integer) request.getSession().getAttribute(AbstractController.userSessionKey);
+        System.out.println(userId + "new");
+        model.addAttribute("jobs", jobDao.findOne(userId));
         model.addAttribute("title", "List of Jobs");
 
         return "job/index";
@@ -74,12 +79,12 @@ public class JobController {
             model.addAttribute("closingDate", "Add Closing Date");
             return "job/add";
         }
-        String name =(String)session.getAttribute("username");
+        Integer name =(Integer) session.getAttribute("user_id");
         System.out.println(name+" is session name");
-        User user = userDao.findByUsername(name);
+        User user = userDao.findByuid(name);
         newJob.setUser(user);
         HttpSession session1 = request.getSession();
-        session1.setAttribute("username",name);
+        session1.setAttribute("user_id",name);
 
         jobDao.save(newJob);
 
