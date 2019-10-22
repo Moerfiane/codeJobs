@@ -2,10 +2,12 @@
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by Fernflower decompiler)
 //
+/*
 
 package org.stlyouthjobs.controllers;
 
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,3 +61,4 @@ public class AnswerController {
         }
     }
 }
+*/

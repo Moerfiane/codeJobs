@@ -5,6 +5,7 @@
 
 package org.stlyouthjobs.controllers;
 
+/*
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,6 +52,7 @@ public class QuestionController {
         return "question/adda";
     }
 
+*/
 /*    @RequestMapping(
             value = {"adda"},
             method = {RequestMethod.POST}
@@ -63,7 +65,8 @@ public class QuestionController {
             this.answerDao.save(newAnswer);
             }
             return "redirect:/question";
-        }*/
+        }*//*
+
 
 
     @RequestMapping(
@@ -85,7 +88,9 @@ public class QuestionController {
         return "redirect:/question";
     }
 
-/*        ==============*/
+*/
+/*        ==============*//*
+
 
     @RequestMapping(
             value = {"addq"},
@@ -124,4 +129,4 @@ public class QuestionController {
 
 //    =======
 
-}
+}*/
