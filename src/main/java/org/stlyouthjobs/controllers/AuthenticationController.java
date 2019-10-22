@@ -31,7 +31,7 @@ public class AuthenticationController extends AbstractController {
     }
 
     @RequestMapping(value = "applicant", method = RequestMethod.POST)
-    public String registerApplicantForm(@ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
+    public String registerApplicantForm(HttpSession  session, @ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
             return "register/applicant";
@@ -48,6 +48,7 @@ public class AuthenticationController extends AbstractController {
 
         User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
         userDao.save(newUser);
+        session.setAttribute("username",newUser.getUsername());
         setUserInSession(request.getSession(), newUser);
 
         if (form.getAccess().equals("1")) {
@@ -65,7 +66,7 @@ public class AuthenticationController extends AbstractController {
     }
 
     @RequestMapping(value = "employer", method = RequestMethod.POST)
-    public String registerEmployerForm(@ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
+    public String registerEmployerForm(HttpSession  session, @ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
             return "register/employer";
@@ -82,6 +83,7 @@ public class AuthenticationController extends AbstractController {
 
         User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
         userDao.save(newUser);
+        session.setAttribute("username",newUser.getUsername());
         setUserInSession(request.getSession(), newUser);
 
         if (form.getAccess().equals("2")) {
@@ -98,7 +100,7 @@ public class AuthenticationController extends AbstractController {
     }
 
     @RequestMapping(value = "admin", method = RequestMethod.POST)
-    public String registerAdminForm(@ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
+    public String registerAdminForm(HttpSession  session, @ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
             return "register/admin";
@@ -115,6 +117,7 @@ public class AuthenticationController extends AbstractController {
 
         User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
         userDao.save(newUser);
+        session.setAttribute("username",newUser.getUsername());
         setUserInSession(request.getSession(), newUser);
 
 
@@ -135,7 +138,7 @@ public class AuthenticationController extends AbstractController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute @Valid LoginForm form, Errors errors, HttpServletRequest request) {
+    public String login(HttpSession  session, @ModelAttribute @Valid LoginForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
             return "/register/login";
@@ -155,7 +158,7 @@ public class AuthenticationController extends AbstractController {
             errors.rejectValue("password", "password.invalid", "Invalid password");
             return "/register/login";
         }
-
+        session.setAttribute("username",theUser.getUsername());
         setUserInSession(request.getSession(), theUser);
 
         return "redirect:/cheese";

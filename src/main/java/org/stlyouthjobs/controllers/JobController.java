@@ -26,7 +26,9 @@ public class JobController {
     private UserDao userDao;
 
     @RequestMapping(value="")
-    public String index(Model model){
+    public String index(Model model, HttpSession session){
+        String name=(String)session.getAttribute("username");
+        User user = userDao.findByUsername(name);
         model.addAttribute("jobs", jobDao.findAll());
         model.addAttribute("title", "List of Jobs");
 
@@ -56,6 +58,8 @@ public class JobController {
     public String processJobAdd(@ModelAttribute @Valid Job newJob, HttpSession session, Errors errors, Model model,
                                 HttpServletRequest request, HttpServletResponse response) {
 
+        System.out.println("new event" + newJob);
+
         if (errors.hasErrors()) {
             model.addAttribute("jobTitle", "Add Job Title");
             model.addAttribute("address", "Add Address");
@@ -70,12 +74,13 @@ public class JobController {
             model.addAttribute("closingDate", "Add Closing Date");
             return "job/add";
         }
-        Integer name =(Integer)session.getAttribute("username");
+        String name =(String)session.getAttribute("username");
         System.out.println(name+" is session name");
-        User user = userDao.findOne(name);
+        User user = userDao.findByUsername(name);
         newJob.setUser(user);
         HttpSession session1 = request.getSession();
         session1.setAttribute("username",name);
+
         jobDao.save(newJob);
 
         return "redirect:/job";
