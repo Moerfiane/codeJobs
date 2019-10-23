@@ -1,9 +1,6 @@
 package org.stlyouthjobs.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -54,14 +51,15 @@ public class Job {
     private String closingDate;
 
 //    @ManyToOne
-//    private User user;
+    private Integer user;
 
     //empty constructor
     public Job(){}
 
     //parameter to set name of field
-    public Job(String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
+    public Job(Integer user, String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
                String positionType, String numOfPositions, String dressCode, Double payRate, String closingDate) {
+        this.user = user;
         this.jobTitle = jobTitle;
         this.address = address;
         this.jobCategory = jobCategory;
@@ -167,9 +165,10 @@ public class Job {
         this.closingDate = closingDate;
     }
 
-    public void setUser(Integer name) {
+    public Integer getUser() {
+        return user;
     }
-
-    public void setUser(User user) {
+    public void setUser(Integer user) {
+        this.user = user;
     }
 }

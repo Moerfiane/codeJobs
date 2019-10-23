@@ -34,7 +34,7 @@ public class JobController {
     public String index(Model model, HttpSession session, HttpServletRequest request){
         Integer userId = (Integer) request.getSession().getAttribute(AbstractController.userSessionKey);
         System.out.println(userId + "new");
-        model.addAttribute("jobs", jobDao.findOne(userId));
+//        model.addAttribute("jobs", jobDao.findAll(userId);
         model.addAttribute("title", "List of Jobs");
 
         return "job/index";
@@ -81,10 +81,10 @@ public class JobController {
         }
         Integer name =(Integer) session.getAttribute("user_id");
         System.out.println(name+" is session name");
-        User user = userDao.findByuid(name);
-        newJob.setUser(user);
+        newJob.setUser(name);
         HttpSession session1 = request.getSession();
         session1.setAttribute("user_id",name);
+        System.out.println(session1 + "session");
 
         jobDao.save(newJob);
 
