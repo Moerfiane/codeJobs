@@ -13,7 +13,7 @@ import org.stlyouthjobs.models.data.StatementDao;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("Statement")
+@RequestMapping("statement")
 public class StatementController {
 
     @Autowired
@@ -21,7 +21,7 @@ public class StatementController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model){
-        model.addAttribute("title", "Add Skills");
+        model.addAttribute("title", "Add Statement");
         model.addAttribute(new Statement());
         return "statement/add";
     }

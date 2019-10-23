@@ -1,10 +1,12 @@
 package org.stlyouthjobs.models;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Entity
 public class Statement {
 
     @Id
@@ -13,22 +15,26 @@ public class Statement {
 
     @NotNull
     @Size(min = 3, max = 50)
-    private String statement;
+    private String description;
 
     public Statement() {
         this.id = id;
-        this.statement = statement;
+        this.description = description;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getStatement() {
-        return statement;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setStatement(String statement) {
-        this.statement = statement;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
