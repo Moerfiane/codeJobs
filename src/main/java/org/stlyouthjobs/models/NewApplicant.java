@@ -17,6 +17,7 @@ public class NewApplicant {
     @GeneratedValue
     private int id;
 
+
     @NotNull
     @URL
     @Size(min = 2, max = 100)
