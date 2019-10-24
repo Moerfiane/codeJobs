@@ -34,7 +34,7 @@ public class JobController {
     public String index(Model model, HttpSession session, HttpServletRequest request){
         Integer username =(Integer) session.getAttribute("user_id");
         System.out.println(username + "new");
-//        model.addAttribute("jobs", jobDao.findAll(userId);
+        model.addAttribute("jobs", jobDao.findAll());
 //        User user = userDao.findOne(user);
 //        User user = userDao.findOne(username);
 //        model.addAttribute("AllEvents", jobDao.findByJob(username));
@@ -83,8 +83,9 @@ public class JobController {
             model.addAttribute("closingDate", "Add Closing Date");
             return "job/add";
         }
-        Integer name =(Integer) session.getAttribute("user_id");
-        System.out.println(name+" is session name");
+
+        Integer name =(Integer) session.getAttribute("user_uid");
+        System.out.println(name +" is session name");
         newJob.setSession(name);
 
         jobDao.save(newJob);
