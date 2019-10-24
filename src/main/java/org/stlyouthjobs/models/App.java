@@ -4,23 +4,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
-public class AppPortal {
+public class App {
 
     @Id
     @GeneratedValue
-    public int id;
+    private int id;
 
     @NotNull
-    public String name;
+    @Size(min=3, max=60)
+    private String name;
 
     @NotNull
-    public String jobTitle;
+    private String jobTitle;
 
-    public AppPortal(){}
+    //empty constructor
+    public App(){}
 
-    public AppPortal(String name, String jobTitle){
+    public App(String name, String jobTitle) {
         this.name = name;
         this.jobTitle = jobTitle;
     }
