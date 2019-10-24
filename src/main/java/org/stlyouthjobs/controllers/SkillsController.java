@@ -35,6 +35,6 @@ public class SkillsController {
         }
 
         skillsDao.save(newSkills);
-        return "redirect:/education/add";
+        return "redirect:/projectexperience/add";
     }
 }

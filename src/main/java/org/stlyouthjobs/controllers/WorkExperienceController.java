@@ -36,6 +36,6 @@ public class WorkExperienceController {
         }
 
         workExperienceDao.save(newWorkExperience);
-        return "redirect:/skills/add";
+        return "redirect:/education/add";
     }
 }

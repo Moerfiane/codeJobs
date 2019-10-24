@@ -34,6 +34,6 @@ public class ProjectExperienceController {
         }
 
         projectExperienceDao.save(newProjectExperience);
-        return "redirect:/skills/add";
+        return "redirect:/workexperience/add";
     }
 }
