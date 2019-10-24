@@ -1,5 +1,7 @@
 package org.stlyouthjobs.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,32 +24,27 @@ public class Education {
     private String degree;
 
     @NotNull
-    @Size(min=3, max=50)
-    private String fieldOfStudy;
-
-    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private String startDate;
 
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private String completionDate;
 
-    @NotNull
     private String current;
 
-    private String description;
 
     //empty constructor
     public Education(){}
 
     //parameter to set name of field
-    public Education(String schoolName, String degree, String fieldOfStudy, String startDate,
-                     String completionDate, String current, String description){
+    public Education(String schoolName, String degree, String startDate,
+                     String completionDate, String current){
         this.schoolName = schoolName;
         this.degree = degree;
-        this.fieldOfStudy = fieldOfStudy;
         this.startDate = startDate;
         this.completionDate = completionDate;
         this.current = current;
-        this.description = description;
     }
 
     //only a getter for id. other classes shouldn't be able to change the id.
@@ -69,14 +66,6 @@ public class Education {
 
     public void setDegree(String degree) {
         this.degree = degree;
-    }
-
-    public String getFieldOfStudy() {
-        return fieldOfStudy;
-    }
-
-    public void setFieldOfStudy(String fieldOfStudy) {
-        this.fieldOfStudy = fieldOfStudy;
     }
 
     public String getStartDate() {
@@ -103,11 +92,4 @@ public class Education {
         this.current = current;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

@@ -24,7 +24,6 @@ public class EducationController {
     public String add(Model model){
         model.addAttribute("schoolName", "Add School Name");
         model.addAttribute("degree", "Add Degree");
-        model.addAttribute("fieldOfStudy", "Add Field of Study");
         model.addAttribute("startDate", "Add Start Date");
         model.addAttribute("CompletionDate", "Add Completion Date");
         model.addAttribute(new Education());
@@ -37,7 +36,6 @@ public class EducationController {
         if (errors.hasErrors()){
             model.addAttribute("schoolName", "Add School Name");
             model.addAttribute("degree", "Add Degree");
-            model.addAttribute("fieldOfStudy", "Add Field of Study");
             model.addAttribute("startDate", "Add Start Date");
             model.addAttribute("completionDate", "Add Completion Date");
 
