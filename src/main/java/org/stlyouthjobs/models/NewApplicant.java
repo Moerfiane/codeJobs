@@ -41,7 +41,7 @@ public class NewApplicant {
     @Email
     private String email;
 
-    public NewApplicant(int id, String gitHub, String linkedIn, String name, String phoneNum, String email) {
+    public NewApplicant() {
         this.id = id;
         this.gitHub = gitHub;
         this.linkedIn = linkedIn;
