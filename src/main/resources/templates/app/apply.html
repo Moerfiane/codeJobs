@@ -14,14 +14,11 @@
     <div class="form-group">
         <label th:for="jobTitle">Job Title</label>
         <input class="form-control" th:field="*{jobTitle}" />
-        <span th:errors="*{jobTitle}" class="error"></span>
+<!--        <span th:errors="*{jobTitle}" class="error"></span>-->
     </div>
 
     <input type="submit" value="Apply" />
 </form>
-
-<p></p>
-
 <p th:unless="${apps} and ${apps.size()}">No jobs applied for</p>
 
 <table class="table table-bordered">
@@ -34,6 +31,5 @@
         <td th:text="${app.jobTitle}"></td>
     </tr>
 </table>
-
 </body>
 </html>
