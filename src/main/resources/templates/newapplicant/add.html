@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/address.css" />
+</head>
+<header>
+    <img th:src="@{../../photos/stlyouthjobslogo1.png}" />
+</header>
+
 <body class="container">
-<h1 th:text="${title}">Default Title</h1>
+<!--<h1 th:text="${title}">Default Title</h1>-->
 
-<nav th:replace="fragments :: navigation"></nav>
-
+<!--<nav th:replace="fragments :: navigation"></nav>-->
+<div class="address">
 <form method="post" th:object="${newApplicant}">
     <div class="form-group">
         <label th:for="contactName">Contact Name</label>
-        <input class="form-control" th:field = "*{contactName}" />
+        <input type="text" class="form-control" th:field = "*{contactName}" />
         <span class="error" th:errors="*{contactName}"></span>
     </div>
 
     <div class="form-group">
         <label th:for="phoneNum">Phone Number</label>
-        <input class="form-control" th:field = "*{phoneNum}" />
+        <input type="tel" class="form-control" th:field = "*{phoneNum}" />
         <span class="error" th:errors="*{phoneNum}"></span>
     </div>
 
     <div class="form-group">
         <label th:for="birthday">Birthday</label>
-        <input class="form-control" th:field = "*{birthday}" />
+        <input type="date" class="form-control" th:field = "*{birthday}" />
         <span class="error" th:errors="*{birthday}"></span>
     </div>
 
     <input type="submit" value="Add New Applicant" />
 </form>
-
+</div>
 </body>
 </html>
