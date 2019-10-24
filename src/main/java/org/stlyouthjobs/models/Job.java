@@ -51,15 +51,18 @@ public class Job {
     private String closingDate;
 
 //    @ManyToOne
-    private Integer user;
+    private Integer session;
+
+//    @ManyToOne
+//    private User user;
 
     //empty constructor
     public Job(){}
 
     //parameter to set name of field
-    public Job(Integer user, String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
+    public Job(Integer session, String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
                String positionType, String numOfPositions, String dressCode, Double payRate, String closingDate) {
-        this.user = user;
+        this.session = session;
         this.jobTitle = jobTitle;
         this.address = address;
         this.jobCategory = jobCategory;
@@ -165,10 +168,19 @@ public class Job {
         this.closingDate = closingDate;
     }
 
-    public Integer getUser() {
-        return user;
+    public Integer getSession() {
+        return session;
     }
-    public void setUser(Integer user) {
-        this.user = user;
+
+    public void setSession(Integer session) {
+        this.session = session;
     }
+
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 }

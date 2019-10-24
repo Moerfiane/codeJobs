@@ -13,6 +13,6 @@ import java.util.List;
 @Transactional
 public interface JobDao extends CrudRepository<Job, Integer> {
 
-    Integer findAll(Integer userId);
+//    List<Job> findByJob(Integer session);
 
 }

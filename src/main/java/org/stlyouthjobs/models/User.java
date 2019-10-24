@@ -8,6 +8,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,8 +26,8 @@ public class User extends AbstractEntity {
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 //    @OneToMany
-//    @JoinColumn(name = "user")
-//    private List<Job> jobs;
+////    @JoinColumn(name = "uid")
+//    private List<Job> jobs = new ArrayList<>();
 
     private String access;
 
@@ -51,7 +52,15 @@ public class User extends AbstractEntity {
         return encoder.matches(password, pwHash);
     }
 
-//    protected void addCheese(Cheese cheese) {
+//    public List<Job> getJobs() {
+//        return jobs;
+//    }
+//
+//    public void setJobs(List<Job> jobs) {
+//        this.jobs = jobs;
+//    }
+
+    //    protected void addCheese(Cheese cheese) {
 //        cheeses.add(cheese);
 //    }
 //
