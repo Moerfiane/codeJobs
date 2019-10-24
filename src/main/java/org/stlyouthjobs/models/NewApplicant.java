@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -28,19 +29,29 @@ public class NewApplicant {
     @Size(min = 2, max = 100)
     private String linkedIn;
 
+    @NotNull
+    @Size(min = 3, max = 20, message = "Name must be between 3 and 20 Characters")
+    private String name;
 
-    public NewApplicant() {
+    @NotNull
+    @Pattern(regexp = "\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}",
+            message = "Invalid phone number")
+    private String phoneNum;
+
+    @Email
+    private String email;
+
+    public NewApplicant(int id, String gitHub, String linkedIn, String name, String phoneNum, String email) {
         this.id = id;
         this.gitHub = gitHub;
         this.linkedIn = linkedIn;
+        this.name = name;
+        this.phoneNum = phoneNum;
+        this.email = email;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getGitHub() {
@@ -57,5 +68,29 @@ public class NewApplicant {
 
     public void setLinkedIn(String linkedIn) {
         this.linkedIn = linkedIn;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
