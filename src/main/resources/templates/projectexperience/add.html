@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" th:object="${projectExperience}">
+    <div class="form-group">
+        <label th:for="name">Project Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="summary">Project Summary</label>
+        <input class="form-control" th:field="*{summary}" />
+        <span th:errors="*{summary}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="detail1">Detail</label>
+        <input class="form-control" th:field="*{detail1}" />
+        <span th:errors="*{detail1}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="detail2">Detail</label>
+        <input class="form-control" th:field="*{detail2}" />
+        <span th:errors="*{detail2}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="detail3">Detail</label>
+        <input class="form-control" th:field="*{detail3}" />
+        <span th:errors="*{detail3}" class="error"></span>
+    </div>
+
+    <input type="submit" value="Add Statement" />
+</form>
+
+</body>
+</html>
