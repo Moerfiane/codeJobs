@@ -29,6 +29,8 @@ public class JobController {
         Integer username =(Integer) session.getAttribute("user_id");
         System.out.println(username + "new");
         model.addAttribute("jobs", (jobDao.findAll()));
+        Integer name =(Integer) session.getAttribute("user_id");
+        model.addAttribute("name", name);
 
         return "job/index";
     }
