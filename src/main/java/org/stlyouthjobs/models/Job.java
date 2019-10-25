@@ -1,13 +1,12 @@
 package org.stlyouthjobs.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
 public class Job {
+
 
     @Id
     @GeneratedValue
@@ -52,12 +51,14 @@ public class Job {
     @NotNull
     private String closingDate;
 
-    //empty constructor
+    private Integer session;
+
     public Job(){}
 
     //parameter to set name of field
-    public Job(String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
+    public Job(Integer session, String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
                String positionType, String numOfPositions, String dressCode, Double payRate, String closingDate) {
+        this.session = session;
         this.jobTitle = jobTitle;
         this.address = address;
         this.jobCategory = jobCategory;
@@ -162,4 +163,13 @@ public class Job {
     public void setClosingDate(String closingDate) {
         this.closingDate = closingDate;
     }
+
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
+    }
+
 }

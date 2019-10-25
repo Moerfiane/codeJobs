@@ -7,8 +7,12 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.stlyouthjobs.models.Job;
 import org.stlyouthjobs.models.data.JobDao;
-
+import org.stlyouthjobs.models.data.UserDao;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 
 @Controller
 @RequestMapping("job")
@@ -17,10 +21,14 @@ public class JobController {
     @Autowired
     private JobDao jobDao;
 
+    @Autowired
+    private UserDao userDao;
+
     @RequestMapping(value="")
-    public String index(Model model){
-        model.addAttribute("jobs", jobDao.findAll());
-        model.addAttribute("title", "List of Jobs");
+    public String index(Model model, HttpSession session, HttpServletRequest request){
+        Integer username =(Integer) session.getAttribute("user_id");
+        System.out.println(username + "new");
+        model.addAttribute("jobs", (jobDao.findAll()));
 
         return "job/index";
     }
@@ -45,7 +53,9 @@ public class JobController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processJobAdd(Model model, @ModelAttribute @Valid Job newJob, Errors errors) {
+    public String processJobAdd(@ModelAttribute @Valid Job newJob, HttpSession session, Errors errors, Model model,
+                                HttpServletRequest request, HttpServletResponse response) {
+
 
         if (errors.hasErrors()) {
             model.addAttribute("jobTitle", "Add Job Title");
@@ -61,6 +71,11 @@ public class JobController {
             model.addAttribute("closingDate", "Add Closing Date");
             return "job/add";
         }
+
+        Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name +" is session name");
+        newJob.setSession(name);
+
         jobDao.save(newJob);
 
         return "redirect:/job";

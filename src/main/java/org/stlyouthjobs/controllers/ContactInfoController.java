@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping("contactInfo")
+@RequestMapping("contactinfo")
 public class ContactInfoController {
 
     @Autowired
@@ -36,7 +36,7 @@ public class ContactInfoController {
             return "contactInfo/add";
         }
         contactDao.save(newcontactInfo);
-        return "redirect:/aboutMe/add";
+        return "redirect:/address/add";
     }
 
 }
