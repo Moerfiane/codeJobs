@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.stlyouthjobs.models.AboutMe;
 import org.stlyouthjobs.models.data.AboutMeDao;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -29,12 +30,16 @@ public class AboutMeController {
     }
 
     @RequestMapping(value="add", method = RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid AboutMe aboutMe, Errors errors) {
+    public String add(Model model, @ModelAttribute @Valid AboutMe aboutMe, HttpSession session, Errors errors) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add About Me");
             return "/aboutMe/add";
         }
+        Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name +" is session name");
+        aboutMe.setSession(name);
+
         aboutMeDao.save(aboutMe);
         return "redirect:/skills/add";
     }

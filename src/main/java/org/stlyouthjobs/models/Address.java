@@ -38,17 +38,27 @@ public class Address {
     @Size(max = 2500, message = "This field is required.")
     private String neighborhood;
 
+    private Integer session;
 
 
+    public Address() { }
 
-
-    public Address() {
-
+    public Address(int id, Integer streetNumber, String streetName, String city, Integer zipCode, String neighborhood, Integer session) {
+        this.id = id;
         this.streetNumber = streetNumber;
         this.streetName = streetName;
         this.city = city;
         this.zipCode = zipCode;
         this.neighborhood = neighborhood;
+        this.session = session;
+    }
+
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
     }
 
     public int getId() {

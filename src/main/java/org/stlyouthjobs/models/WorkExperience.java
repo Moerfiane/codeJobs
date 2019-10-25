@@ -48,7 +48,11 @@ public class WorkExperience {
     @Size(min = 3, max = 100)
     private String detail3;
 
-    public WorkExperience() {
+    private Integer session;
+
+    public WorkExperience() { }
+
+    public WorkExperience(int id, String jobTitle, String companyName, String location, String startDate, String endDate, String current, String detail1, String detail2, String detail3, Integer session) {
         this.id = id;
         this.jobTitle = jobTitle;
         this.companyName = companyName;
@@ -59,6 +63,15 @@ public class WorkExperience {
         this.detail1 = detail1;
         this.detail2 = detail2;
         this.detail3 = detail3;
+        this.session = session;
+    }
+
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
     }
 
     public int getId() {

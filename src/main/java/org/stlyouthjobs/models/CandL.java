@@ -25,19 +25,28 @@ public class CandL {
     @NotNull
     private String issuedDate;
 
-    public CandL() {
+    private Integer session;
+
+    public CandL() { }
+
+    public CandL(int id, String name, String issuer, String issuedDate, Integer session) {
         this.id = id;
         this.name = name;
         this.issuer = issuer;
         this.issuedDate = issuedDate;
+        this.session = session;
+    }
+
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

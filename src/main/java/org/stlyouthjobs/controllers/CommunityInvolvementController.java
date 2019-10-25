@@ -12,6 +12,7 @@ import org.stlyouthjobs.models.data.CommunityInvolvementDao;
 import org.stlyouthjobs.models.data.EducationDao;
 import org.stlyouthjobs.models.data.SkillsDao;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -40,7 +41,7 @@ public class CommunityInvolvementController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processCommunityInvolvement(Model model, @ModelAttribute @Valid CommunityInvolvement communityInvolvement, Errors errors){
+    public String processCommunityInvolvement(Model model, @ModelAttribute @Valid CommunityInvolvement communityInvolvement, HttpSession session, Errors errors){
         if (errors.hasErrors()){
             model.addAttribute("title", "Add Community Involvement");
             model.addAttribute("startDate", "Add Start Date");
@@ -48,6 +49,11 @@ public class CommunityInvolvementController {
             model.addAttribute("description", "Add Volunteer Work Description");
             return "communityInvolvement/add";
         }
+
+        Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name +" is session name");
+        communityInvolvement.setSession(name);
+
         communityInvolvementDao.save(communityInvolvement);
         return "redirect:/job";
     }

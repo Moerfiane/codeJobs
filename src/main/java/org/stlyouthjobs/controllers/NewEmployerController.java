@@ -13,6 +13,7 @@ import org.stlyouthjobs.models.NewEmployer;
 import org.stlyouthjobs.models.data.AddressDao;
 import org.stlyouthjobs.models.data.NewEmployerDao;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -35,7 +36,7 @@ public class NewEmployerController {
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
-    public String employerRegisterForm (Model model, @ModelAttribute("newemployer") @Valid NewEmployer newEmployer, @ModelAttribute Address address, Errors errors) {
+    public String employerRegisterForm (Model model, @ModelAttribute("newemployer") @Valid NewEmployer newEmployer, @ModelAttribute Address address, HttpSession session, Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("organizationName", "Organization Name");
             model.addAttribute("contactName", "Contact Name");
@@ -45,6 +46,9 @@ public class NewEmployerController {
             model.addAttribute(new NewEmployer());
             return "newemployer/add";
         }
+        Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name +" is session name");
+        newEmployer.setSession(name);
 
         newEmployerDao.save(newEmployer);
 

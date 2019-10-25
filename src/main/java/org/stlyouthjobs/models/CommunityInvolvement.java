@@ -16,28 +16,37 @@ public class CommunityInvolvement {
     private String title;
 
     private String startDate;
+
     private String endDate;
 
     private String description;
 
+    private Integer session;
+
     //empty constructor
     public CommunityInvolvement(){}
 
-    //parameters to set name of fields
-    public CommunityInvolvement(String title, String startDate, String endDate, String description) {
+    public CommunityInvolvement(int id, String title, String startDate, String endDate, String description, Integer session) {
+        this.id = id;
         this.title = title;
         this.startDate = startDate;
         this.endDate = endDate;
         this.description = description;
+        this.session = session;
+    }
+
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
