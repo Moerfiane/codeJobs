@@ -6,13 +6,19 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.stlyouthjobs.models.Job;
+import org.stlyouthjobs.models.User;
 import org.stlyouthjobs.models.data.JobDao;
 import org.stlyouthjobs.models.data.UserDao;
+//import org.yaml.snakeyaml.events.Event;
+
+import javax.persistence.Id;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
+import java.rmi.server.UID;
+import java.util.Collections;
 
 @Controller
 @RequestMapping("job")
@@ -26,9 +32,10 @@ public class JobController {
 
     @RequestMapping(value="")
     public String index(Model model, HttpSession session, HttpServletRequest request){
-        Integer username =(Integer) session.getAttribute("user_uid");
+        Integer username =(Integer) session.getAttribute("user_id");
         System.out.println(username + "new");
         model.addAttribute("jobs", (jobDao.findAll()));
+
         return "job/index";
     }
 

@@ -22,9 +22,6 @@ public class NewEmployerController {
     @Autowired
     private NewEmployerDao newEmployerDao;
 
-    @Autowired
-    private AddressDao addressDao;
-
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model) {
         model.addAttribute("organizationName", "Organization Name");
@@ -33,12 +30,6 @@ public class NewEmployerController {
         model.addAttribute("ein", "EIN");
         model.addAttribute("phoneNumber", "Phone Number");
         model.addAttribute(new NewEmployer());
-        model.addAttribute("streetNumber", "Street Number");
-        model.addAttribute("streetName", "Street Name");
-        model.addAttribute("city", "City");
-        model.addAttribute("zipCode", "Zip Code");
-        model.addAttribute("neighborhood", "Neighborhood");
-        model.addAttribute(new Address());
 
         return "newemployer/add";
     }
@@ -52,20 +43,13 @@ public class NewEmployerController {
             model.addAttribute("ein", "EIN");
             model.addAttribute("phoneNumber", "Phone Number");
             model.addAttribute(new NewEmployer());
-            model.addAttribute("streetNumber", "Street Number");
-            model.addAttribute("streetName", "Street Name");
-            model.addAttribute("city", "City");
-            model.addAttribute("zipCode", "Zip Code");
-            model.addAttribute("neighborhood", "Neighborhood");
-            model.addAttribute(new Address());
             return "newemployer/add";
         }
 
         newEmployerDao.save(newEmployer);
-        addressDao.save(address);
 
 
-        return "redirect:address/add";
+        return "redirect:/address/add";
     }
 
 }
