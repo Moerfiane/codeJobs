@@ -23,10 +23,6 @@ public class User extends AbstractEntity {
     private String pwHash;
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    @OneToMany
-    @JoinColumn(name = "owner_uid")
-    private List<Cheese> cheeses;
-
     public User() {}
 
     public User(String username, String password) {
@@ -44,14 +40,6 @@ public class User extends AbstractEntity {
 
     public boolean isMatchingPassword(String password) {
         return encoder.matches(password, pwHash);
-    }
-
-    protected void addCheese(Cheese cheese) {
-        cheeses.add(cheese);
-    }
-
-    public List<Cheese> getCheeses() {
-        return cheeses;
     }
 
 }

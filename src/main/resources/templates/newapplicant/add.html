@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" th:object="${newApplicant}">
+    <div class="form-group">
+        <label th:for="gitHub">GitHub URL</label>
+        <input class="form-control" th:field="*{gitHub}" />
+        <span th:errors="*{gitHub}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="linkedIn">LinkedIn URL</label>
+        <input class="form-control" th:field="*{linkedIn}" />
+        <span th:errors="*{linkedIn}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field ="*{name}" />
+        <span class="error" th:errors="*{name}"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="phoneNum">Phone Number</label>
+        <input class="form-control" th:field ="*{phoneNum}" />
+        <span class="error" th:errors="*{phoneNum}"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="email">Email</label>
+        <input class="form-control" th:field ="*{email}" />
+        <span class="error" th:errors="*{email}"></span>
+    </div>
+
+
+    <input type="submit" value="Add" />
+</form>
+
+</body>
+</html>
