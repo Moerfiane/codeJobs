@@ -65,7 +65,7 @@ public class NewEmployerController {
         addressDao.save(address);
 
 
-        return "redirect:address/add";
+        return "redirect:/address/add";
     }
 
 }

@@ -9,7 +9,7 @@ import org.stlyouthjobs.models.Job;
 import org.stlyouthjobs.models.User;
 import org.stlyouthjobs.models.data.JobDao;
 import org.stlyouthjobs.models.data.UserDao;
-import org.yaml.snakeyaml.events.Event;
+//import org.yaml.snakeyaml.events.Event;
 
 import javax.persistence.Id;
 import javax.persistence.criteria.CriteriaBuilder;
