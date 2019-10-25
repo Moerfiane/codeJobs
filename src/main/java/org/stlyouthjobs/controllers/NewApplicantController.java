@@ -1,6 +1,5 @@
 package org.stlyouthjobs.controllers;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +12,7 @@ import org.stlyouthjobs.models.data.NewApplicantDao;
 
 import javax.validation.Valid;
 
+
 @Controller
 @RequestMapping("newapplicant")
 public class NewApplicantController {
@@ -21,20 +21,20 @@ public class NewApplicantController {
     private NewApplicantDao newApplicantDao;
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
-    public String add(Model model) {
-        model.addAttribute("title", "New Applicant");
+    public String add(Model model){
+        model.addAttribute("title", "Add Applicant Info");
         model.addAttribute(new NewApplicant());
         return "newapplicant/add";
     }
 
-    @RequestMapping(value="add", method= RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid NewApplicant newApplicant, Errors errors) {
-
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public String processAdd(Model model , @ModelAttribute @Valid NewApplicant newApplicant, Errors errors){
         if (errors.hasErrors()) {
-        model.addAttribute("title", "New Applicant");
-        return "newapplicant/add";
+            model.addAttribute("Applicant Info", "Add Applicant Info");
+            return "newapplicant/add";
         }
+
         newApplicantDao.save(newApplicant);
-        return "redirect:/contactinfo/add";
+        return "redirect:/statement/add";
     }
 }

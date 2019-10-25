@@ -21,37 +21,21 @@
     </div>
 
     <div class="form-group">
-        <label th:for="fieldOfStudy">Field of Study</label>
-        <input class="form-control" th:field="*{fieldOfStudy}" />
-        <span th:errors="*{fieldOfStudy}" class="error"></span>
-    </div>
-
-    <div class="form-group">
         <label th:for="startDate">Start Date</label>
-        <!--input type="date" class="form-control" th:field="*{startDate}" /-->
         <input class="form-control" th:field="*{startDate}" />
         <span th:errors="*{startDate}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="completionDate">Completion Date</label>
-        <!--input type="date" class="form-control" th:field="*{completionDate}" /-->
         <input class="form-control" th:field="*{completionDate}" />
         <span th:errors="*{completionDate}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="current">Current</label>
-        <!--input type="checkbox" class="form-control" th:field="*{current}" /-->
         <input class="form-control" th:field="*{current}" />
         <span th:errors="*{current}" class="error"></span>
-    </div>
-
-    <div class="form-group">
-        <label th:for="description">Description</label>
-        <!--input type="text" class="form-control" th:field="*{current}" /-->
-        <input class="form-control" th:field="*{description}" />
-        <span th:errors="*{description}" class="error"></span>
     </div>
 
 

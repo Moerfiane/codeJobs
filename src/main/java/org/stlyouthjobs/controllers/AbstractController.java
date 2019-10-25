@@ -1,9 +1,6 @@
 package org.stlyouthjobs.controllers;
 
 import org.stlyouthjobs.models.User;
-import org.stlyouthjobs.models.data.CategoryDao;
-import org.stlyouthjobs.models.data.CheeseDao;
-import org.stlyouthjobs.models.data.MenuDao;
 import org.stlyouthjobs.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,14 +17,6 @@ public abstract class AbstractController {
     @Autowired
     protected UserDao userDao;
 
-    @Autowired
-    protected CheeseDao cheeseDao;
-
-    @Autowired
-    protected CategoryDao categoryDao;
-
-    @Autowired
-    protected MenuDao menuDao;
 
 
     public static final String userSessionKey = "user_id";
