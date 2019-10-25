@@ -1,5 +1,5 @@
 body {
-    background: orange;
+    background: aquamarine;
     font-family: sans-serif;
     padding: 20px;
 }
@@ -17,7 +17,7 @@ body {
     grid-row-end: 4;
     width: 325px;
     padding: 40px;
-    background: darkorange;
+    background: steelblue;
     text-align: center;
 }
 
@@ -27,7 +27,7 @@ body {
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid orangeRed;
+    border: 2px solid moccasin;
     padding: 14px 10px;
     width: 200px;
     outline: none;
@@ -64,7 +64,7 @@ textarea {
 
     margin: 20px auto;
     text-align: center;
-    border: 2px solid orangeRed;
+    border: 2px solid moccasin;
     padding: 14px 40px;
     outline: none;
     color: white;
