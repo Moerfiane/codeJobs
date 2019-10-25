@@ -34,12 +34,7 @@ public class JobController {
     public String index(Model model, HttpSession session, HttpServletRequest request){
         Integer username =(Integer) session.getAttribute("user_id");
         System.out.println(username + "new");
-        model.addAttribute("jobs", jobDao.findAll());
-//        User user = userDao.findOne(user);
-//        User user = userDao.findOne(username);
-//        model.addAttribute("AllEvents", jobDao.findByJob(username));
-//        model.addAttribute("username",user);
-//        model.addAttribute("title", "List of Jobs");
+        model.addAttribute("jobs", (jobDao.findAll()));
 
         return "job/index";
     }
@@ -67,7 +62,6 @@ public class JobController {
     public String processJobAdd(@ModelAttribute @Valid Job newJob, HttpSession session, Errors errors, Model model,
                                 HttpServletRequest request, HttpServletResponse response) {
 
-        System.out.println("new event" + newJob);
 
         if (errors.hasErrors()) {
             model.addAttribute("jobTitle", "Add Job Title");
@@ -84,7 +78,7 @@ public class JobController {
             return "job/add";
         }
 
-        Integer name =(Integer) session.getAttribute("user_uid");
+        Integer name =(Integer) session.getAttribute("user_id");
         System.out.println(name +" is session name");
         newJob.setSession(name);
 

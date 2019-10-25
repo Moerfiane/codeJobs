@@ -7,6 +7,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class Job {
 
+
     @Id
     @GeneratedValue
     private int id;
@@ -50,13 +51,8 @@ public class Job {
     @NotNull
     private String closingDate;
 
-//    @ManyToOne
     private Integer session;
 
-//    @ManyToOne
-//    private User user;
-
-    //empty constructor
     public Job(){}
 
     //parameter to set name of field
@@ -176,11 +172,4 @@ public class Job {
         this.session = session;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
 }
