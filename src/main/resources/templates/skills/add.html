@@ -11,7 +11,7 @@
 <!--h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>-->
-
+<div class="address">
 <form method="post" th:object="${skills}">
     <div class="form-group">
         <label th:for="name">Name</label>
@@ -21,6 +21,6 @@
 
     <input type="submit" value="Add" />
 </form>
-
+</div>
 </body>
 </html>
