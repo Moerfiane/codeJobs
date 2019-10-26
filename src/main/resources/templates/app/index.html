@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head" />
+<body class="container">
+<h1 th:text="${title}"></h1>
+
+<nav>
+    <a class="btn btn-primary btn-xs" href="/app/apply">Apply for a Position</a>
+</nav>
+
+<p th:unless="${apps} and ${apps.size()}">No Jobs have been applied for</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Job Title</th>
+    </tr>
+
+    <tr th:each="app : ${apps}">
+
+        <td th:text="${app.name}"></td>
+        <td th:text="${app.jobTitle}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

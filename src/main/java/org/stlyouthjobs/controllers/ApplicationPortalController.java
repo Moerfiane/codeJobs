@@ -14,10 +14,20 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("app")
-public class ApplicationPortal {
+public class ApplicationPortalController
+{
 
     @Autowired
     private AppDao appDao;
+
+    @RequestMapping(value = "")
+    public String index(Model model){
+
+        model.addAttribute("title", "Application Portal");
+        model.addAttribute("apps", appDao.findAll());
+
+        return "app/index";
+    }
 
     @RequestMapping(value="apply", method = RequestMethod.GET)
     public String applyJob(Model model) {
