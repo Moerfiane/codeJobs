@@ -19,12 +19,6 @@ public class ApplicationPortal {
     @Autowired
     private AppDao appDao;
 
-    @RequestMapping(value="")
-    public String index(Model model) {
-        model.addAttribute("apps", appDao.findAll());
-        return "app/apply";
-    }
-
     @RequestMapping(value="apply", method = RequestMethod.GET)
     public String applyJob(Model model) {
 
@@ -47,4 +41,5 @@ public class ApplicationPortal {
 
         return "redirect:/app";
     }
+
 }
