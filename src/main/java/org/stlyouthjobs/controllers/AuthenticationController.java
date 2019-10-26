@@ -161,7 +161,7 @@ public class AuthenticationController extends AbstractController {
         session.setAttribute("userId",theUser.getUid());
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:/cheese";
+        return "redirect:/workexperience";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
