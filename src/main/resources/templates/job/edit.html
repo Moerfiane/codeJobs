@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/jobmain.css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
 </head>
 <header>
     <img th:src="@{../../photos/dev1.png}" />
@@ -16,7 +16,7 @@
     <a class="btn btn-primary btn-xs" href="/job">Job Home</a>
 </nav>
 <div class="main">
-    <form method="post" th:object="${job}">
+    <form method="post" style="max-width:600px;" th:object="${job}">
         <div class="form-group">
             <label th:for="jobTitle">Job Title</label>
             <input class="form-control" th:field="*{jobTitle}" type="text" />
