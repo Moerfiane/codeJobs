@@ -17,7 +17,7 @@ import javax.validation.Valid;
 /**
  * Created by LaunchCode
  */
-
+//statement tech skill, project experience, work exp, education, applicant eligibility
 @Controller
 @RequestMapping("register")
 public class AuthenticationController extends AbstractController {
@@ -161,7 +161,7 @@ public class AuthenticationController extends AbstractController {
         session.setAttribute("userId",theUser.getUid());
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:/cheese";
+        return "redirect:/job";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
