@@ -44,6 +44,6 @@ public class LoginController extends AbstractController{
 
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:cheese";
+        return "redirect:job/index";
     }
 }

@@ -47,16 +47,31 @@ public class NewEmployer {
     @GeneratedValue
     private int id;
 
+    private Integer session;
+
 
     public NewEmployer () {}
 
-    public NewEmployer(String organizationName, String contactName, String website, Long ein, Long phoneNumber) {
+    public NewEmployer(String organizationName, String contactName, String website, Long ein, Long phoneNumber, String email, String confirmEmail, int id, Integer session) {
         this.organizationName = organizationName;
         this.contactName = contactName;
         this.website = website;
         this.ein = ein;
         this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.confirmEmail = confirmEmail;
+        this.id = id;
+        this.session = session;
     }
+
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
+    }
+
     public int getId() {
         return id;
     }

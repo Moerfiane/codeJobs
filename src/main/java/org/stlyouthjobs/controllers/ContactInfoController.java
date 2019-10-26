@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.stlyouthjobs.models.ContactInfo;
 import org.stlyouthjobs.models.data.ContactDao;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 
@@ -29,12 +30,16 @@ public class ContactInfoController {
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid ContactInfo newcontactInfo, Errors errors) {
+    public String add(Model model, @ModelAttribute @Valid ContactInfo newcontactInfo, HttpSession session, Errors errors) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Contact");
             return "contactInfo/add";
         }
+        Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name +" is session name");
+        newcontactInfo.setSession(name);
+
         contactDao.save(newcontactInfo);
         return "redirect:/address/add";
     }

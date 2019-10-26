@@ -29,22 +29,32 @@ public class ContactInfo {
     @Email
     private String email;
 
+    private Integer session;
 
 
-    public ContactInfo() {
+
+    public ContactInfo() { }
+
+    public ContactInfo(int id, String name, String phoneNum, String email, Integer session) {
         this.id = id;
         this.name = name;
         this.phoneNum = phoneNum;
         this.email = email;
+        this.session = session;
+    }
+
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.stlyouthjobs.models.Address;
 import org.stlyouthjobs.models.data.AddressDao;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -33,7 +34,7 @@ public class AddressController {
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
-    public String employerAddy (Model model, @ModelAttribute @Valid Address address, Errors errors) {
+    public String employerAddy (Model model, @ModelAttribute @Valid Address address, HttpSession session, Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("streetNumber", "Street Number");
             model.addAttribute("streetName", "Street Name");
@@ -42,6 +43,11 @@ public class AddressController {
             model.addAttribute("neighborhood", "Neighborhood");
             return "address/add";
         }
+
+        Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name +" is session name");
+        address.setSession(name);
+
         addressDao.save(address);
         return "redirect:/aboutme/add";
     }
