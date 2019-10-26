@@ -5,7 +5,11 @@
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
+<nav>
+    <a class="btn btn-primary btn-xs" href="/skills">Skills Home</a>
+    <a class="btn btn-primary btn-xs" href="/skills/add">Add New Skill</a>
+</nav>
+<p></p>
 
 <form method="post" th:object="${skills}">
     <div class="form-group">
@@ -115,8 +119,6 @@
         <input class="form-control" th:field="*{tool3}" />
         <span th:errors="*{tool3}" class="error"></span>
     </div>
-
-
 
 
     <input type="submit" value="Add" />
