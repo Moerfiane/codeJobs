@@ -18,17 +18,26 @@ public class AboutMe {
     @Size(max = 2500, message = "About me field must not be empty.")
     private String text;
 
-    public AboutMe() {
+    private Integer session;
+
+    public AboutMe() { }
+
+    public AboutMe(int id, String text, Integer session) {
         this.id = id;
         this.text = text;
+        this.session = session;
+    }
+
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getText() {

@@ -37,12 +37,30 @@ public class Experience {
     @Size(min = 2, max = 2500, message = "Description must not be empty.")
     private String description;
 
-    public int getId() {
-        return id;
+    private Integer session;
+
+    public Experience() { }
+
+    public Experience(int id, String jobTitle, String company, String startDate, String endDate, String description, Integer session) {
+        this.id = id;
+        this.jobTitle = jobTitle;
+        this.company = company;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.description = description;
+        this.session = session;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getJobTitle() {
@@ -85,14 +103,4 @@ public class Experience {
         this.description = description;
     }
 
-    public Experience() {
-        this.id = id;
-        this.jobTitle = jobTitle;
-        this.company = company;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.description = description;
-
-
-    }
 }

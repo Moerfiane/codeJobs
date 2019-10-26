@@ -41,13 +41,26 @@ public class NewApplicant {
     @Email
     private String email;
 
-    public NewApplicant() {
+    private Integer session;
+
+    public NewApplicant() { }
+
+    public NewApplicant(int id, String gitHub, String linkedIn, String name, String phoneNum, String email, Integer session) {
         this.id = id;
         this.gitHub = gitHub;
         this.linkedIn = linkedIn;
         this.name = name;
         this.phoneNum = phoneNum;
         this.email = email;
+        this.session = session;
+    }
+
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
     }
 
     public int getId() {

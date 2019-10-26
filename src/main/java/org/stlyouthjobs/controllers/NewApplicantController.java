@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.stlyouthjobs.models.NewApplicant;
 import org.stlyouthjobs.models.data.NewApplicantDao;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 
@@ -28,11 +29,14 @@ public class NewApplicantController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAdd(Model model , @ModelAttribute @Valid NewApplicant newApplicant, Errors errors){
+    public String processAdd(Model model , @ModelAttribute @Valid NewApplicant newApplicant, HttpSession session, Errors errors){
         if (errors.hasErrors()) {
             model.addAttribute("Applicant Info", "Add Applicant Info");
             return "newapplicant/add";
         }
+        Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name +" is session name");
+        newApplicant.setSession(name);
 
         newApplicantDao.save(newApplicant);
         return "redirect:/statement/add";

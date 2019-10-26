@@ -15,6 +15,7 @@ public abstract class AbstractEntity {
     @GeneratedValue
     private int uid;
 
+
     public int getUid() {
         return this.uid;
     }

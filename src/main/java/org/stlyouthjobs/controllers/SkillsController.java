@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.stlyouthjobs.models.Skills;
 import org.stlyouthjobs.models.data.SkillsDao;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -28,11 +29,15 @@ public class SkillsController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAdd(Model model , @ModelAttribute @Valid Skills newSkills, Errors errors){
+    public String processAdd(Model model , @ModelAttribute @Valid Skills newSkills, HttpSession session, Errors errors){
         if (errors.hasErrors()) {
             model.addAttribute("skills", "Add Skills");
             return "skills/add";
         }
+
+        Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name +" is session name");
+        newSkills.setSession(name);
 
         skillsDao.save(newSkills);
         return "redirect:/projectexperience/add";

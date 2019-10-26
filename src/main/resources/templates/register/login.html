@@ -14,6 +14,12 @@
 <nav th:replace="fragments :: navigation"></nav>
 <div class="box">
 <form method="post" th:object="${loginForm}">
+
+<nav>
+    <a class="btn btn-default btn-xl" href="/register/applicant">Register Applicant</a>
+</nav>
+
+<form method="post" style="width:600px;" th:object="${loginForm}">
     <div class="form-group">
         <label th:for="username">Username</label>
         <input class="form-control" th:field="*{username}" type="text"/>
@@ -28,6 +34,10 @@
     <input class="btn btn-primary btn-xs" type="submit" value="Log In" />
     <a class="btn btn-default btn-xs" href="/register" value="Register">Register</a>
 </form>
+<p></p>
+<nav>
+    <a class="btn btn-default btn-xl" href="/register/employer">Register Employer</a>
+</nav>
 
 </div>
 </body>
