@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="template :: head">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
 </head>
-<body>
+<header>
+    <img th:src="@{../../photos/dev1.png}" />
+</header>
+
+
+<body class="container">
 
 <nav>
     <a class="btn btn-primary btn-xs" href="/login">Login</a> |

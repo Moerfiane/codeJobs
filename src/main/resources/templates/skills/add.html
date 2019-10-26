@@ -1,159 +1,165 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+<header>
+    <img th:src="@{../../photos/dev1.png}" />
+</header>
 
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
-
+<div class="main">
 <form method="post" th:object="${skills}">
     <div class="form-group">
         <label th:for="language1">Language</label>
-        <input class="form-control" th:field="*{language1}" />
+        <input class="form-control" th:field="*{language1}" type="text" />
         <span th:errors="*{language1}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="language2">Language</label>
-        <input class="form-control" th:field="*{language2}" />
+        <input class="form-control" th:field="*{language2}" type="text" />
         <span th:errors="*{language2}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="language3">Language</label>
-        <input class="form-control" th:field="*{language3}" />
+        <input class="form-control" th:field="*{language3}" type="text" />
         <span th:errors="*{language3}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="language4">Language</label>
-        <input class="form-control" th:field="*{language4}" />
+        <input class="form-control" th:field="*{language4}" type="text" />
         <span th:errors="*{language4}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="language5">Language</label>
-        <input class="form-control" th:field="*{language5}" />
+        <input class="form-control" th:field="*{language5}" type="text" />
         <span th:errors="*{language5}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="language6">Language</label>
-        <input class="form-control" th:field="*{language6}" />
+        <input class="form-control" th:field="*{language6}" type="text" />
         <span th:errors="*{language6}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="framework1">Framework</label>
-        <input class="form-control" th:field="*{framework1}" />
+        <input class="form-control" th:field="*{framework1}" type="text" />
         <span th:errors="*{framework1}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="framework2">Framework</label>
-        <input class="form-control" th:field="*{framework2}" />
+        <input class="form-control" th:field="*{framework2}" type="text" />
         <span th:errors="*{framework2}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="framework3">Framework</label>
-        <input class="form-control" th:field="*{framework3}" />
+        <input class="form-control" th:field="*{framework3}" type="text" />
         <span th:errors="*{framework3}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="framework4">Framework</label>
-        <input class="form-control" th:field="*{framework4}" />
+        <input class="form-control" th:field="*{framework4}" type="text" />
         <span th:errors="*{framework4}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="framework5">Framework</label>
-        <input class="form-control" th:field="*{framework5}" />
+        <input class="form-control" th:field="*{framework5}" type="text" />
         <span th:errors="*{framework5}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="framework6">Framework</label>
-        <input class="form-control" th:field="*{framework6}" />
+        <input class="form-control" th:field="*{framework6}" type="text" />
         <span th:errors="*{framework6}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="database1">Database</label>
-        <input class="form-control" th:field="*{database1}" />
+        <input class="form-control" th:field="*{database1}" type="text" />
         <span th:errors="*{database1}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="database2">Database</label>
-        <input class="form-control" th:field="*{database2}" />
+        <input class="form-control" th:field="*{database2}" type="text" />
         <span th:errors="*{database2}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="database3">Database</label>
-        <input class="form-control" th:field="*{database3}" />
+        <input class="form-control" th:field="*{database3}" type="text" />
         <span th:errors="*{database3}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="database4">Database</label>
-        <input class="form-control" th:field="*{database4}" />
+        <input class="form-control" th:field="*{database4}" type="text" />
         <span th:errors="*{database4}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="database5">Database</label>
-        <input class="form-control" th:field="*{database5}" />
+        <input class="form-control" th:field="*{database5}" type="text" />
         <span th:errors="*{database5}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="database6">Database</label>
-        <input class="form-control" th:field="*{database6}" />
+        <input class="form-control" th:field="*{database6}" type="text" />
         <span th:errors="*{database6}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="tool1">Tool</label>
-        <input class="form-control" th:field="*{tool1}" />
+        <input class="form-control" th:field="*{tool1}" type="text" />
         <span th:errors="*{tool1}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="tool2">Tool</label>
-        <input class="form-control" th:field="*{tool2}" />
+        <input class="form-control" th:field="*{tool2}" type="text"  />
         <span th:errors="*{tool2}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="tool3">Tool</label>
-        <input class="form-control" th:field="*{tool3}" />
+        <input class="form-control" th:field="*{tool3}" type="text"  />
         <span th:errors="*{tool3}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="tool14">Tool</label>
-        <input class="form-control" th:field="*{tool14}" />
+        <input class="form-control" th:field="*{tool14}" type="text"  />
         <span th:errors="*{tool14}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="tool5">Tool</label>
-        <input class="form-control" th:field="*{tool5}" />
+        <input class="form-control" th:field="*{tool5}" type="text"  />
         <span th:errors="*{tool5}" class="error"></span>
     </div>
     <div class="form-group">
         <label th:for="tool6">Tool</label>
-        <input class="form-control" th:field="*{tool6}" />
+        <input class="form-control" th:field="*{tool6}" type="text"  />
         <span th:errors="*{tool6}" class="error"></span>
     </div>
 
 
     <input type="submit" value="Add" />
 </form>
-
+</div>
 </body>
 </html>
