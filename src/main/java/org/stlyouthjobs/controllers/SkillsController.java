@@ -56,7 +56,7 @@ public class SkillsController {
     public String displayEditJobForm(Model model, @PathVariable int skillsId) {
 
         model.addAttribute("title", "Edit Skill");
-        model.addAttribute("skill", skillsDao.findOne(skillsId));
+        model.addAttribute("skills", skillsDao.findOne(skillsId));
 
         return "skills/edit";
     }
