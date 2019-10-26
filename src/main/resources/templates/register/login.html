@@ -9,13 +9,15 @@
 </header>
 
 <body class="container">
-<h1 th:text="${title}">Default Title</h1>
+<!--<h1 th:text="${title}">Default Title</h1>-->
 
 <nav th:replace="fragments :: navigation"></nav>
+<div class="box">
 
-<nav>
+
+
     <a class="btn btn-default btn-xl" href="/register/applicant">Register Applicant</a>
-</nav>
+
 
 <form method="post" style="width:600px;" th:object="${loginForm}">
 <div class="box">
