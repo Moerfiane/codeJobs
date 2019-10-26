@@ -76,7 +76,7 @@ public class AuthenticationController extends AbstractController {
 
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:cheese";
+        return "redirect:job";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
