@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.stlyouthjobs.models.Education;
 import org.stlyouthjobs.models.data.EducationDao;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -32,7 +33,7 @@ public class EducationController {
     }
 
     @RequestMapping(value = "add", method=RequestMethod.POST)
-    public String processAdd(Model model , @ModelAttribute @Valid Education newEducation, Errors errors){
+    public String processAdd(Model model , @ModelAttribute @Valid Education newEducation, HttpSession session, Errors errors){
         if (errors.hasErrors()){
             model.addAttribute("schoolName", "Add School Name");
             model.addAttribute("degree", "Add Degree");
@@ -41,6 +42,11 @@ public class EducationController {
 
             return "education/add";
         }
+
+        Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name +" is session name");
+        newEducation.setSession(name);
+
         educationDao.save(newEducation);
         return "redirect:/applicantportal/add";
 

@@ -3,10 +3,8 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
-
 <nav th:replace="fragments :: navigation"></nav>
-
-<form method="post" style="width:600px;" th:object="${loginForm}">
+<form method="post" th:object="${registerForm}" style="width:600px;">
     <div class="form-group">
         <label th:for="username">Username</label>
         <input class="form-control" th:field="*{username}" />
@@ -17,10 +15,21 @@
         <input class="form-control" th:field="*{password}" type="password" />
         <div class="error" th:errors="*{password}"></div>
     </div>
+    <div class="form-group">
+        <label th:for="verifyPassword">Verify</label>
+        <input class="form-control" th:field="*{verifyPassword}" type="password" />
+        <div class="error" th:text="${verifyError}"></div>
+    </div>
+    <input class="btn btn-primary btn-xs" type="submit" value="Register" />
 
-    <input class="btn btn-primary btn-xs" type="submit" value="Log In" />
-    <a class="btn btn-default btn-xs" href="/register">Register</a>
+
+    <div class="invisible">
+        <div class="form-group">
+            <label th:for="access">Access</label>
+            <input class="form-control" type="text"   name="access" value="2" th:errorclass="field-error"  />
+        </div>
+    </div>
+
 </form>
-
 </body>
 </html>

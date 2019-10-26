@@ -3,11 +3,8 @@ package org.stlyouthjobs.models;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import java.util.List;
 
 /**
  * Created by LaunchCode
@@ -16,18 +13,22 @@ import java.util.List;
 public class User extends AbstractEntity {
 
     @NotNull
-    @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9_-]{4,11}", message = "Invalid username")
+
     private String username;
 
     @NotNull
     private String pwHash;
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public User() {}
+    private String access;
 
-    public User(String username, String password) {
+    public User(){
+    }
+
+    public User(String username, String password, String access) {
         this.username = username;
         this.pwHash = hashPassword(password);
+        this.access = access;
     }
 
     public String getUsername() {
@@ -41,5 +42,7 @@ public class User extends AbstractEntity {
     public boolean isMatchingPassword(String password) {
         return encoder.matches(password, pwHash);
     }
+
+
 
 }

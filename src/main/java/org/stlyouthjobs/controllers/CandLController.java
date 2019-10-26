@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.stlyouthjobs.models.CandL;
 import org.stlyouthjobs.models.data.CandLDao;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 
@@ -28,13 +29,18 @@ public class CandLController {
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid CandL newcandl, Errors errors) {
+    public String add(Model model, @ModelAttribute @Valid CandL newcandl, HttpSession session, Errors errors) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Certificates and Licenses.");
             return "certificates/add";
         }
+
+        Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name +" is session name");
+        newcandl.setSession(name);
+
         candlDao.save(newcandl);
-        return "redirect:/skills/add";
+        return "redirect:/experience/add";
     }
 }
