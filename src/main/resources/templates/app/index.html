@@ -4,22 +4,40 @@
 <body class="container">
 <h1 th:text="${title}"></h1>
 
-<nav>
-    <a class="btn btn-primary btn-xs" href="/app/apply">Apply for a Position</a>
-</nav>
 
 <p th:unless="${apps} and ${apps.size()}">No Jobs have been applied for</p>
 
 <table class="table table-bordered">
     <tr>
-        <th>Name</th>
+
+        <th></th>
         <th>Job Title</th>
+        <th>Address</th>
+        <th>Job Category</th>
+        <th>Job Summary</th>
+        <th>Location</th>
+        <th>Schedule</th>
+        <th>Position Type</th>
+        <th>Num of Positions</th>
+        <th>Dress Code</th>
+        <th>Pay Rate</th>
+        <th>Closing Date</th>
     </tr>
 
     <tr th:each="app : ${apps}">
 
-        <td th:text="${app.name}"></td>
+        <td><a th:href="'app/apply' + ${app.id}" th:text="Apply"></a></td>
         <td th:text="${app.jobTitle}"></td>
+        <td th:text="${app.address}"></td>
+        <td th:text="${app.jobCategory}"></td>
+        <td th:text="${app.jobSummary}"></td>
+        <td th:text="${app.location}"></td>
+        <td th:text="${app.schedule}"></td>
+        <td th:text="${app.positionType}"></td>
+        <td th:text="${app.numOfPositions}"></td>
+        <td th:text="${app.dressCode}"></td>
+        <td th:text="${app.payRate}"></td>
+        <td th:text="${app.closingDate}"></td>
     </tr>
 
 </table>
