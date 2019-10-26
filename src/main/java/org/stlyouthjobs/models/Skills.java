@@ -89,7 +89,11 @@ public class Skills {
     @Size(max=50)
     private String tool6;
 
-    public Skills() {
+    private Integer session;
+
+    public Skills() {}
+
+    public Skills(int id, String language1, String language2, String language3, String language4, String language5, String language6, String framework1, String framework2, String framework3, String framework4, String framework5, String framework6, String database1, String database2, String database3, String database4, String database5, String database6, String tool1, String tool2, String tool3, String tool14, String tool5, String tool6, Integer session) {
         this.id = id;
         this.language1 = language1;
         this.language2 = language2;
@@ -115,14 +119,19 @@ public class Skills {
         this.tool14 = tool14;
         this.tool5 = tool5;
         this.tool6 = tool6;
+        this.session = session;
+    }
+
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getLanguage1() {

@@ -17,17 +17,26 @@ public class Statement {
     @Size(min = 3, max = 500)
     private String description;
 
-    public Statement() {
+    private Integer session;
+
+    public Statement() { }
+
+    public Statement(int id, String description, Integer session) {
         this.id = id;
         this.description = description;
+        this.session = session;
+    }
+
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDescription() {

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.stlyouthjobs.models.ProjectExperience;
 import org.stlyouthjobs.models.data.ProjectExperienceDao;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -27,11 +28,14 @@ public class ProjectExperienceController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAdd(Model model , @ModelAttribute @Valid ProjectExperience newProjectExperience, Errors errors){
+    public String processAdd(Model model , @ModelAttribute @Valid ProjectExperience newProjectExperience, HttpSession session, Errors errors){
         if (errors.hasErrors()) {
             model.addAttribute("Statement", "Add Project Experience");
             return "projectexperience/add";
         }
+        Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name +" is session name");
+        newProjectExperience.setSession(name);
 
         projectExperienceDao.save(newProjectExperience);
         return "redirect:/workexperience/add";

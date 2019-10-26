@@ -5,16 +5,13 @@ import org.stlyouthjobs.models.User;
 import org.stlyouthjobs.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by LaunchCode
- */
+
 public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
     @Autowired
@@ -23,7 +20,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
 
-        List<String> nonAuthPages = Arrays.asList("/", "/login", "/register");
+        List<String> nonAuthPages = Arrays.asList("/", "/register/applicant", "/register/login","/register/admin","/register/employer");
 
         // Require sign-in for auth pages
         if ( !nonAuthPages.contains(request.getRequestURI()) ) {
@@ -41,7 +38,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
             // If user not logged in, redirect to login page
             if (!isLoggedIn) {
-                response.sendRedirect("/login");
+                response.sendRedirect("/register/login");
                 return false;
             }
         }

@@ -32,13 +32,26 @@ public class ProjectExperience {
     @Size(max = 100)
     private String detail3;
 
-    public ProjectExperience() {
+    private Integer session;
+
+    public ProjectExperience() { }
+
+    public ProjectExperience(int id, String name, String summary, String detail1, String detail2, String detail3, Integer session) {
         this.id = id;
         this.name = name;
         this.summary = summary;
         this.detail1 = detail1;
         this.detail2 = detail2;
         this.detail3 = detail3;
+        this.session = session;
+    }
+
+    public Integer getSession() {
+        return session;
+    }
+
+    public void setSession(Integer session) {
+        this.session = session;
     }
 
     public int getId() {

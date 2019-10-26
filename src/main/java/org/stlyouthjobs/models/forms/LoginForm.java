@@ -16,16 +16,25 @@ public class LoginForm {
     @Pattern(regexp = "(\\S){4,20}", message = "Password must have 4-20 characters")
     private String password;
 
-    public LoginForm() {}
+    @Pattern(regexp = "[1-3]")
+    private String access;
+
+
+    public LoginForm() {
+    }
 
     public String getUsername() {
         return username;
     }
-
+    public String getAccess() {
+        return access;
+    }
     public void setUsername(String username) {
         this.username = username;
     }
-
+    public void setAccess(String access) {
+        this.access = access;
+    }
     public String getPassword() {
         return password;
     }
@@ -33,6 +42,7 @@ public class LoginForm {
     public void setPassword(String password) {
         this.password = password;
     }
+
 
 
 }
