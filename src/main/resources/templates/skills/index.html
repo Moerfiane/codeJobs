@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav>
+    <a class="btn btn-primary btn-xs" href="/skills/add">Add New Skills</a>
+</nav>
+
+<p th:unless="${skills} and ${skills.size()}">No skills have been added</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th></th>
+        <th>Languages</th>
+        <th>Languages</th>
+        <th>Languages</th>
+        <th>Languages</th>
+        <th>Languages</th>
+        <th>Languages</th>
+        <th>Framework</th>
+        <th>Framework</th>
+        <th>Framework</th>
+        <th>Framework</th>
+        <th>Framework</th>
+        <th>Framework</th>
+        <th>Database</th>
+        <th>Database</th>
+        <th>Database</th>
+        <th>Tool</th>
+        <th>Tool</th>
+        <th>Tool</th>
+
+    </tr>
+
+    <tr th:each="skill : ${skills}">
+        <td><a th:href="'skills/edit/' + ${skill.id}" th:text="Edit"></a></td>
+        <td th:text="${skill.language1}"></td>
+        <td th:text="${skill.language2}"></td>
+        <td th:text="${skill.language3}"></td>
+        <td th:text="${skill.language4}"></td>
+        <td th:text="${skill.language5}"></td>
+        <td th:text="${skill.language6}"></td>
+        <td th:text="${skill.framework1}"></td>
+        <td th:text="${skill.framework2}"></td>
+        <td th:text="${skill.framework3}"></td>
+        <td th:text="${skill.framework4}"></td>
+        <td th:text="${skill.framework5}"></td>
+        <td th:text="${skill.framework6}"></td>
+        <td th:text="${skill.database1}"></td>
+        <td th:text="${skill.database2}"></td>
+        <td th:text="${skill.database3}"></td>
+        <td th:text="${skill.tool1}"></td>
+        <td th:text="${skill.tool2}"></td>
+        <td th:text="${skill.tool3}"></td>
+    </tr>
+
+</table>
+</body>
+
+</html>
