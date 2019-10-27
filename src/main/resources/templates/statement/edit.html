@@ -1,26 +1,26 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+</head>
+<header>
+    <img th:src="@{../../photos/dev1.png}" />
+</header>
+
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
-<nav>
-    <a class="btn btn-primary btn-xs" href="/job/add">Add New Job</a>
-</nav>
+<nav th:replace="fragments :: navigation"></nav>
+<div class="main">
+    <form method="post" th:object="${statement}">
+        <div class="form-group">
+            <label th:for="description">Statement</label>
+            <textarea class="form-control" th:field="*{description}" />
+            <span th:errors="*{description}" class="error"></span>
+        </div>
 
-
-<form method="post" th:object="${statement}">
-
-    <div class="form-group">
-        <label th:for="description">Statement</label>
-        <input class="form-control" th:field="*{description}" />
-        <span th:errors="*{description}" class="error"></span>
-    </div>
-
-    <input type="submit" value="Edit Statement" />
-</form>
-
-
+        <input type="submit" value="Add Statement" />
+    </form>
+</div>
 </body>
-
 </html>
