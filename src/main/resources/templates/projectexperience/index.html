@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/jobmain.css" />
+</head>
+<header>
+    <img th:src="@{../../photos/dev1.png}" />
+</header>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav>
+    <a class="btn btn-primary btn-xs" href="/projectexperience/add">Add New Projects</a>
+</nav>
+
+<p th:unless="${projects} and ${projects.size()}">No Projects have been added</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th></th>
+        <th>Project Name</th>
+        <th>Summary</th>
+        <th>Details</th>
+        <th>Details</th>
+        <th>Details</th>
+    </tr>
+
+    <tr th:each="project : ${projects}">
+        <td><a th:href="'projectexperience/edit/' + ${project.id}" th:text="Edit"></a></td>
+        <td th:text="${project.name}"></td>
+        <td th:text="${project.summary}"></td>
+        <td th:text="${project.detail1}"></td>
+        <td th:text="${project.detail2}"></td>
+        <td th:text="${project.detail3}"></td>
+
+    </tr>
+
+</table>
+</body>
+
+</html>

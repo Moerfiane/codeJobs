@@ -24,6 +24,7 @@ public class ProjectExperience {
 
     @NotNull
     @Size(min = 3, max = 100)
+
     private String detail1;
 
     @Size(max = 100)
