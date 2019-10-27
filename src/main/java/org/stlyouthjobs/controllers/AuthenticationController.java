@@ -51,7 +51,7 @@ public class AuthenticationController extends AbstractController {
         session.setAttribute("username",newUser.getUsername());
         setUserInSession(request.getSession(), newUser);
 
-        if (form.getAccess().equals("1")) {
+        if (form.getAccess().equals("2")) {
             return "redirect:/newapplicant/add";
         }
 
@@ -86,7 +86,7 @@ public class AuthenticationController extends AbstractController {
         session.setAttribute("username",newUser.getUsername());
         setUserInSession(request.getSession(), newUser);
 
-        if (form.getAccess().equals("2")) {
+        if (form.getAccess().equals("3")) {
             return "redirect:/newemployer/add";
         }
         return "redirect:register/employer";
@@ -121,10 +121,10 @@ public class AuthenticationController extends AbstractController {
         setUserInSession(request.getSession(), newUser);
 
 
-        if (form.getAccess().equals("3")){
-            return "redirect:category";
+        if (form.getAccess().equals("1")){
+            return "redirect:/newapplicant/add";
         }
-        return "redirect:register";
+        return "redirect:newapplicant/add";
     }
 
 //    public void setUserInSession(HttpSession session, User newUser) {
@@ -162,6 +162,7 @@ public class AuthenticationController extends AbstractController {
         setUserInSession(request.getSession(), theUser);
 
         return "redirect:/job";
+
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
