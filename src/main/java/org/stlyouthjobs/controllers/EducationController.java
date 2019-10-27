@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.stlyouthjobs.models.Education;
 import org.stlyouthjobs.models.data.EducationDao;
 
@@ -20,6 +17,14 @@ public class EducationController {
 
     @Autowired
     private EducationDao educationDao;
+
+    @RequestMapping(value = "")
+    public String index(Model model) {
+        model.addAttribute("title", "Education");
+        model.addAttribute("education", educationDao.findAll());
+
+        return "education/index";
+    }
 
     @RequestMapping(value = "add", method=RequestMethod.GET)
     public String add(Model model){
@@ -49,6 +54,40 @@ public class EducationController {
 
         educationDao.save(newEducation);
         return "redirect:/applicantportal/add";
+
+    }
+
+    @RequestMapping(value = "edit/{educationId}", method = RequestMethod.GET)
+    public String displayEditJobForm(Model model, @PathVariable int educationId) {
+
+        model.addAttribute("title", "Edit Education");
+        model.addAttribute("education", educationDao.findOne(educationId));
+
+        return "education/edit";
+
+    }
+
+
+    @RequestMapping(value = "edit/{educationId}", method = RequestMethod.POST)
+    public String processEditJobForm(Model model, @PathVariable int educationId, @ModelAttribute @Valid Education newEducation,
+                                     Errors errors) {
+
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Add Education");
+            return "education/edit";
+        }
+
+        Education editedEducation = educationDao.findOne(educationId);
+        editedEducation.setSchoolName(newEducation.getSchoolName());
+        editedEducation.setDegree(newEducation.getDegree());
+        editedEducation.setStartDate(newEducation.getStartDate());
+        editedEducation.setCompletionDate(newEducation.getCompletionDate());
+        editedEducation.setCurrent(newEducation.getCurrent());
+        educationDao.save(editedEducation);
+
+        return "redirect:/education/";
+
+
 
     }
 

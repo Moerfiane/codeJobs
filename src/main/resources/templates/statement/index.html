@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<br />
+
+<p th:unless="${statements} and ${statements.size()}">No applicants have been added.</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th></th>
+        <th>Statement</th>
+    </tr>
+
+    <tr th:each="statement : ${statements}">
+        <td><a th:href="'edit/' + ${statement.id}" th:text="Edit"></a></td>
+        <td th:text="${statement.description}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

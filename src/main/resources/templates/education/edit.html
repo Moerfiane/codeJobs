@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav>
+    <a class="btn btn-primary btn-xs" href="/job/add">Add New Job</a>
+</nav>
+
+
+<form method="post" th:object="${education}">
+
+    <div class="form-group">
+        <label th:for="schoolName">School Name</label>
+        <input class="form-control" th:field="*{schoolName}" />
+        <span th:errors="*{schoolName}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="degree">Degree</label>
+        <input class="form-control" th:field="*{degree}" />
+        <span th:errors="*{degree}"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="startDate">Start Date</label>
+        <input class="form-control" th:field="*{startDate}" />
+        <span th:errors="*{startDate}"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="completionDate">Completion Date</label>
+        <input class="form-control" th:field="*{completionDate}" />
+        <span th:errors="*{completionDate}"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="current">Current</label>
+        <input class="form-control" th:field="*{current}" />
+        <span th:errors="*{current}"></span>
+    </div>
+
+    <input type="submit" value="Edit Education" />
+</form>
+
+
+</body>
+
+</html>
