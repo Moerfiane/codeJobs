@@ -61,15 +61,6 @@ public class Skills {
     @Size(max=50)
     private String database3;
 
-    @Size(max=50)
-    private String database4;
-
-    @Size(max=50)
-    private String database5;
-
-    @Size(max=50)
-    private String database6;
-
     @NotNull
     @Size(max=50)
     private String tool1;
@@ -80,20 +71,15 @@ public class Skills {
     @Size(max=50)
     private String tool3;
 
-    @Size(max=50)
-    private String tool14;
-
-    @Size(max=50)
-    private String tool5;
-
-    @Size(max=50)
-    private String tool6;
-
     private Integer session;
 
     public Skills() {}
 
-    public Skills(int id, String language1, String language2, String language3, String language4, String language5, String language6, String framework1, String framework2, String framework3, String framework4, String framework5, String framework6, String database1, String database2, String database3, String database4, String database5, String database6, String tool1, String tool2, String tool3, String tool14, String tool5, String tool6, Integer session) {
+    public Skills(int id, String language1, String language2, String language3,
+                  String language4, String language5, String language6, String framework1,
+                  String framework2, String framework3, String framework4, String framework5,
+                  String framework6, String database1, String database2, String database3,
+                  String tool1, String tool2, String tool3, Integer session) {
         this.id = id;
         this.language1 = language1;
         this.language2 = language2;
@@ -110,15 +96,9 @@ public class Skills {
         this.database1 = database1;
         this.database2 = database2;
         this.database3 = database3;
-        this.database4 = database4;
-        this.database5 = database5;
-        this.database6 = database6;
         this.tool1 = tool1;
         this.tool2 = tool2;
         this.tool3 = tool3;
-        this.tool14 = tool14;
-        this.tool5 = tool5;
-        this.tool6 = tool6;
         this.session = session;
     }
 
@@ -254,30 +234,6 @@ public class Skills {
         this.database3 = database3;
     }
 
-    public String getDatabase4() {
-        return database4;
-    }
-
-    public void setDatabase4(String database4) {
-        this.database4 = database4;
-    }
-
-    public String getDatabase5() {
-        return database5;
-    }
-
-    public void setDatabase5(String database5) {
-        this.database5 = database5;
-    }
-
-    public String getDatabase6() {
-        return database6;
-    }
-
-    public void setDatabase6(String database6) {
-        this.database6 = database6;
-    }
-
     public String getTool1() {
         return tool1;
     }
@@ -302,27 +258,4 @@ public class Skills {
         this.tool3 = tool3;
     }
 
-    public String getTool14() {
-        return tool14;
-    }
-
-    public void setTool14(String tool14) {
-        this.tool14 = tool14;
-    }
-
-    public String getTool5() {
-        return tool5;
-    }
-
-    public void setTool5(String tool5) {
-        this.tool5 = tool5;
-    }
-
-    public String getTool6() {
-        return tool6;
-    }
-
-    public void setTool6(String tool6) {
-        this.tool6 = tool6;
-    }
 }
