@@ -18,7 +18,7 @@
     </tr>
 
     <tr th:each="educate : ${education}">
-        <td><a th:href="'education/edit/' + ${educate.id}" th:text="Edit"></a></td>
+        <td><a th:href="'edit/' + ${educate.id}" th:text="Edit"></a></td>
         <td th:text="${educate.schoolName}"></td>
         <td th:text="${educate.degree}"></td>
         <td th:text="${educate.startDate}"></td>

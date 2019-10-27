@@ -26,7 +26,7 @@ public class NewApplicantController {
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping("display")
+    @RequestMapping("")
     public String index(Model model) {
 
         model.addAttribute("title", "Display Applicants");
@@ -85,7 +85,7 @@ public class NewApplicantController {
         editedApplicant.setEmail(newApplicant.getEmail());
         newApplicantDao.save(editedApplicant);
 
-        return "redirect:/newapplicant/display";
+        return "redirect:/newapplicant/";
 
     }
 
