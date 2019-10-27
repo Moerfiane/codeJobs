@@ -25,9 +25,9 @@ public class JobController {
     private UserDao userDao;
 
     @RequestMapping(value="")
-    public String index(Model model, HttpSession session, HttpServletRequest request){
-//        Integer username =(Integer) session.getAttribute("user_id");
-//        System.out.println(username + "new");
+    public String index(Model model, HttpSession session){
+        Integer username =(Integer) session.getAttribute("user_id");
+        System.out.println(username + "new");
         model.addAttribute("jobs", (jobDao.findAll()));
 
         return "job/index";
