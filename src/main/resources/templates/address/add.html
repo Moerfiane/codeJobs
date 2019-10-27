@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+
+<header>
+    <img th:src="@{../../photos/dev1.png}" />
+</header>
+
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
-
+<div class="main">
 <form method="post" th:object="${address}">
     <div class="form-group">
         <label th:for="streetNumber">Street Number</label>
-        <input class="form-control" th:field = "*{streetNumber}" />
+        <input class="form-control" th:field = "*{streetNumber}" type="text" />
         <span class="error" th:errors="*{streetNumber}"></span>
     </div>
 
     <div class="form-group">
         <label th:for="streetName">Street Name</label>
-        <input class="form-control" th:field = "*{streetName}" />
+        <input class="form-control" th:field = "*{streetName}" type="text" />
         <span class="error" th:errors="*{streetName}"></span>
     </div>
 
     <div class="form-group">
         <label th:for="city">City</label>
-        <input class="form-control" th:field = "*{city}" />
+        <input class="form-control" th:field = "*{city}" type="text" />
         <span class="error" th:errors="*{city}"></span>
     </div>
 
     <div class="form-group">
         <label th:for="zipCode">Zip Code</label>
-        <input class="form-control" th:field = "*{zipCode}" />
+        <input class="form-control" th:field = "*{zipCode}" type="text" />
         <span class="error" th:errors="*{zipCode}"></span>
     </div>
 
     <div class="form-group">
         <label th:for="neighborhood">Neighborhood</label>
-        <input class="form-control" th:field = "*{neighborhood}" />
+        <input class="form-control" th:field = "*{neighborhood}" type="text" />
         <span class="error" th:errors="*{neighborhood}"></span>
     </div>
     <input type="submit" value="Add My Company" />
 </form>
+</div>
 </body>
 </html>
