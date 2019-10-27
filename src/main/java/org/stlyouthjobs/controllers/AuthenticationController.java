@@ -17,7 +17,7 @@ import javax.validation.Valid;
 /**
  * Created by LaunchCode
  */
-//statement tech skill, project experience, work exp, education, applicant eligibility
+
 @Controller
 @RequestMapping("register")
 public class AuthenticationController extends AbstractController {

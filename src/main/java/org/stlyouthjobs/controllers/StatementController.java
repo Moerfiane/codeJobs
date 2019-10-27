@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.stlyouthjobs.models.Statement;
@@ -20,6 +21,14 @@ public class StatementController {
     @Autowired
     private StatementDao statementDao;
 
+    @RequestMapping(value = "")
+    public String index(Model model) {
+        model.addAttribute("title", "Display Statements");
+        model.addAttribute("statements", statementDao.findAll());
+
+        return "statement/index";
+    }
+
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model){
         model.addAttribute("title", "Add Statement");
@@ -34,13 +43,44 @@ public class StatementController {
             return "statement/add";
         }
 
-        Integer name =(Integer) session.getAttribute("user_id");
+        Integer name = (Integer) session.getAttribute("user_id");
         System.out.println(name +" is session name");
         newStatement.setSession(name);
 
         statementDao.save(newStatement);
         return "redirect:/skills/add";
+
     }
+
+    @RequestMapping(value = "edit/{statementId}", method = RequestMethod.GET)
+    public String displayEditStatementForm(Model model, @PathVariable int statementId) {
+
+        model.addAttribute("title", "Edit Statement");
+        model.addAttribute("statement", statementDao.findOne(statementId));
+
+        return "statement/edit";
+
+    }
+
+    @RequestMapping(value = "edit/{statementId}", method = RequestMethod.POST)
+    public String processStatementForm(Model model, @PathVariable int statementId, @ModelAttribute
+    @Valid Statement newStatement, Errors errors) {
+
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Edit Statement");
+            return "statement/edit";
+        }
+
+        Statement editedStatement = statementDao.findOne(statementId);
+        editedStatement.setDescription(newStatement.getDescription());
+        statementDao.save(editedStatement);
+
+        return "redirect:/statement/";
+
+    }
+
+
+
 }
 
 
