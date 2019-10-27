@@ -8,9 +8,7 @@ import org.stlyouthjobs.models.User;
 import javax.transaction.Transactional;
 import java.util.List;
 
-/**
- * Created by LaunchCode
- */
+
 @Transactional
 @Repository
 public interface UserDao extends CrudRepository<User, Integer> {

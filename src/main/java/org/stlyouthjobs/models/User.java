@@ -6,9 +6,7 @@ import javax.persistence.Entity;
 
 import javax.validation.constraints.NotNull;
 
-/**
- * Created by LaunchCode
- */
+
 @Entity
 public class User extends AbstractEntity {
 
