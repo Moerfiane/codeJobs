@@ -11,7 +11,7 @@
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
+
 
 <div class="box">
 <form method="post" th:object="${registerForm}">
@@ -33,16 +33,14 @@
 
     <input class="btn btn-primary btn-xs" type="submit" value="Register" />
     <a class="btn btn-default btn-xs" href="/login">Login</a>
-</form>
-</div>
+
+
     <div class="invisible">
         <div class="form-group">
             <label th:for="access">Access</label>
-            <input class="form-control" type="text"   name="access" value="3" th:errorclass="field-error"  />
+            <input class="form-control" type="text"   name="access" value="1" th:errorclass="field-error"  />
         </div>
     </div>
-
-
 </form>
 </div>
 </body>
