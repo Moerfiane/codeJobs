@@ -35,7 +35,7 @@
     </tr>
 
     <tr th:each="skill : ${skills}">
-        <td><a th:href="'skills/edit/' + ${skill.id}" th:text="Edit"></a></td>
+        <td><a th:href="'skills/edit/' + ${skill.session}" th:text="Edit"></a></td>
         <td th:text="${skill.language1}"></td>
         <td th:text="${skill.language2}"></td>
         <td th:text="${skill.language3}"></td>

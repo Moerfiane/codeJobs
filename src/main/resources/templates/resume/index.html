@@ -75,7 +75,7 @@
             <th>Detail</th>
         </tr>
         <tr th:each="projectExperience : ${projectExperiences}">
-            <td><a th:href="'projectExperience/edit/' + ${projectExperience.session}" th:text="Edit"></a></td>
+            <td><a th:href="'projectexperience/edit/' + ${projectExperience.session}" th:text="Edit"></a></td>
             <td th:text="${projectExperience.name}"></td>
             <td th:text="${projectExperience.summary}"></td>
             <td th:text="${projectExperience.detail1}"></td>
@@ -95,7 +95,7 @@
             <th>Detail</th>
         </tr>
         <tr th:each="workExperience : ${workExperiences}">
-            <td><a th:href="'workExperience/edit/' + ${workExperience.session}" th:text="Edit"></a></td>
+            <td><a th:href="'workexperience/edit/' + ${workExperience.session}" th:text="Edit"></a></td>
             <td th:text="${workExperience.jobTitle}"></td>
             <td th:text="${workExperience.companyName}"></td>
             <td th:text="${workExperience.location}"></td>
@@ -131,7 +131,7 @@
             <th>Current</th>
         </tr>
         <tr th:each="newApplicant : ${newApplicants}">
-            <td><a th:href="'newApplicant/edit/' + ${newApplicant.session}" th:text="Edit"></a></td>
+            <td><a th:href="'newapplicant/edit/' + ${newApplicant.session}" th:text="Edit"></a></td>
             <td th:text="${newApplicant.gitHub}"></td>
             <td th:text="${newApplicant.linkedIn}"></td>
             <td th:text="${newApplicant.name}"></td>

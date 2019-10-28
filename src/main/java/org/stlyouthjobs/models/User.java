@@ -29,6 +29,10 @@ public class User extends AbstractEntity {
         this.access = access;
     }
 
+    public String getAccess() {
+        return access;
+    }
+
     public String getUsername() {
         return username;
     }

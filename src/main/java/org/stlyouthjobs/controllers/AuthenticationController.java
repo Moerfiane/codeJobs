@@ -127,8 +127,6 @@ public class AuthenticationController extends AbstractController {
         return "redirect:register";
     }
 
-//    public void setUserInSession(HttpSession session, User newUser) {
-//    }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model) {
@@ -160,7 +158,18 @@ public class AuthenticationController extends AbstractController {
         session.setAttribute("userId",theUser.getUid());
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:/job";
+        if (theUser.getAccess().equals("1")) {
+            return "redirect:/testpage";
+        }
+
+        if (theUser.getAccess().equals("2")) {
+            return "redirect:/newapplicant";
+        }
+        if (theUser.getAccess().equals("3")) {
+            return "redirect:/job";
+        } else {
+            return "redirect:/register/login";
+        }
     }
 
 
