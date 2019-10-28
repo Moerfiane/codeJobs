@@ -1,11 +1,13 @@
 body {
-    background: aquamarine;
+    border-style: solid;
+    border-width: medium;
+    border-color: aquamarine;
     font-family: sans-serif;
     padding: 20px;
 }
 
 .container {
     display: grid;
-    grid-template-columns: 35% 35% 35%;
+    grid-template-columns: 15% 15% 15% 15%;
 
 }
