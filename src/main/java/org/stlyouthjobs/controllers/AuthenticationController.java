@@ -51,11 +51,11 @@ public class AuthenticationController extends AbstractController {
         session.setAttribute("username",newUser.getUsername());
         setUserInSession(request.getSession(), newUser);
 
-        if (form.getAccess().equals("1")) {
+        if (form.getAccess().equals("2")) {
             return "redirect:/newapplicant/add";
         }
 
-        return "redirect:register";
+        return "redirect:/statement/add";
     }
 
     @RequestMapping(value = "employer", method = RequestMethod.GET)
@@ -69,7 +69,7 @@ public class AuthenticationController extends AbstractController {
     public String registerEmployerForm(HttpSession  session, @ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            return "register/employer";
+            return "/register/employer";
         }
 
         User existingUser = userDao.findByUsername(form.getUsername());
@@ -78,7 +78,7 @@ public class AuthenticationController extends AbstractController {
 
         if (existingUser != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
-            return "register/employer";
+            return "/register/employer";
         }
 
         User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
@@ -86,10 +86,10 @@ public class AuthenticationController extends AbstractController {
         session.setAttribute("username",newUser.getUsername());
         setUserInSession(request.getSession(), newUser);
 
-        if (form.getAccess().equals("2")) {
+        if (form.getAccess().equals("3")) {
             return "redirect:/newemployer/add";
         }
-        return "redirect:register/employer";
+        return "redirect:/register/employer";
     }
 
     @RequestMapping(value = "admin", method = RequestMethod.GET)
@@ -103,7 +103,7 @@ public class AuthenticationController extends AbstractController {
     public String registerAdminForm(HttpSession  session, @ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            return "register/admin";
+            return "/register/admin";
         }
 
         User existingUser = userDao.findByUsername(form.getUsername());
@@ -112,7 +112,7 @@ public class AuthenticationController extends AbstractController {
 
         if (existingUser != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
-            return "register";
+            return "/register";
         }
 
         User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
@@ -121,10 +121,10 @@ public class AuthenticationController extends AbstractController {
         setUserInSession(request.getSession(), newUser);
 
 
-        if (form.getAccess().equals("3")){
-            return "redirect:category";
+        if (form.getAccess().equals("1")){
+            return "redirect:/job";
         }
-        return "redirect:register";
+        return "redirect:/register";
     }
 
 
@@ -163,12 +163,12 @@ public class AuthenticationController extends AbstractController {
         }
 
         if (theUser.getAccess().equals("2")) {
-            return "redirect:/newapplicant";
+            return "redirect:/resume";
         }
         if (theUser.getAccess().equals("3")) {
             return "redirect:/job";
         } else {
-            return "redirect:/register/login";
+            return "redirect:register/login";
         }
     }
 

@@ -49,7 +49,7 @@ public class AddressController {
         address.setSession(name);
 
         addressDao.save(address);
-        return "redirect:/aboutme/add";
+        return "redirect:/job";
     }
 }
 
