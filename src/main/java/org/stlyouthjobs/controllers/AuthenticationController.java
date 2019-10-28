@@ -55,7 +55,7 @@ public class AuthenticationController extends AbstractController {
             return "redirect:/newapplicant/add";
         }
 
-        return "redirect:register";
+        return "redirect:/statement/add";
     }
 
     @RequestMapping(value = "employer", method = RequestMethod.GET)
@@ -69,7 +69,7 @@ public class AuthenticationController extends AbstractController {
     public String registerEmployerForm(HttpSession  session, @ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            return "register/employer";
+            return "/register/employer";
         }
 
         User existingUser = userDao.findByUsername(form.getUsername());
@@ -78,7 +78,7 @@ public class AuthenticationController extends AbstractController {
 
         if (existingUser != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
-            return "register/employer";
+            return "/register/employer";
         }
 
         User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
@@ -89,7 +89,7 @@ public class AuthenticationController extends AbstractController {
         if (form.getAccess().equals("3")) {
             return "redirect:/newemployer/add";
         }
-        return "redirect:register/employer";
+        return "redirect:/register/employer";
     }
 
     @RequestMapping(value = "admin", method = RequestMethod.GET)
@@ -103,7 +103,7 @@ public class AuthenticationController extends AbstractController {
     public String registerAdminForm(HttpSession  session, @ModelAttribute @Valid RegisterForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            return "register/admin";
+            return "/register/admin";
         }
 
         User existingUser = userDao.findByUsername(form.getUsername());
@@ -112,7 +112,7 @@ public class AuthenticationController extends AbstractController {
 
         if (existingUser != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
-            return "register";
+            return "/register";
         }
 
         User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
@@ -122,13 +122,11 @@ public class AuthenticationController extends AbstractController {
 
 
         if (form.getAccess().equals("1")){
-            return "redirect:/newapplicant/add";
+            return "redirect:/job";
         }
-        return "redirect:newapplicant/add";
+        return "redirect:/register";
     }
 
-//    public void setUserInSession(HttpSession session, User newUser) {
-//    }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model) {
@@ -153,7 +151,6 @@ public class AuthenticationController extends AbstractController {
         }
 
 
-
         if (!theUser.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
             return "/register/login";
@@ -161,9 +158,20 @@ public class AuthenticationController extends AbstractController {
         session.setAttribute("userId",theUser.getUid());
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:/job";
+        if (theUser.getAccess().equals("1")) {
+            return "redirect:/testpage";
+        }
 
+        if (theUser.getAccess().equals("2")) {
+            return "redirect:/resume";
+        }
+        if (theUser.getAccess().equals("3")) {
+            return "redirect:/job";
+        } else {
+            return "redirect:register/login";
+        }
     }
+
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpServletRequest request){

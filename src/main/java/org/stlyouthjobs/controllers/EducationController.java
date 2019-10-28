@@ -53,7 +53,7 @@ public class EducationController {
         newEducation.setSession(name);
 
         educationDao.save(newEducation);
-        return "redirect:/newapplicant";
+        return "redirect:/resume";
 
     }
 
