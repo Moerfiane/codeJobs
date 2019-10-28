@@ -10,7 +10,7 @@
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
+
 <div class="main">
 <form method="post" th:object="${workExperience}">
     <div class="form-group">
@@ -33,13 +33,13 @@
 
     <div class="form-group">
         <label th:for="startDate">Start Date</label>
-        <input class="form-control" th:field="*{startDate}" type="text" />
+        <input class="form-control" th:field="*{startDate}" type="date" />
         <span th:errors="*{startDate}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="endDate">End Date</label>
-        <input class="form-control" th:field="*{endDate}" type="text" />
+        <input class="form-control" th:field="*{endDate}" type="date" />
         <span th:errors="*{endDate}" class="error"></span>
     </div>
 
