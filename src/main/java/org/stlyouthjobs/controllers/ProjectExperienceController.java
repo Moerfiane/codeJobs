@@ -60,7 +60,7 @@ public class ProjectExperienceController {
     public String displayEditJobForm(Model model, @PathVariable int projectExperienceId) {
 
         model.addAttribute("title", "Edit Applicant");
-        model.addAttribute("projectexperience", projectExperienceDao.findOne(projectExperienceId));
+        model.addAttribute("projectExperience", projectExperienceDao.findOne(projectExperienceId));
 
         return "projectexperience/edit";
 
