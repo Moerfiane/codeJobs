@@ -42,10 +42,10 @@ public class ResumeController {
             System.out.println(user + "new");
             model.addAttribute("statements", (statementDao.findOne(user)));
             model.addAttribute("skills", (skillsDao.findOne(user)));
-            model.addAttribute("jobs", (projectExperienceDao.findOne(user)));
-            model.addAttribute("jobs", (workExperienceDao.findOne(user)));
-            model.addAttribute("jobs", (educationDao.findOne(user)));
-            model.addAttribute("jobs", (newApplicantDao.findOne(user)));
+            model.addAttribute("projectExperiences", (projectExperienceDao.findOne(user)));
+            model.addAttribute("workExperiences", (workExperienceDao.findOne(user)));
+            model.addAttribute("educations", (educationDao.findOne(user)));
+            model.addAttribute("newApplicants", (newApplicantDao.findOne(user)));
 
         return "resume/index";
     }

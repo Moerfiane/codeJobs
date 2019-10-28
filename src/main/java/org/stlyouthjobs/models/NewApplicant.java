@@ -15,8 +15,7 @@ import javax.validation.constraints.Size;
 public class NewApplicant {
 
     @Id
-    @GeneratedValue
-    private int id;
+    private Integer session;
 
 
     @NotNull
@@ -41,12 +40,11 @@ public class NewApplicant {
     @Email
     private String email;
 
-    private Integer session;
+
 
     public NewApplicant() { }
 
-    public NewApplicant(int id, String gitHub, String linkedIn, String name, String phoneNum, String email, Integer session) {
-        this.id = id;
+    public NewApplicant(String gitHub, String linkedIn, String name, String phoneNum, String email, Integer session) {
         this.gitHub = gitHub;
         this.linkedIn = linkedIn;
         this.name = name;
@@ -63,9 +61,6 @@ public class NewApplicant {
         this.session = session;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getGitHub() {
         return gitHub;

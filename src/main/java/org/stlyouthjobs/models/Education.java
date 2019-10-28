@@ -12,8 +12,7 @@ import javax.validation.constraints.Size;
 public class Education {
 
     @Id
-    @GeneratedValue
-    private int id;
+    private Integer session;
 
     @NotNull
     @Size(min=3, max=50)
@@ -33,17 +32,12 @@ public class Education {
 
     private String current;
 
-    private Integer session;
 
 
-    //empty constructor
     public Education(){}
 
-    //parameter to set name of field
+    public Education(String schoolName, String degree, String startDate, String completionDate, String current, Integer session) {
 
-
-    public Education(int id, String schoolName, String degree, String startDate, String completionDate, String current, Integer session) {
-        this.id = id;
         this.schoolName = schoolName;
         this.degree = degree;
         this.startDate = startDate;
@@ -58,11 +52,6 @@ public class Education {
 
     public void setSession(Integer session) {
         this.session = session;
-    }
-
-    //only a getter for id. other classes shouldn't be able to change the id.
-    public int getId() {
-        return id;
     }
 
     public String getSchoolName() {

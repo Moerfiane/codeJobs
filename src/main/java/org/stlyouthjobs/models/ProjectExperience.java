@@ -11,8 +11,7 @@ import javax.validation.constraints.Size;
 public class ProjectExperience {
 
     @Id
-    @GeneratedValue
-    private int id;
+    private Integer session;
 
     @NotNull
     @Size(min = 3, max = 50)
@@ -32,12 +31,11 @@ public class ProjectExperience {
     @Size(max = 100)
     private String detail3;
 
-    private Integer session;
+
 
     public ProjectExperience() { }
 
-    public ProjectExperience(int id, String name, String summary, String detail1, String detail2, String detail3, Integer session) {
-        this.id = id;
+    public ProjectExperience(String name, String summary, String detail1, String detail2, String detail3, Integer session) {
         this.name = name;
         this.summary = summary;
         this.detail1 = detail1;
@@ -54,9 +52,6 @@ public class ProjectExperience {
         this.session = session;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;

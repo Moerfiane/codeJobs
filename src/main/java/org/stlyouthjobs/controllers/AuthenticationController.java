@@ -153,7 +153,6 @@ public class AuthenticationController extends AbstractController {
         }
 
 
-
         if (!theUser.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
             return "/register/login";
@@ -163,6 +162,7 @@ public class AuthenticationController extends AbstractController {
 
         return "redirect:/job";
     }
+
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpServletRequest request){

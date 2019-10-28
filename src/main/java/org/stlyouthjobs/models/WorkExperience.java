@@ -13,8 +13,7 @@ import javax.validation.constraints.Size;
 public class WorkExperience {
 
     @Id
-    @GeneratedValue
-    private int id;
+    private Integer session;
 
     @NotNull
     @Size(min = 3, max = 50)
@@ -48,12 +47,12 @@ public class WorkExperience {
     @Size(min = 3, max = 100)
     private String detail3;
 
-    private Integer session;
+
 
     public WorkExperience() { }
 
-    public WorkExperience(int id, String jobTitle, String companyName, String location, String startDate, String endDate, String current, String detail1, String detail2, String detail3, Integer session) {
-        this.id = id;
+    public WorkExperience(String jobTitle, String companyName, String location, String startDate, String endDate, String current, String detail1, String detail2, String detail3, Integer session) {
+
         this.jobTitle = jobTitle;
         this.companyName = companyName;
         this.location = location;
@@ -72,10 +71,6 @@ public class WorkExperience {
 
     public void setSession(Integer session) {
         this.session = session;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getJobTitle() {

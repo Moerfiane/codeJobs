@@ -10,8 +10,7 @@ import javax.validation.constraints.Size;
 public class Skills {
 
     @Id
-    @GeneratedValue
-    private int id;
+    private Integer session;
 
     @NotNull
     @Size(max=50)
@@ -71,16 +70,14 @@ public class Skills {
     @Size(max=50)
     private String tool3;
 
-    private Integer session;
 
     public Skills() {}
 
-    public Skills(int id, String language1, String language2, String language3,
+    public Skills(String language1, String language2, String language3,
                   String language4, String language5, String language6, String framework1,
                   String framework2, String framework3, String framework4, String framework5,
                   String framework6, String database1, String database2, String database3,
                   String tool1, String tool2, String tool3, Integer session) {
-        this.id = id;
         this.language1 = language1;
         this.language2 = language2;
         this.language3 = language3;
@@ -110,9 +107,6 @@ public class Skills {
         this.session = session;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getLanguage1() {
         return language1;

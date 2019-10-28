@@ -10,19 +10,20 @@ import javax.validation.constraints.Size;
 public class Statement {
 
     @Id
-    @GeneratedValue
-    private int id;
+//    @GeneratedValue
+//    private int id;
+    private Integer session;
 
     @NotNull
     @Size(min = 3, max = 500)
     private String description;
 
-    private Integer session;
+//    private Integer session;
 
     public Statement() { }
 
-    public Statement(int id, String description, Integer session) {
-        this.id = id;
+    public Statement(String description, Integer session) {
+
         this.description = description;
         this.session = session;
     }
@@ -33,10 +34,6 @@ public class Statement {
 
     public void setSession(Integer session) {
         this.session = session;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getDescription() {
