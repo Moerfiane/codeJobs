@@ -46,6 +46,7 @@ public class NewEmployerController {
             model.addAttribute(new NewEmployer());
             return "newemployer/add";
         }
+
         Integer name =(Integer) session.getAttribute("user_id");
         System.out.println(name +" is session name");
         newEmployer.setSession(name);
