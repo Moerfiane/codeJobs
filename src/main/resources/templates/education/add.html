@@ -10,7 +10,7 @@
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
+
 <div class="main">
 <form method="post" th:object="${education}" >
     <div class="form-group">
@@ -42,8 +42,6 @@
         <input class="form-control" th:field="*{current}" type="text" />
         <span th:errors="*{current}" class="error"></span>
     </div>
-
-
     <input type="submit" value="Add Education" />
 </form>
 </div>
