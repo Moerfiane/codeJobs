@@ -1,12 +1,12 @@
 package org.stlyouthjobs.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
+//@Table(name="Job")
 public class Job {
 
     @Id
@@ -22,18 +22,18 @@ public class Job {
     private String address;
 
     @NotNull
-    @Size(min=3, max=60)
+    @Size(min = 3, max = 60)
     private String jobCategory;
 
     @NotNull
-    @Size(min=3, max=50)
+    @Size(min = 3, max = 50)
     private String location;
 
     @NotNull
     private String schedule;
 
     @NotNull
-    @Size(min=3, max = 250)
+    @Size(min = 3, max = 250)
     private String jobSummary;
 
     @NotNull
@@ -43,7 +43,7 @@ public class Job {
     private String numOfPositions;
 
     @NotNull
-    @Size(min=3, max=50)
+    @Size(min = 3, max = 50)
     private String dressCode;
 
     @NotNull
@@ -52,8 +52,13 @@ public class Job {
     @NotNull
     private String closingDate;
 
+   //@ManyToMany(mappedBy = "jobs")
+    //private List<App> apps;
+
+
     //empty constructor
-    public Job(){}
+    public Job() {
+    }
 
     //parameter to set name of field
     public Job(String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
@@ -162,4 +167,12 @@ public class Job {
     public void setClosingDate(String closingDate) {
         this.closingDate = closingDate;
     }
+
+    //public List<App> getApps() {
+        //return apps;
+    //}
+
+    //public void setApps(List<App> apps) {
+        //this.apps = apps;
+    //}
 }

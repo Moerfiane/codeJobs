@@ -24,10 +24,10 @@
         <th>Closing Date</th>
     </tr>
 
-    <tr th:each="app : ${apps}">
+    <tr th:each="job : ${jobs}">
 
-        <td><a th:href="'app/apply' + ${app.id}" th:text="Apply"></a></td>
-        <td th:text="${app.jobTitle}"></td>
+        <td><a th:href="'app/apply' + ${job.id}" th:text="Apply"></a></td>
+        <td th:text="${job.jobTitle}"></td>
         <td th:text="${app.address}"></td>
         <td th:text="${app.jobCategory}"></td>
         <td th:text="${app.jobSummary}"></td>

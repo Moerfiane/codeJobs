@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.stlyouthjobs.models.App;
-import org.stlyouthjobs.models.Job;
 import org.stlyouthjobs.models.data.AppDao;
+import org.stlyouthjobs.models.data.JobDao;
 
 import javax.validation.Valid;
 
@@ -22,11 +22,25 @@ public class ApplicationPortalController
     @Autowired
     private AppDao appDao;
 
+    @Autowired
+    private JobDao jobDao;
+
     @RequestMapping(value = "")
     public String index(Model model){
 
         model.addAttribute("title", "Application Portal");
         model.addAttribute("apps", appDao.findAll());
+        model.addAttribute("jobTitle", jobDao.findOne());
+        model.addAttribute("address", jobDao.findOne());
+        model.addAttribute("jobCategory", jobDao.findOne());
+        model.addAttribute("jobSummary", jobDao.findOne());
+        model.addAttribute("location", jobDao.findOne());
+        model.addAttribute("schedule", jobDao.findOne());
+        model.addAttribute("positionType", jobDao.findOne());
+        model.addAttribute("numOfPositions", jobDao.findOne());
+        model.addAttribute("dressCode", jobDao.findOne());
+        model.addAttribute("payRate", jobDao.findOne());
+        model.addAttribute("closingDate", jobDao.findOne());
 
         return "app/index";
     }

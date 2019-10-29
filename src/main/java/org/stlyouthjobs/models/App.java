@@ -3,6 +3,7 @@ package org.stlyouthjobs.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class App {
@@ -47,6 +48,9 @@ public class App {
 
     @NotNull
     private String closingDate;
+
+    //@ManyToMany
+    //private List<Job> jobs;
 
 
     //empty constructor
@@ -167,4 +171,8 @@ public class App {
     public void setClosingDate(String closingDate) {
         this.closingDate = closingDate;
     }
+
+    //public List<Job> getJobs() {
+        //return jobs;
+    //}
 }

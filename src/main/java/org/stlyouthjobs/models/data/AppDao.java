@@ -8,4 +8,6 @@ import org.stlyouthjobs.models.App;
 @Repository
 @Transactional
 public interface AppDao extends CrudRepository <App, Integer> {
+
+    public App findByJobTitle(String jobTitle);
 }

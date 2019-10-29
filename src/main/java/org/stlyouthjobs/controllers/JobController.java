@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.stlyouthjobs.models.Job;
+import org.stlyouthjobs.models.data.AppDao;
 import org.stlyouthjobs.models.data.JobDao;
 
 import javax.validation.Valid;
@@ -16,6 +17,9 @@ public class JobController {
 
     @Autowired
     private JobDao jobDao;
+
+    @Autowired
+    private AppDao appDao;
 
     @RequestMapping(value="")
     public String index(Model model){
