@@ -78,9 +78,6 @@ public class StatementController {
         return "redirect:/statement/";
 
     }
-
-
-
 }
 
 
