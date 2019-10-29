@@ -1,5 +1,8 @@
 package org.CodeJobs.controllers;
 
+import org.CodeJobs.models.ProjectExperience;
+import org.CodeJobs.models.data.ProjectExperienceDao;
+import org.CodeJobs.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,9 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.stlyouthjobs.models.ProjectExperience;
-import org.stlyouthjobs.models.data.ProjectExperienceDao;
-import org.stlyouthjobs.models.data.UserDao;
+
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -59,7 +60,7 @@ public class ProjectExperienceController {
     @RequestMapping(value = "edit/{projectExperienceId}", method = RequestMethod.GET)
     public String displayEditJobForm(Model model, @PathVariable int projectExperienceId) {
 
-        model.addAttribute("title", "Edit Applicant");
+        model.addAttribute("title", "Edit Project");
         model.addAttribute("projectExperience", projectExperienceDao.findOne(projectExperienceId));
 
         return "projectexperience/edit";
@@ -71,8 +72,8 @@ public class ProjectExperienceController {
             ProjectExperience projectExperience, Errors errors) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Applicant");
-            return "newapplicant/edit";
+            model.addAttribute("title", "Add Project");
+            return "projectexperience/edit";
         }
 
         ProjectExperience editedProject = projectExperienceDao.findOne(projectExperienceId);
