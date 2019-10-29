@@ -1,5 +1,6 @@
 package org.stlyouthjobs.controllers;
 
+import org.apache.catalina.filters.ExpiresFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,10 +27,11 @@ public class ApplicationPortalController
     private JobDao jobDao;
 
     @RequestMapping(value = "")
-    public String index(Model model){
-
+    public String index(Model model, ExpiresFilter.XHttpServletResponse){
+        Integer user = (Integer) session.getAttribute("user_id");
+        System.out.println(user + "new");
         model.addAttribute("title", "Application Portal");
-        model.addAttribute("apps", appDao.findAll());
+        model.addAttribute("apps", appDao.findAll(user));
         model.addAttribute("jobTitle", jobDao.findOne());
         model.addAttribute("address", jobDao.findOne());
         model.addAttribute("jobCategory", jobDao.findOne());
