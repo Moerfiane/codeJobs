@@ -11,7 +11,8 @@
 
 <p th:unless="${education} and ${education.size()}">No education has been added.</p>
 
-<table th:if="${education} and ${education.size()}" class="table table-bordered">
+<table class="table table-bordered">
+    <p th:if="${education} and ${education.size()}">
     <tr>
         <th></th>
         <th>School Name</th>
@@ -22,13 +23,14 @@
     </tr>
 
     <tr th:each="educate : ${education}">
-        <td><a th:href="'edit/' + ${educate.id}" th:text="Edit"></a></td>
+        <td><a th:href="'edit/education/' + ${educate.session}" th:text="Edit"></a></td>
         <td th:text="${educate.schoolName}"></td>
         <td th:text="${educate.degree}"></td>
         <td th:text="${educate.startDate}"></td>
         <td th:text="${educate.completionDate}"></td>
         <td th:text="${educate.current}"></td>
     </tr>
+    </p>
 </table>
 
 </body>

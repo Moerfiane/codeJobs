@@ -9,9 +9,10 @@
 
 <div th:replace="fragments :: secondnav"></div>
 
-<p th:unless="${jobs} and ${jobs.size()}">No Jobs have been added</p>
+<p th:unless="${jobs} and ${jobs.size()}">No jobs have been added.</p>
 
 <table class="table table-bordered">
+    <p th:if="${jobs} and ${jobs.size()}">
     <tr>
         <th></th>
         <th>Job Title</th>
@@ -28,7 +29,7 @@
     </tr>
 
     <tr th:each="job : ${jobs}">
-        <td><a th:href="'job/edit/' + ${job.id}" th:text="Edit"></a></td>
+        <td><a th:href="'edit/job/' + ${job.id}" th:text="Edit"></a></td>
         <td th:text="${job.jobTitle}"></td>
         <td th:text="${job.address}"></td>
         <td th:text="${job.jobCategory}"></td>
@@ -41,7 +42,7 @@
         <td th:text="${job.payRate}"></td>
         <td th:text="${job.closingDate}"></td>
     </tr>
-
+    </p>
 </table>
 
 </body>

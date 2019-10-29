@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<div th:replace="fragments :: secondnav"></div>
+
+<p th:unless="${projectExperience} and ${projectExperience.size()}">No project experience has been added.</p>
+
+<table class="table table-bordered">
+    <p th:if="${projectExperience} and ${projectExperience.size()}">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Summary</th>
+            <th>Detail 1</th>
+            <th>Detail 2</th>
+            <th>Detail 3</th>
+        </tr>
+
+        <tr th:each="project : ${projectExperience}">
+            <td><a th:href="'edit/projectexperience/' + ${project.session}" th:text="Edit"></a></td>
+            <td th:text="${project.name}"></td>
+            <td th:text="${project.summary}"></td>
+            <td th:text="${project.detail1}"></td>
+            <td th:text="${project.detail2}"></td>
+            <td th:text="${project.detail3}"></td>
+        </tr>
+    </p>
+</table>
+
+</body>
+</html>
