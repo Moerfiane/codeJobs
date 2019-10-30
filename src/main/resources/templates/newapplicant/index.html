@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<br />
+
+<p th:unless="${applicants} and ${applicants.size()}">No applicants have been added.</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th></th>
+        <th>GitHub</th>
+        <th>LinkedIn</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+    </tr>
+
+    <tr th:each="applicant : ${applicants}">
+        <td><a th:href="'newapplicant/edit/' + ${applicant.session}" th:text="Edit"></a></td>
+        <td th:text="${applicant.gitHub}"></td>
+        <td th:text="${applicant.linkedIn}"></td>
+        <td th:text="${applicant.name}"></td>
+        <td th:text="${applicant.phoneNum}"></td>
+        <td th:text="${applicant.email}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

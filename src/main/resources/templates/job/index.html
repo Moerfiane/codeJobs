@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/jobmain.css" />
+</head>
+<header>
+    <img th:src="@{../../photos/dev1.png}" />
+</header>
+
     <body class="container">
     <h1 th:text="${title}">Default Title</h1>
 
