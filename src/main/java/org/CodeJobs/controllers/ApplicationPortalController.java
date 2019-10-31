@@ -1,5 +1,6 @@
-package org.stlyouthjobs.controllers;
+package org.CodeJobs.controllers;
 
+import org.CodeJobs.models.App;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,9 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.stlyouthjobs.models.App;
-import org.stlyouthjobs.models.Job;
-import org.stlyouthjobs.models.data.AppDao;
+
+import org.CodeJobs.models.data.AppDao;
 
 import javax.validation.Valid;
 
