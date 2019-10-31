@@ -1,20 +1,17 @@
 package org.stlyouthjobs.models;
 
 import javax.persistence.*;
+import java.util.Set;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
+
 
 @Entity
-public class App {
+public class Application {
 
     @Id
     @GeneratedValue
     private int id;
-
-    @NotNull
-    @Size(min=3, max=60)
-    private String name;
 
     @NotNull
     private String jobTitle;
@@ -49,16 +46,20 @@ public class App {
     @NotNull
     private String closingDate;
 
-    //@ManyToMany
-    //private List<Job> jobs;
-
+    @ManyToMany
+    @JoinTable(
+            name = "apply_job",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "job_id")
+    )
+    Set<Job> applyJobs;
 
     //empty constructor
-    public App(){}
+    public Application(){}
 
-    public App(String name, String jobTitle, String address, String jobCategory, String location, String schedule,
-               String jobSummary, String positionType, String numOfPositions, String dressCode, Double payRate, String closingDate) {
-        this.name = name;
+    public Application(String jobTitle, String address, String jobCategory, String location, String schedule,
+                       String jobSummary, String positionType, String numOfPositions, String dressCode, Double payRate, String closingDate) {
+        //this.name = name;
         this.jobTitle = jobTitle;
         this.address = address;
         this.jobCategory = jobCategory;
@@ -76,13 +77,13 @@ public class App {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
+    //public String getName() {
+    //    return name;
+    //}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    //public void setName(String name) {
+    //    this.name = name;
+    //}
 
     public String getJobTitle() {
         return jobTitle;
@@ -173,6 +174,6 @@ public class App {
     }
 
     //public List<Job> getJobs() {
-        //return jobs;
+    //return jobs;
     //}
 }

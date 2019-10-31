@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 //@Table(name="Job")
@@ -52,8 +53,9 @@ public class Job {
     @NotNull
     private String closingDate;
 
-   //@ManyToMany(mappedBy = "jobs")
-    //private List<App> apps;
+   @ManyToMany(mappedBy = "applyJobs")
+   Set<Application> applied;
+
 
 
     //empty constructor
