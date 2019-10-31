@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-
-<head>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
-</head>
-<header>
-    <img th:src="@{../../photos/dev1.png}" />
-</header>
+<head th:replace="fragments :: head"></head>
 
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
+
 <nav th:replace="fragments :: navigation"></nav>
 
+<div th:replace="fragments :: secondnav"></div>
 
 <div class="main">
     <form method="post" th:object="${skills}">
@@ -130,4 +126,4 @@
     </form>
 </div>
 </body>
-</html></html>
+</html>
