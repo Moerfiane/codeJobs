@@ -1,6 +1,7 @@
 package org.CodeJobs.controllers;
 
-import org.CodeJobs.models.App;
+
+import org.CodeJobs.models.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,13 +47,13 @@ public class ApplicationPortalController
         model.addAttribute("dressCode", "Add Dress Code");
         model.addAttribute("payRate", "Add Pay Rate");
         model.addAttribute("closingDate", "Add Closing Date");
-        model.addAttribute(new App());
+        model.addAttribute(new Application());
 
         return "app/apply";
     }
 
     @RequestMapping(value = "apply", method = RequestMethod.POST)
-    public String processApply(Model model, @ModelAttribute @Valid App newApp, Errors errors) {
+    public String processApply(Model model, @ModelAttribute @Valid Application newApp, Errors errors) {
 
         if(errors.hasErrors()){
             model.addAttribute("name", "Enter your name");
@@ -85,7 +86,7 @@ public class ApplicationPortalController
     }
 
     @RequestMapping(value="apply/{jobId}", method = RequestMethod.POST)
-    public String processEditForm(Model model, @PathVariable int appId, @ModelAttribute  @Valid App newApp,
+    public String processEditForm(Model model, @PathVariable int appId, @ModelAttribute  @Valid Application newApp,
                                   Errors errors) {
 
         if (errors.hasErrors()) {
@@ -93,7 +94,7 @@ public class ApplicationPortalController
             return "app/apply";
         }
 
-        App applyApp = appDao.findOne(appId);
+        Application applyApp = appDao.findOne(appId);
         applyApp.setJobTitle(newApp.getJobTitle());
         applyApp.setAddress(newApp.getAddress());
         applyApp.setJobCategory(newApp.getJobCategory());
