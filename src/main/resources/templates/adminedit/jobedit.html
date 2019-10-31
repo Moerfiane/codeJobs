@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
 
-<head>
-    <link rel="stylesheet" type="text/css" href="../css/main.css" />
-</head>
-<header>
-    <img th:src="@{../../photos/dev1.png}" />
-</header>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
 
-  <body class="container">
-    <h1 th:text="${title}">Default Title</h1>
-    <nav th:replace="fragments :: navigation"></nav>
+<nav th:replace="fragments :: navigation"></nav>
+
+<div th:replace="fragments :: secondnav"></div>
 
 
-    <nav>
-        <a class="btn btn-primary btn-xs" href="/job">Job Home</a>
-    </nav>
+<nav>
+    <a class="btn btn-primary btn-xs" href="/job">Job Home</a>
+</nav>
 <div class="main">
     <form method="post" style="max-width:600px;" th:object="${job}">
         <div class="form-group">
@@ -110,7 +107,7 @@
             <span th:errors="*{closingDate}" class="error"></span>
         </div>
 
-        <input type="submit" value="Add Job" />
+        <input type="submit" value="Edit Job" />
     </form>
 </div>
 </body>

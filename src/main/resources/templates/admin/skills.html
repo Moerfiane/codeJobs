@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
+
 <nav th:replace="fragments :: navigation"></nav>
 
-<nav>
-    <a class="btn btn-primary btn-xs" href="/skills/add">Add New Skills</a>
-</nav>
+<div th:replace="fragments :: secondnav"></div>
 
-<p th:unless="${skills} and ${skills.size()}">No skills have been added</p>
+<p th:unless="${skills} and ${skills.size()}">No skills have been added.</p>
 
 <table class="table table-bordered">
+    <p th:if="${skills} and ${skills.size()}">
     <tr>
         <th></th>
         <th>Languages</th>
@@ -36,7 +37,7 @@
     </tr>
 
     <tr th:each="skill : ${skills}">
-        <td><a th:href="'skills/edit/' + ${skill.session}" th:text="Edit"></a></td>
+        <td><a th:href="'edit/skills/' + ${skill.session}" th:text="Edit"></a></td>
         <td th:text="${skill.language1}"></td>
         <td th:text="${skill.language2}"></td>
         <td th:text="${skill.language3}"></td>
@@ -56,7 +57,7 @@
         <td th:text="${skill.tool2}"></td>
         <td th:text="${skill.tool3}"></td>
     </tr>
-
+    </p>
 </table>
 </body>
 

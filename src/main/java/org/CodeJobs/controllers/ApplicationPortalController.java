@@ -1,5 +1,6 @@
-package org.stlyouthjobs.controllers;
+package org.CodeJobs.controllers;
 
+import org.CodeJobs.models.App;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,9 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.stlyouthjobs.models.Application;
-import org.stlyouthjobs.models.data.AppDao;
-import org.stlyouthjobs.models.data.JobDao;
+
+import org.CodeJobs.models.data.AppDao;
 
 import javax.validation.Valid;
 
@@ -22,27 +22,11 @@ public class ApplicationPortalController
     @Autowired
     private AppDao appDao;
 
-    @Autowired
-    private JobDao jobDao;
-
     @RequestMapping(value = "")
-    public String index(Model model){ //, HttpSession session){
-        //Integer user = (Integer) session.getAttribute("user_id");
-        //System.out.println(user + "new");
+    public String index(Model model){
+
         model.addAttribute("title", "Application Portal");
-        //model.addAttribute("apps", appDao.findOne(user));
         model.addAttribute("apps", appDao.findAll());
-        //model.addAttribute("jobTitle", jobDao.findOne(user));
-        //model.addAttribute("address", jobDao.findOne(user));
-        //model.addAttribute("jobCategory", jobDao.findOne(user));
-        //model.addAttribute("jobSummary", jobDao.findOne(user));
-        //model.addAttribute("location", jobDao.findOne(user));
-        //model.addAttribute("schedule", jobDao.findOne(user));
-        //model.addAttribute("positionType", jobDao.findOne(user));
-        //model.addAttribute("numOfPositions", jobDao.findOne(user));
-        //model.addAttribute("dressCode", jobDao.findOne(user));
-        //model.addAttribute("payRate", jobDao.findOne(user));
-        //model.addAttribute("closingDate", jobDao.findOne(user));
 
         return "app/index";
     }
@@ -62,13 +46,13 @@ public class ApplicationPortalController
         model.addAttribute("dressCode", "Add Dress Code");
         model.addAttribute("payRate", "Add Pay Rate");
         model.addAttribute("closingDate", "Add Closing Date");
-        model.addAttribute(new Application());
+        model.addAttribute(new App());
 
         return "app/apply";
     }
 
     @RequestMapping(value = "apply", method = RequestMethod.POST)
-    public String processApply(Model model, @ModelAttribute @Valid Application newApp, Errors errors) {
+    public String processApply(Model model, @ModelAttribute @Valid App newApp, Errors errors) {
 
         if(errors.hasErrors()){
             model.addAttribute("name", "Enter your name");
@@ -101,7 +85,7 @@ public class ApplicationPortalController
     }
 
     @RequestMapping(value="apply/{jobId}", method = RequestMethod.POST)
-    public String processEditForm(Model model, @PathVariable int appId, @ModelAttribute  @Valid Application newApp,
+    public String processEditForm(Model model, @PathVariable int appId, @ModelAttribute  @Valid App newApp,
                                   Errors errors) {
 
         if (errors.hasErrors()) {
@@ -109,7 +93,7 @@ public class ApplicationPortalController
             return "app/apply";
         }
 
-        Application applyApp = appDao.findOne(appId);
+        App applyApp = appDao.findOne(appId);
         applyApp.setJobTitle(newApp.getJobTitle());
         applyApp.setAddress(newApp.getAddress());
         applyApp.setJobCategory(newApp.getJobCategory());

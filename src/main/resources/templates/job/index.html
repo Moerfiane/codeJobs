@@ -10,6 +10,7 @@
 
     <body class="container">
     <h1 th:text="${title}">Default Title</h1>
+    <nav th:replace="fragments :: navigation"></nav>
 
 <nav>
     <a class="btn btn-primary btn-xs" href="/job/add">Add New Job</a>
@@ -34,7 +35,7 @@
         </tr>
 
         <tr th:each="job : ${jobs}">
-            <td><a th:href="'job/edit/' + ${job.id}" th:text="Edit"></a></td>
+            <td><a th:href="'job/edit/' + ${job.session}" th:text="Edit"></a></td>
             <td th:text="${job.jobTitle}"></td>
             <td th:text="${job.address}"></td>
             <td th:text="${job.jobCategory}"></td>

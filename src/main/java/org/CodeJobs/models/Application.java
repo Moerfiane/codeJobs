@@ -1,4 +1,4 @@
-package org.stlyouthjobs.models;
+package org.CodeJobs.models;
 
 import javax.persistence.*;
 import java.util.Set;
