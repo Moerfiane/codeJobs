@@ -4,10 +4,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 
 @Entity
+
 public class User extends AbstractEntity {
 
     @NotNull
@@ -22,6 +26,7 @@ public class User extends AbstractEntity {
 
     public User(){
     }
+
 
     public User(String username, String password, String access) {
         this.username = username;

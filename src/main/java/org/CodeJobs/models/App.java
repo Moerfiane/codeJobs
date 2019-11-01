@@ -1,53 +1,44 @@
-package org.stlyouthjobs.models;
+package org.CodeJobs.models;
+
+import org.CodeJobs.models.Job;
+import org.CodeJobs.models.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
+
 public class App {
 
     @Id
     @GeneratedValue
     private int id;
 
-    @NotNull
-    @Size(min=3, max=60)
     private String name;
 
-    @NotNull
-    private String jobTitle;
-
-    @NotNull
     private String address;
 
-    @NotNull
     private String jobCategory;
 
-    @NotNull
     private String location;
 
-    @NotNull
     private String schedule;
 
-    @NotNull
     private String jobSummary;
 
-    @NotNull
     private String positionType;
 
-    @NotNull
+    private String jobTitle;
+
     private String numOfPositions;
 
-    @NotNull
     private String dressCode;
 
-    @NotNull
     private Double payRate;
 
-    @NotNull
     private String closingDate;
-
 
     //empty constructor
     public App(){}

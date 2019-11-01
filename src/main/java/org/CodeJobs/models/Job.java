@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
+
 public class Job {
 
 
@@ -52,6 +53,7 @@ public class Job {
     private String closingDate;
 
     private Integer session;
+
 
     public Job(){}
 

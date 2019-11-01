@@ -1,5 +1,7 @@
-package org.stlyouthjobs.controllers;
+package org.CodeJobs.controllers;
 
+import org.CodeJobs.models.data.JobDao;
+import org.CodeJobs.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,9 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.stlyouthjobs.models.App;
-import org.stlyouthjobs.models.Job;
-import org.stlyouthjobs.models.data.AppDao;
+import org.CodeJobs.models.App;
+import org.CodeJobs.models.Job;
+import org.CodeJobs.models.data.AppDao;
 
 import javax.validation.Valid;
 
@@ -22,6 +24,13 @@ public class ApplicationPortalController
     @Autowired
     private AppDao appDao;
 
+    /*@Autowired
+    private JobDao jobDao;
+
+    @Autowired
+    private UserDao userDao;*/
+
+
     @RequestMapping(value = "")
     public String index(Model model){
 
@@ -30,7 +39,7 @@ public class ApplicationPortalController
 
         return "app/index";
     }
-
+//change model to show jobs and change here
     @RequestMapping(value="apply", method = RequestMethod.GET)
     public String applyJob(Model model) {
 
@@ -50,8 +59,8 @@ public class ApplicationPortalController
 
         return "app/apply";
     }
-
-    @RequestMapping(value = "apply", method = RequestMethod.POST)
+//error not needed as applying
+    /*@RequestMapping(value = "apply", method = RequestMethod.POST)
     public String processApply(Model model, @ModelAttribute @Valid App newApp, Errors errors) {
 
         if(errors.hasErrors()){
@@ -72,13 +81,13 @@ public class ApplicationPortalController
         appDao.save(newApp);
 
         return "redirect:/app";
-    }
+    }*/
 
 
     @RequestMapping(value="apply/{jobId}", method=RequestMethod.GET)
     public String displayEditJobForm(Model model, @PathVariable int appId) {
 
-        model.addAttribute("title", "Apply for Job");
+        model.addAttribute("title", "Apply");
         model.addAttribute("app", appDao.findOne(appId));
 
         return "app/apply";
@@ -89,10 +98,10 @@ public class ApplicationPortalController
                                   Errors errors) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Apply for Job");
+            model.addAttribute("title", "Apply");
             return "app/apply";
         }
-
+//should be resume?
         App applyApp = appDao.findOne(appId);
         applyApp.setJobTitle(newApp.getJobTitle());
         applyApp.setAddress(newApp.getAddress());
