@@ -12,7 +12,7 @@
 
         <th></th>
         <th>Job Title</th>
-        <th>Address</th>
+        <!--<th>Address</th>
         <th>Job Category</th>
         <th>Job Summary</th>
         <th>Location</th>
@@ -21,14 +21,14 @@
         <th>Num of Positions</th>
         <th>Dress Code</th>
         <th>Pay Rate</th>
-        <th>Closing Date</th>
+        <th>Closing Date</th>-->
     </tr>
 
-    <tr th:each="app : ${apps}">
+    <tr th:each="job : ${jobs}">
 
         <td><a th:href="'app/apply' + ${app.id}" th:text="Apply"></a></td>
-        <td th:text="${app.jobTitle}"></td>
-        <td th:text="${app.address}"></td>
+        <td th:text="${job.jobTitle}"></td>
+        <!--<td th:text="${app.address}"></td>
         <td th:text="${app.jobCategory}"></td>
         <td th:text="${app.jobSummary}"></td>
         <td th:text="${app.location}"></td>
@@ -37,7 +37,7 @@
         <td th:text="${app.numOfPositions}"></td>
         <td th:text="${app.dressCode}"></td>
         <td th:text="${app.payRate}"></td>
-        <td th:text="${app.closingDate}"></td>
+        <td th:text="${app.closingDate}"></td>-->
     </tr>
 
 </table>

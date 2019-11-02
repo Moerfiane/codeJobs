@@ -14,21 +14,25 @@ import org.CodeJobs.models.App;
 import org.CodeJobs.models.Job;
 import org.CodeJobs.models.data.AppDao;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("app")
 public class ApplicationPortalController
 {
-
+//copy jobController?
     @Autowired
     private AppDao appDao;
 
-    /*@Autowired
+    @Autowired
     private JobDao jobDao;
 
     @Autowired
-    private UserDao userDao;*/
+    private UserDao userDao;
 
 
     @RequestMapping(value = "")
@@ -42,8 +46,9 @@ public class ApplicationPortalController
 //change model to show jobs and change here
     @RequestMapping(value="apply", method = RequestMethod.GET)
     public String applyJob(Model model) {
+        model.addAttribute("jobs", (jobDao.findAll()));
 
-        model.addAttribute("name", "Enter your name");
+        /*model.addAttribute("name", "Enter your name");
         model.addAttribute("jobTitle", "Enter name of job");
         model.addAttribute("address", "Add Address");
         model.addAttribute("jobCategory", "Select Job Category");
@@ -55,33 +60,27 @@ public class ApplicationPortalController
         model.addAttribute("dressCode", "Add Dress Code");
         model.addAttribute("payRate", "Add Pay Rate");
         model.addAttribute("closingDate", "Add Closing Date");
-        model.addAttribute(new App());
+        model.addAttribute(new App());*/
+
+
+
 
         return "app/apply";
     }
-//error not needed as applying
-    /*@RequestMapping(value = "apply", method = RequestMethod.POST)
-    public String processApply(Model model, @ModelAttribute @Valid App newApp, Errors errors) {
+
+    @RequestMapping(value = "apply", method = RequestMethod.POST)
+    public String processApply(Model model, @ModelAttribute @Valid App newApp, Job newJob, HttpSession session,
+                               Errors errors, HttpServletRequest request, HttpServletResponse response) {
 
         if(errors.hasErrors()){
-            model.addAttribute("name", "Enter your name");
-            model.addAttribute("jobTitle", "Enter name of job");
-            model.addAttribute("address", "Add Address");
-            model.addAttribute("jobCategory", "Select Job Category");
-            model.addAttribute("jobSummary", "Add Job Summary");
-            model.addAttribute("location", "Add Location");
-            model.addAttribute("schedule", "Add Schedule");
-            model.addAttribute("positionType", "Add Position Type");
-            model.addAttribute("numOfPositions", "Add Number of Positions");
-            model.addAttribute("dressCode", "Add Dress Code");
-            model.addAttribute("payRate", "Add Pay Rate");
-            model.addAttribute("closingDate", "Add Closing Date");
+            //model.addAttribute("jobs", (jobDao.findAll()));
             return "app/apply";
         }
+        model.addAttribute("jobs", (jobDao.findAll()));
         appDao.save(newApp);
 
         return "redirect:/app";
-    }*/
+    }
 
 
     @RequestMapping(value="apply/{jobId}", method=RequestMethod.GET)
