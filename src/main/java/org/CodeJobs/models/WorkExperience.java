@@ -40,10 +40,10 @@ public class WorkExperience {
     @Size(min = 3, max = 100)
     private String detail1;
 
-    @Size(min = 3, max = 100)
+    @Size(max = 100)
     private String detail2;
 
-    @Size(min = 3, max = 100)
+    @Size(max = 100)
     private String detail3;
 
 
