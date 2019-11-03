@@ -72,6 +72,11 @@ public class Job {
         this.closingDate = closingDate;
     }
 
+    public static Object getId(String job_id) {
+        return job_id;
+    }
+
+
     public int getId() {
         return id;
     }

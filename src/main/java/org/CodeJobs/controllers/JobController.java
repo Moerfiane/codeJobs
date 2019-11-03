@@ -32,9 +32,9 @@ public class JobController {
     public String index(Model model, HttpSession session){
         Integer identify =(Integer) session.getAttribute("user_id");
         System.out.println(identify + "new");
-        model.addAttribute("jobs", (appDao.session(identify)));
+        model.addAttribute("jobs", (jobDao.session(identify)));
 
-        return "app/index";
+        return "job/index";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
