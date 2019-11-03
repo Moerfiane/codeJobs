@@ -18,7 +18,7 @@
     </tr>
 
     <tr th:each="statement : ${statements}">
-        <td><a th:href="'edit/' + ${statement.id}" th:text="Edit"></a></td>
+        <td><a th:href="'edit/' + ${statement.session}" th:text="Edit"></a></td>
         <td th:text="${statement.description}"></td>
     </tr>
 

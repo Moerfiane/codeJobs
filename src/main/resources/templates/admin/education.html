@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<div th:replace="fragments :: secondnav"></div>
+
+<p th:unless="${education} and ${education.size()}">No education has been added.</p>
+
+<table class="table table-bordered">
+    <p th:if="${education} and ${education.size()}">
+    <tr>
+        <th></th>
+        <th>School Name</th>
+        <th>Degree</th>
+        <th>Start Date</th>
+        <th>Completion Date</th>
+        <th>Current</th>
+    </tr>
+
+    <tr th:each="educate : ${education}">
+        <td><a th:href="'edit/education/' + ${educate.session}" th:text="Edit"></a></td>
+        <td th:text="${educate.schoolName}"></td>
+        <td th:text="${educate.degree}"></td>
+        <td th:text="${educate.startDate}"></td>
+        <td th:text="${educate.completionDate}"></td>
+        <td th:text="${educate.current}"></td>
+    </tr>
+    </p>
+</table>
+
+</body>
+</html>

@@ -159,7 +159,7 @@ public class AuthenticationController extends AbstractController {
         setUserInSession(request.getSession(), theUser);
 
         if (theUser.getAccess().equals("1")) {
-            return "redirect:/testpage";
+            return "redirect:/admin";
         }
 
         if (theUser.getAccess().equals("2")) {

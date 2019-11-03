@@ -4,6 +4,7 @@
 
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
 
 <nav th:replace="fragments :: navigation"></nav>
 
@@ -22,7 +23,7 @@
     </tr>
 
     <tr th:each="work : ${workExperience}">
-        <td><a th:href="'workexperience/edit/' + ${work.id}" th:text="Edit"></a></td>
+        <td><a th:href="'workexperience/edit/' + ${work.session}" th:text="Edit"></a></td>
         <td th:text="${work.jobTitle}"></td>
         <td th:text="${work.companyName}"></td>
         <td th:text="${work.location}"></td>

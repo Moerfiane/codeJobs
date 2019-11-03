@@ -28,7 +28,7 @@ public class JobController {
     public String index(Model model, HttpSession session){
         Integer username =(Integer) session.getAttribute("user_id");
         System.out.println(username + "new");
-        model.addAttribute("jobs", (jobDao.findAll()));
+        model.addAttribute("jobs", (jobDao.session(username)));
 
         return "job/index";
     }
