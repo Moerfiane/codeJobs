@@ -1,0 +1,20 @@
+package org.CodeJobs.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping(value = "admin")
+public class NewAdminController {
+
+    @RequestMapping(value = "register")
+    public String index(Model model) {
+
+        model.addAttribute("title", "Register New Administrator");
+
+        return "admin/register";
+
+    }
+
+}

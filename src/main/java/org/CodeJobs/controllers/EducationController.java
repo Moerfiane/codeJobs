@@ -85,7 +85,7 @@ public class EducationController {
         editedEducation.setCurrent(newEducation.getCurrent());
         educationDao.save(editedEducation);
 
-        return "redirect:/education/";
+        return "redirect:/education";
 
 
 
