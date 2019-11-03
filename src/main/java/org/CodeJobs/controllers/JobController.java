@@ -1,5 +1,6 @@
 package org.CodeJobs.controllers;
 
+import org.CodeJobs.models.data.AppDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,13 +25,16 @@ public class JobController {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private AppDao appDao;
+
     @RequestMapping(value="")
     public String index(Model model, HttpSession session){
-        Integer username =(Integer) session.getAttribute("user_id");
-        System.out.println(username + "new");
-        model.addAttribute("jobs", (jobDao.session(username)));
+        Integer identify =(Integer) session.getAttribute("user_id");
+        System.out.println(identify + "new");
+        model.addAttribute("jobs", (appDao.session(identify)));
 
-        return "job/index";
+        return "app/index";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
