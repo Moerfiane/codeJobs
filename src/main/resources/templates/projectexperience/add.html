@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+<header>
+    <img th:src="@{../../photos/dev1.png}" />
+</header>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+
+<div class="main">
+<form method="post" th:object="${projectExperience}">
+    <div class="form-group">
+        <label th:for="name">Project Name</label>
+        <input class="form-control" th:field="*{name}" type="text" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="summary">Project Summary</label>
+        <textarea class="form-control" th:field="*{summary}" type="text" />
+        <span th:errors="*{summary}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="detail1">Detail</label>
+        <textarea class="form-control" th:field="*{detail1}" type="text" />
+        <span th:errors="*{detail1}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="detail2">Detail</label>
+        <textarea class="form-control" th:field="*{detail2}" type="text" />
+        <span th:errors="*{detail2}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="detail3">Detail</label>
+        <textarea class="form-control" th:field="*{detail3}" type="text" />
+        <span th:errors="*{detail3}" class="error"></span>
+    </div>
+
+    <input type="submit" value="Add Project" />
+</form>
+</div>
+</body>
+</html>

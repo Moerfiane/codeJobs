@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+<header>
+    <img th:src="@{../../photos/dev1.png}" />
+</header>
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
-
 <nav th:replace="fragments :: navigation"></nav>
+
+
 <p></p>
+<div class="main">
 <form method="post" style="max-width:600px;" th:object="${candL}">
     <div class="form-group">
         <label th:for="name">Name</label>
-        <input class="form-control" th:field ="*{name}" />
+        <input class="form-control" th:field ="*{name}" type="text" />
         <span class="error" th:errors="*{name}"></span>
     </div>
 
     <div class="form-group">
         <label th:for="issuer">Issuer</label>
-        <input class="form-control" th:field ="*{issuer}" />
+        <input class="form-control" th:field ="*{issuer}" type="text" />
         <span class="error" th:errors="*{issuer}"></span>
     </div>
 
     <div class="form-group">
         <label th:for="issuedDate">Date Issued</label>
-        <input class="form-control" th:field ="*{issuedDate}" />
+        <input class="form-control" th:field ="*{issuedDate}" type="date" />
         <span class="error" th:errors="*{issuedDate}"></span>
     </div>
 
     <input type="submit" value="Add Certificates and Licenses" />
 
 </form>
+</div>
 </body>
 </html>

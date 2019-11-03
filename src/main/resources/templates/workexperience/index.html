@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<table class="table table-bordered">
+    <tr>
+        <th></th>
+        <th>Job Title</th>
+        <th>Company Name</th>
+        <th>Location</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Current</th>
+        <th>Detail</th>
+        <th>Detail Two</th>
+        <th>Detail Three</th>
+    </tr>
+
+    <tr th:each="work : ${workExperience}">
+        <td><a th:href="'workexperience/edit/' + ${work.session}" th:text="Edit"></a></td>
+        <td th:text="${work.jobTitle}"></td>
+        <td th:text="${work.companyName}"></td>
+        <td th:text="${work.location}"></td>
+        <td th:text="${work.startDate}"></td>
+        <td th:text="${work.endDate}"></td>
+        <td th:text="${work.current}"></td>
+        <td th:text="${work.detail1}"></td>
+        <td th:text="${work.detail2}"></td>
+        <td th:text="${work.detail3}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

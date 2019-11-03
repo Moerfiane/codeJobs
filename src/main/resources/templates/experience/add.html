@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+<header>
+    <img th:src="@{../../photos/dev1.png}" />
+</header>
+
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
-
 <nav th:replace="fragments :: navigation"></nav>
+
 <p></p>
-<form method="post" style="max-width:600px;" th:object="${experience}">
+<div class="main">
+<form method="post" th:object="${experience}">
     <div class="form-group">
         <label th:for="jobTitle">Job Title</label>
-        <input class="form-control" th:field ="*{jobTitle}" />
+        <input class="form-control" th:field ="*{jobTitle}" type="text" />
         <span class="error" th:errors="*{jobTitle}"></span>
     </div>
 
     <div class="form-group">
         <label th:for="company">Company Name</label>
-        <input class="form-control" th:field ="*{company}" />
+        <input class="form-control" th:field ="*{company}" type="text" />
         <span class="error" th:errors="*{company}"></span>
     </div>
 
     <div class="form-group">
         <label th:for="startDate">Start Date</label>
-        <input class="form-control" th:field ="*{startDate}" />
+        <input class="form-control" th:field ="*{startDate}" type="date" />
         <span class="error" th:errors="*{startDate}"></span>
     </div>
 
     <div class="form-group">
         <label th:for="endDate">End Date</label>
-        <input class="form-control" th:field ="*{endDate}" />
+        <input class="form-control" th:field ="*{endDate}" type="date" />
         <span class="error" th:errors="*{endDate}"></span>
     </div>
 
     <div class="form-group">
         <label th:for="description">Job Description</label>
-        <input class="form-control" th:field ="*{description}" />
+        <textarea class="form-control" th:field ="*{description}" type="text" />
         <span class="error" th:errors="*{description}"></span>
     </div>
 
     <input type="submit" value="Add Experience" />
 
 </form>
+</div>
 </body>
 </html>

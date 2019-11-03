@@ -11,10 +11,28 @@
 <body>
 
 <nav th:fragment="navigation">
-    <a class="btn btn-primary btn-xs" href="/cheese">Cheese</a>
-    <a class="btn btn-primary btn-xs" href="/category">Categories</a>
-    <a class="btn btn-primary btn-xs" href="/menu">Menus</a>
+    <a href="/register/logout">Logout</a> |
+    <br />
+    <br />
 </nav>
+
+<div th:fragment="secondnav">
+    <a href="/admin">admin portal</a> |
+    <a href="/admin/register">register admin</a> |
+    <a href="/admin/job">job</a> |
+    <a href="/admin/education">education</a> |
+    <a href="/admin/workexperience">work experience</a> |
+    <a href="/admin/statement">statement</a> |
+    <a href="/admin/skills">skills</a> |
+    <a href="/admin/projectexperience">project experience</a> |
+    <a href="/admin/users">users</a>
+    <br />
+    <br />
+    <input type="text" placeholder="Search.." />
+    <br />
+    <br />
+</div>
+
 
 </body>
 </html>

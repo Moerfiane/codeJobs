@@ -1,62 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+<header>
+    <img th:src="@{../../photos/dev1.png}" />
+</header>
 
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
-
 <nav th:replace="fragments :: navigation"></nav>
 
+
+<div class="main">
 <form method="post" th:object="${education}" >
     <div class="form-group">
         <label th:for="schoolName">School Name</label>
-        <input class="form-control" th:field="*{schoolName}" />
+        <input class="form-control" th:field="*{schoolName}" type="text" />
         <span th:errors="*{schoolName}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="degree">Degree</label>
-        <input class="form-control" th:field="*{degree}" />
+        <input class="form-control" th:field="*{degree}" type="text" />
         <span th:errors="*{degree}" class="error"></span>
     </div>
 
     <div class="form-group">
-        <label th:for="fieldOfStudy">Field of Study</label>
-        <input class="form-control" th:field="*{fieldOfStudy}" />
-        <span th:errors="*{fieldOfStudy}" class="error"></span>
-    </div>
-
-    <div class="form-group">
         <label th:for="startDate">Start Date</label>
-        <!--input type="date" class="form-control" th:field="*{startDate}" /-->
-        <input class="form-control" th:field="*{startDate}" />
+        <input class="form-control" th:field="*{startDate}" type="date" />
         <span th:errors="*{startDate}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="completionDate">Completion Date</label>
-        <!--input type="date" class="form-control" th:field="*{completionDate}" /-->
-        <input class="form-control" th:field="*{completionDate}" />
+        <input class="form-control" th:field="*{completionDate}" type="date" />
         <span th:errors="*{completionDate}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="current">Current</label>
-        <!--input type="checkbox" class="form-control" th:field="*{current}" /-->
-        <input class="form-control" th:field="*{current}" />
+        <input class="form-control" th:field="*{current}" type="text" />
         <span th:errors="*{current}" class="error"></span>
     </div>
-
-    <div class="form-group">
-        <label th:for="description">Description</label>
-        <!--input type="text" class="form-control" th:field="*{current}" /-->
-        <input class="form-control" th:field="*{description}" />
-        <span th:errors="*{description}" class="error"></span>
-    </div>
-
-
     <input type="submit" value="Add Education" />
 </form>
-
+</div>
 </body>
 </html>
