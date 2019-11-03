@@ -5,52 +5,22 @@
     <h1 th:text="${title}"></h1>
 
 
-<!--<form method="post" style="max-width:600px;" th:object="${app}">
-    <div class="form-group">
+<form method="post" style="max-width:600px;" th:object="${app}">
+   <!-- <div class="form-group">
         <label th:for="name">Name</label>
         <input class="form-control" th:field="*{name}" />
         <span th:errors="*{name}" class="error"></span>
-    </div>
+    </div>-->
     <div class="form-group">
         <label th:for="jobTitle">Job applying for</label>
         <input class="form-control" th:field="*{jobTitle}" />
         <span th:errors="*{jobTitle}" class="error"></span>
-    </div>-->
-    <p th:unless="${jobs} and ${jobs.size()}">No Jobs have been added</p>
+    </div>
 
-    <table class="table table-bordered">
-        <tr>
-            <th></th>
-            <th>Job Title</th>
-            <th>Address</th>
-            <th>Job Category</th>
-            <th>Job Summary</th>
-            <th>Location</th>
-            <th>Schedule</th>
-            <th>Position Type</th>
-            <th>Number of Positions</th>
-            <th>Dress Code</th>
-            <th>Pay Rate</th>
-            <th>Closing Date</th>
-        </tr>
-
-        <tr th:each="job : ${jobs}">
-            <td th:text="${job.jobTitle}"></td>
-            <td th:text="${job.address}"></td>
-            <td th:text="${job.jobCategory}"></td>
-            <td th:text="${job.jobSummary}"></td>
-            <td th:text="${job.location}"></td>
-            <td th:text="${job.schedule}"></td>
-            <td th:text="${job.positionType}"></td>
-            <td th:text="${job.numOfPositions}"></td>
-            <td th:text="${job.dressCode}"></td>
-            <td th:text="${job.payRate}"></td>
-            <td th:text="${job.closingDate}"></td>
-        </tr>
 
     <input type="submit" value="Apply" />
-<!--</form>-->
-    </table>
+</form>
+
 <p></p>
 
 </body>

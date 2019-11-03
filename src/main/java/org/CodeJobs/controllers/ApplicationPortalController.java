@@ -39,7 +39,8 @@ public class ApplicationPortalController
     public String index(Model model){
 
         model.addAttribute("title", "Application Portal");
-        model.addAttribute("apps", appDao.findAll());
+        model.addAttribute("jobs", (jobDao.findAll()));
+        //model.addAttribute("apps", appDao.findAll());
 
         return "app/index";
     }
