@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Entity
 
-public class App {
+public class Apply {
 
     @Id
     @GeneratedValue
@@ -41,10 +41,10 @@ public class App {
     private String closingDate;
 
     //empty constructor
-    public App(){}
+    public Apply(){}
 
-    public App(String name, String jobTitle, String address, String jobCategory, String location, String schedule,
-               String jobSummary, String positionType, String numOfPositions, String dressCode, Double payRate, String closingDate) {
+    public Apply(String name, String jobTitle, String address, String jobCategory, String location, String schedule,
+                 String jobSummary, String positionType, String numOfPositions, String dressCode, Double payRate, String closingDate) {
         this.name = name;
         this.jobTitle = jobTitle;
         this.address = address;

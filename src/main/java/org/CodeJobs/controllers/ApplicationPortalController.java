@@ -10,23 +10,22 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.CodeJobs.models.App;
+import org.CodeJobs.models.Apply;
 import org.CodeJobs.models.Job;
-import org.CodeJobs.models.data.AppDao;
+import org.CodeJobs.models.data.ApplyDao;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
-@RequestMapping("app")
+@RequestMapping("apply")
 public class ApplicationPortalController
 {
 //copy jobController?
     @Autowired
-    private AppDao appDao;
+    private ApplyDao applyDao;
 
     @Autowired
     private JobDao jobDao;
@@ -42,7 +41,7 @@ public class ApplicationPortalController
         model.addAttribute("jobs", (jobDao.findAll()));
         //model.addAttribute("apps", appDao.findAll());
 
-        return "app/index";
+        return "apply/index";
     }
 //change model to show jobs and change here
     @RequestMapping(value="apply", method = RequestMethod.GET)
@@ -70,7 +69,7 @@ public class ApplicationPortalController
     }
 
     @RequestMapping(value = "apply", method = RequestMethod.POST)
-    public String processApply(Model model, @ModelAttribute @Valid App newApp, Job newJob, HttpSession session,
+    public String processApply(Model model, @ModelAttribute @Valid Apply newApply, Job newJob, HttpSession session,
                                Errors errors, HttpServletRequest request, HttpServletResponse response) {
 
         if(errors.hasErrors()){
@@ -78,45 +77,45 @@ public class ApplicationPortalController
             return "app/apply";
         }
         model.addAttribute("jobs", (jobDao.findAll()));
-        appDao.save(newApp);
+        applyDao.save(newApply);
 
-        return "redirect:/app";
+        return "redirect:/apply";
     }
 
 
-    @RequestMapping(value="apply/{jobId}", method=RequestMethod.GET)
+    @RequestMapping(value="applicants", method=RequestMethod.GET)
     public String displayEditJobForm(Model model, @PathVariable int appId) {
 
         model.addAttribute("title", "Apply");
-        model.addAttribute("app", appDao.findOne(appId));
+        model.addAttribute("apply", applyDao.findOne(appId));
 
-        return "app/apply";
+        return "apply/applicants";
     }
 
-    @RequestMapping(value="apply/{jobId}", method = RequestMethod.POST)
-    public String processEditForm(Model model, @PathVariable int appId, @ModelAttribute  @Valid App newApp,
+    @RequestMapping(value="applicants", method = RequestMethod.POST)
+    public String processEditForm(Model model, @PathVariable int appId, @ModelAttribute  @Valid Apply newApply,
                                   Errors errors) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Apply");
-            return "app/apply";
+            return "applicants";
         }
 //should be resume?
-        App applyApp = appDao.findOne(appId);
-        applyApp.setJobTitle(newApp.getJobTitle());
-        applyApp.setAddress(newApp.getAddress());
-        applyApp.setJobCategory(newApp.getJobCategory());
-        applyApp.setLocation(newApp.getLocation());
-        applyApp.setSchedule(newApp.getSchedule());
-        applyApp.setJobSummary(newApp.getJobSummary());
-        applyApp.setPositionType(newApp.getPositionType());
-        applyApp.setNumOfPositions(newApp.getNumOfPositions());
-        applyApp.setDressCode(newApp.getDressCode());
-        applyApp.setPayRate(newApp.getPayRate());
-        applyApp.setClosingDate(newApp.getClosingDate());
-        appDao.save(applyApp);
+        Apply applyApply = applyDao.findOne(appId);
+        applyApply.setJobTitle(newApply.getJobTitle());
+        applyApply.setAddress(newApply.getAddress());
+        applyApply.setJobCategory(newApply.getJobCategory());
+        applyApply.setLocation(newApply.getLocation());
+        applyApply.setSchedule(newApply.getSchedule());
+        applyApply.setJobSummary(newApply.getJobSummary());
+        applyApply.setPositionType(newApply.getPositionType());
+        applyApply.setNumOfPositions(newApply.getNumOfPositions());
+        applyApply.setDressCode(newApply.getDressCode());
+        applyApply.setPayRate(newApply.getPayRate());
+        applyApply.setClosingDate(newApply.getClosingDate());
+        applyDao.save(applyApply);
 
-        return "redirect:/app";
+        return "redirect:/applicants";
     }
 
 

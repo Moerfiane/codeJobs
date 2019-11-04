@@ -25,8 +25,8 @@
     </tr>
 
     <tr th:each="job : ${jobs}">
-
-        <td><a th:href="'app/apply' + ${job.id}" th:text="Apply"></a></td>
+<!--change href to show applicants.html-->
+        <td><a th:href="app/application" th:text="Apply"></a></td>
         <td th:text="${job.jobTitle}"></td>
         <!--<td th:text="${app.address}"></td>
         <td th:text="${app.jobCategory}"></td>
