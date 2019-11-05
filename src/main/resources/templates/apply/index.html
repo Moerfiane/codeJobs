@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head" />
+<body class="container">
+<h1 th:text="${title}"></h1>
+
+
+
+<div class="main">
+<table class="table table-bordered">
+    <div class="form-group">
+    <tr>
+        <th></th>
+        <th>Job Title</th>
+        <th>Address</th>
+        <th>Job Category</th>
+        <th>Job Summary</th>
+        <th>Location</th>
+        <th>Schedule</th>
+        <th>Position Type</th>
+        <th>Num of Positions</th>
+        <th>Dress Code</th>
+        <th>Pay Rate</th>
+        <th>Closing Date</th>
+    </tr>
+
+    <tr th:each="job : ${jobs}">
+        <td><form method="post" th:object="${app}"><input class="btn btn-primary btn-xs" type="submit" value="apply" /></form></td>
+        <td th:text="${job.jobTitle}"></td>
+        <td th:text="${job.address}"></td>
+        <td th:text="${job.jobCategory}"></td>
+        <td th:text="${job.jobSummary}"></td>
+        <td th:text="${job.location}"></td>
+        <td th:text="${job.schedule}"></td>
+        <td th:text="${job.positionType}"></td>
+        <td th:text="${job.numOfPositions}"></td>
+        <td th:text="${job.dressCode}"></td>
+        <td th:text="${job.payRate}"></td>
+        <td th:text="${job.closingDate}"></td>
+    </tr>
+        </div>
+
+</table>
+</div>
+</body>
+
+</html>

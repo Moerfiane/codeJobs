@@ -1,12 +1,10 @@
 package org.CodeJobs.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 
 @Entity
-public class App {
+public class Apply {
 
     @Id
     @GeneratedValue
@@ -16,10 +14,10 @@ public class App {
 
     private Integer session;
 
-    public App() {
+    public Apply() {
     }
 
-    public App(Integer job_Id, Integer session) {
+    public Apply(Integer jobId, Integer session) {
         this.job_Id = job_Id;
         this.session = session;
     }
@@ -28,9 +26,6 @@ public class App {
         return id;
     }
 
-    public Integer getJob_Id() {
-        return job_Id;
-    }
 
     public void setJob_Id(Integer job_Id) {
         this.job_Id = job_Id;

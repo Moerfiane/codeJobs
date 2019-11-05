@@ -8,9 +8,10 @@ import javax.validation.constraints.Size;
 public class Job {
 
 
+
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     @NotNull
     //@Size(min=3, max=50)
@@ -56,8 +57,9 @@ public class Job {
     public Job(){}
 
     //parameter to set name of field
-    public Job(Integer session, String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
+    public Job(int id, Integer session, String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
                String positionType, String numOfPositions, String dressCode, Double payRate, String closingDate) {
+        this.id = id;
         this.session = session;
         this.jobTitle = jobTitle;
         this.address = address;
@@ -72,12 +74,7 @@ public class Job {
         this.closingDate = closingDate;
     }
 
-    public static Object getId(String job_id) {
-        return job_id;
-    }
-
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
