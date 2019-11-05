@@ -84,7 +84,7 @@ public class ApplicationPortalController
 
 
     @RequestMapping(value="applicants", method=RequestMethod.GET)
-    public String displayEditJobForm(Model model, @PathVariable int appId) {
+    public String displayEditJobForm(Model model, @PathVariable("apply") int appId) {
 
         model.addAttribute("title", "Apply");
         model.addAttribute("apply", applyDao.findOne(appId));
@@ -93,27 +93,21 @@ public class ApplicationPortalController
     }
 
     @RequestMapping(value="applicants", method = RequestMethod.POST)
-    public String processEditForm(Model model, @PathVariable int appId, @ModelAttribute  @Valid Apply newApply,
+    public String processEditForm(Model model, @PathVariable("apply") int applyId, @ModelAttribute  @Valid Apply newApply, Job newJob,
                                   Errors errors) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Apply");
             return "applicants";
         }
-//should be resume?
-        Apply applyApply = applyDao.findOne(appId);
-        applyApply.setJobTitle(newApply.getJobTitle());
-        applyApply.setAddress(newApply.getAddress());
-        applyApply.setJobCategory(newApply.getJobCategory());
-        applyApply.setLocation(newApply.getLocation());
-        applyApply.setSchedule(newApply.getSchedule());
-        applyApply.setJobSummary(newApply.getJobSummary());
-        applyApply.setPositionType(newApply.getPositionType());
-        applyApply.setNumOfPositions(newApply.getNumOfPositions());
-        applyApply.setDressCode(newApply.getDressCode());
-        applyApply.setPayRate(newApply.getPayRate());
-        applyApply.setClosingDate(newApply.getClosingDate());
-        applyDao.save(applyApply);
+        //int hunter;
+        for (int i = 0; i <= 100; i++) {
+            applyId = 0;
+            if (applyId % 1 == 0) {
+                applyId += i;
+            }
+
+        }
 
         return "redirect:/applicants";
     }
