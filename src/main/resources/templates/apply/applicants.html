@@ -5,7 +5,7 @@
 <h1 th:text="${title}"></h1>
 
 
-<p th:unless="${applys} and ${applys.size()}">No Jobs have been applied for</p>
+<p th:unless="${apply} and ${apply.size()}">No Jobs have been applied for</p>
 
 <table class="table table-bordered">
     <tr>
@@ -18,7 +18,7 @@
 
     <tr th:each="job : ${jobs}">
         <td th:text="${job.id}"></td>
-        <td th:text="${apply.size()}"></td>
+        <td th:text="${applyId.size()}"></td>
     </tr>
 
 </table>

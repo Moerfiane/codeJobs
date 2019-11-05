@@ -10,7 +10,7 @@
 <table class="table table-bordered">
     <tr>
 
-        <th></th>
+        <th>Will You Apply?</th>
         <th>Job Title</th>
         <!--<th>Address</th>
         <th>Job Category</th>
@@ -26,7 +26,7 @@
 
     <tr th:each="job : ${jobs}">
 <!--change href to show applicants.html-->
-        <td><a th:href="'apply' + ${job.id}" th:text="Apply"></a></td>
+        <td><a th:href="applicants" th:text="Apply"></a></td>
         <td th:text="${job.jobTitle}"></td>
         <!--<td th:text="${app.address}"></td>
         <td th:text="${app.jobCategory}"></td>

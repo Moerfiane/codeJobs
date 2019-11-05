@@ -68,7 +68,7 @@ public class ApplicationPortalController
         return "app/apply";
     }
 
-    @RequestMapping(value = "apply", method = RequestMethod.POST)
+    /*@RequestMapping(value = "apply", method = RequestMethod.POST)
     public String processApply(Model model, @ModelAttribute @Valid Apply newApply, Job newJob, HttpSession session,
                                Errors errors, HttpServletRequest request, HttpServletResponse response) {
 
@@ -90,7 +90,7 @@ public class ApplicationPortalController
         model.addAttribute("apply", applyDao.findOne(appId));
 
         return "apply/applicants";
-    }
+    }*/
 
     @RequestMapping(value="applicants", method = RequestMethod.POST)
     public String processEditForm(Model model, @PathVariable("apply") int applyId, @ModelAttribute  @Valid Apply newApply, Job newJob,
