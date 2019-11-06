@@ -84,10 +84,10 @@ public class ApplicationPortalController
 
 
     @RequestMapping(value="applicants", method=RequestMethod.GET)
-    public String displayEditJobForm(Model model, @PathVariable("apply") int appId) {
+    public String displayEditJobForm(Model model, @PathVariable("apply") int applyId) {
 
         model.addAttribute("title", "Apply");
-        model.addAttribute("apply", applyDao.findOne(appId));
+        model.addAttribute("apply", applyDao.findOne(applyId));
 
         return "apply/applicants";
     }
