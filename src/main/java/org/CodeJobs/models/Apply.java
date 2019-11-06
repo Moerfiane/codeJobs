@@ -37,4 +37,5 @@ public class Apply {
     public void setJobId(int jobId) {
         this.jobId = jobId;
     }
+
 }

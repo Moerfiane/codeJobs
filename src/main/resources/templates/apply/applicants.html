@@ -16,8 +16,8 @@
 
     </tr>
 
-    <tr th:each="job : ${jobs}">
-        <td th:text="${job.id}"></td>
+    <tr th:each="apply : ${applys}">
+        <td th:text="${job.jobTitle}"></td>
         <td th:text="${applyId.size()}"></td>
     </tr>
 

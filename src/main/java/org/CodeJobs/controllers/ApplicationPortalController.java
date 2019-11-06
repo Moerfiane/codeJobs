@@ -44,7 +44,7 @@ public class ApplicationPortalController
         return "apply/index";
     }
 //change model to show jobs and change here
-    @RequestMapping(value="apply", method = RequestMethod.GET)
+    /*@RequestMapping(value="apply", method = RequestMethod.GET)
     public String applyJob(Model model) {
         model.addAttribute("jobs", (jobDao.findAll()));
 
@@ -60,7 +60,7 @@ public class ApplicationPortalController
         model.addAttribute("dressCode", "Add Dress Code");
         model.addAttribute("payRate", "Add Pay Rate");
         model.addAttribute("closingDate", "Add Closing Date");
-        model.addAttribute(new App());*/
+        model.addAttribute(new App());
 
 
 
@@ -68,7 +68,7 @@ public class ApplicationPortalController
         return "app/apply";
     }
 
-    /*@RequestMapping(value = "apply", method = RequestMethod.POST)
+    @RequestMapping(value = "apply", method = RequestMethod.POST)
     public String processApply(Model model, @ModelAttribute @Valid Apply newApply, Job newJob, HttpSession session,
                                Errors errors, HttpServletRequest request, HttpServletResponse response) {
 
@@ -80,7 +80,7 @@ public class ApplicationPortalController
         applyDao.save(newApply);
 
         return "redirect:/apply";
-    }
+    }*/
 
 
     @RequestMapping(value="applicants", method=RequestMethod.GET)
@@ -90,11 +90,11 @@ public class ApplicationPortalController
         model.addAttribute("apply", applyDao.findOne(appId));
 
         return "apply/applicants";
-    }*/
+    }
 
     @RequestMapping(value="applicants", method = RequestMethod.POST)
-    public String processEditForm(Model model, @PathVariable("apply") int applyId, @ModelAttribute  @Valid Apply newApply, Job newJob,
-                                  Errors errors) {
+    public String processEditForm(Model model, @PathVariable("apply") int applyId, @ModelAttribute  @Valid Apply newApply,
+                                  Job newJob, Errors errors) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Apply");
