@@ -9,6 +9,15 @@
 
 <div th:replace="fragments :: secondnav"></div>
 
+<form th:action="@{results}">
+    <p>
+        <label for="searchTerm">Search for specific user:</label>
+        <input type="text" name="searchTerm" id="searchTerm" />
+        <input type="submit" name="submit" value="Search"/>
+    </p>
+
+</form>
+
 <p th:unless="${users} and ${users.size()}">No users have been added.</p>
 
 <table class="table table-bordered">

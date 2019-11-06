@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -54,10 +55,21 @@ public class AdminController {
     }
 
     @RequestMapping(value = "education")
-    public String educationIndex(Model model) {
+    public String educationIndex(Model model, HttpSession session) {
+/*
+
+        Integer userId = (Integer) session.getAttribute(userSessionKey);
+        return userId == null ? null : userDao.findOne(userId);*/
+
+
+        Integer username =(Integer) session.getAttribute("user_id");
+        System.out.println(username + "new");
+        model.addAttribute("jobs", (jobDao.session(username)));
+
 
         model.addAttribute("title", "Admin: Education Listings");
         model.addAttribute("education", educationDao.findAll());
+        model.addAttribute("user", userDao.findAll());
 
         return "admin/education";
 

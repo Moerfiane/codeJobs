@@ -19,7 +19,6 @@ public class LoginForm {
     @Pattern(regexp = "[1-3]")
     private String access;
 
-
     public LoginForm() {
     }
 

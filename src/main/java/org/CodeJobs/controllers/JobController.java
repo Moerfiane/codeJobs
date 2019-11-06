@@ -72,7 +72,7 @@ public class JobController {
             return "job/add";
         }
 
-        Integer name =(Integer) session.getAttribute("user_id");
+        Integer name = (Integer) session.getAttribute("user_id");
         System.out.println(name +" is session name");
         newJob.setSession(name);
 
