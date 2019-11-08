@@ -7,9 +7,11 @@
 
 
 <div class="main">
+
 <table class="table table-bordered">
     <tr>
         <th></th>
+        <th>id</th>
         <th>Job Title</th>
         <th>Address</th>
         <th>Job Category</th>
@@ -22,12 +24,14 @@
         <th>Pay Rate</th>
         <th>Closing Date</th>
     </tr>
-
+    <form method="post" th:object="${job}">
     <tr  th:each="job : ${jobs}" method="post" th:object="${job}">
-        <td> <form method="post" th:object="${job}">
-            <input class="btn btn-primary btn-xs"  type="submit" value="apply" />
-        </form></td>
 
+        <td>
+            <input class="btn btn-primary btn-xs"  type="submit" value="apply" />
+      </td>
+
+        <td th:text="${job.Id}"></td>
         <td th:text="${job.jobTitle}"></td>
         <td th:text="${job.address}"></td>
         <td th:text="${job.jobCategory}"></td>
@@ -41,7 +45,7 @@
         <td th:text="${job.closingDate}"></td>
 
     </tr>
-
+    </form>
 </table>
 
 </div>

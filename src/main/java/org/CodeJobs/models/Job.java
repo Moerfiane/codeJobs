@@ -57,9 +57,8 @@ public class Job {
     public Job(){}
 
     //parameter to set name of field
-    public Job(int id, Integer session, String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
+    public Job(Integer session, String jobTitle, String address, String jobCategory, String location, String schedule, String jobSummary,
                String positionType, String numOfPositions, String dressCode, Double payRate, String closingDate) {
-        this.id = id;
         this.session = session;
         this.jobTitle = jobTitle;
         this.address = address;
@@ -75,7 +74,7 @@ public class Job {
     }
 
     public int getId() {
-        return this.id;
+        return id;
     }
 
     public String getJobTitle() {
