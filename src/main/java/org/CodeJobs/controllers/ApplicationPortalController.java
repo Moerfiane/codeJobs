@@ -58,7 +58,6 @@ public class ApplicationPortalController
         }
 
         Job newJob = jobDao.findOne(jobId);
-        Integer name2 =(Integer) newJob.getId();
         Integer name =(Integer) session.getAttribute("user_id");
         newApply.setSession(name);
         newApply.setJob_Id(newJob.getId());
