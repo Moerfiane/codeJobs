@@ -41,8 +41,16 @@ public class ApplicationPortalController
         return "apply/index";
     }
 
-    @RequestMapping(value="", method = RequestMethod.POST)
-    public String processApply(@ModelAttribute Job job, @ModelAttribute @Valid Apply newApply, HttpSession session, Errors errors, Model model) {
+    @RequestMapping(value="job/{jobId}", method = RequestMethod.GET)
+    public String processjob(Model model, @PathVariable int jobId, HttpSession session){
+        model.addAttribute("jobs", (jobDao.findOne(jobId)));
+
+        return "apply/job";
+    }
+
+    @RequestMapping(value="job/{jobId}", method = RequestMethod.POST)
+    public String processApply(@ModelAttribute Job job, @ModelAttribute @Valid Apply newApply, HttpSession session,
+                               Errors errors, Model model) {
 
         if(errors.hasErrors()){
             model.addAttribute("name", "Enter your name");

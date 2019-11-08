@@ -11,41 +11,21 @@
 <table class="table table-bordered">
     <tr>
         <th></th>
-        <th>id</th>
         <th>Job Title</th>
-        <th>Address</th>
-        <th>Job Category</th>
         <th>Job Summary</th>
         <th>Location</th>
-        <th>Schedule</th>
-        <th>Position Type</th>
-        <th>Num of Positions</th>
-        <th>Dress Code</th>
         <th>Pay Rate</th>
-        <th>Closing Date</th>
     </tr>
-    <form method="post" th:object="${job}">
-    <tr  th:each="job : ${jobs}" method="post" th:object="${job}">
 
-        <td>
-            <input class="btn btn-primary btn-xs"  type="submit" value="apply" />
-      </td>
+    <tr th:each="job : ${jobs}">
+        <td><a th:href="'apply/job/' + ${job.session}" th:text="view"></a></td>
 
-        <td th:text="${job.Id}"></td>
         <td th:text="${job.jobTitle}"></td>
-        <td th:text="${job.address}"></td>
-        <td th:text="${job.jobCategory}"></td>
         <td th:text="${job.jobSummary}"></td>
         <td th:text="${job.location}"></td>
-        <td th:text="${job.schedule}"></td>
-        <td th:text="${job.positionType}"></td>
-        <td th:text="${job.numOfPositions}"></td>
-        <td th:text="${job.dressCode}"></td>
         <td th:text="${job.payRate}"></td>
-        <td th:text="${job.closingDate}"></td>
 
     </tr>
-    </form>
 </table>
 
 </div>
