@@ -100,7 +100,7 @@ public class ApplicationPortalController
             model.addAttribute("title", "Apply");
             return "applicants";
         }
-        Integer job = (Integer) applyId.getAttribute("job_id");
+        //Integer job = (Integer) applyId.getAttribute("job_id");
         for (int i = 0; i <= 100; i++) {
             applyId = 0;
             if (applyId % 1 == 0) {
