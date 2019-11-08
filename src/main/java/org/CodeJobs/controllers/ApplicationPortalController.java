@@ -57,13 +57,13 @@ public class ApplicationPortalController
             return "apply/apply";
         }
 
-        Job newjob = jobDao.findOne(jobId);
-        Integer name2 =(Integer) job.getId();
+        Job newJob = jobDao.findOne(jobId);
+        Integer name2 =(Integer) newJob.getId();
         Integer name =(Integer) session.getAttribute("user_id");
         System.out.println(name2 +" is job name");
         System.out.println(name +" is session name");
         newApply.setSession(name);
-        newApply.setJob_Id(newjob.getId());
+        newApply.setJob_Id(newJob.getId());
         applyDao.save(newApply);
 
         return "redirect:/apply";
