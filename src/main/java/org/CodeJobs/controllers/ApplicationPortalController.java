@@ -49,7 +49,7 @@ public class ApplicationPortalController
     }
 
     @RequestMapping(value="job/{jobId}", method = RequestMethod.POST)
-    public String processApply(@ModelAttribute Job job, @ModelAttribute @Valid Apply newApply, HttpSession session,
+    public String processApply(@PathVariable int jobId, @ModelAttribute Job job, @ModelAttribute @Valid Apply newApply, HttpSession session,
                                Errors errors, Model model) {
 
         if(errors.hasErrors()){
@@ -57,12 +57,13 @@ public class ApplicationPortalController
             return "apply/apply";
         }
 
+        Job newjob = jobDao.findOne(jobId);
         Integer name2 =(Integer) job.getId();
         Integer name =(Integer) session.getAttribute("user_id");
         System.out.println(name2 +" is job name");
         System.out.println(name +" is session name");
         newApply.setSession(name);
-        newApply.setJob_Id(job.getId());
+        newApply.setJob_Id(newjob.getId());
         applyDao.save(newApply);
 
         return "redirect:/apply";
