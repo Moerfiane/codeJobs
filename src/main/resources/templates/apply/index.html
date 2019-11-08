@@ -24,7 +24,7 @@
         <th>Closing Date</th>-->
     </tr>
 
-    <tr th:each="job : ${jobs}">
+    <tr th:each="job : ${jobs}" method="post" th:object="${job}">
 <!--change href to show applicants.html-->
         <td><a th:href="applicants" th:text="Apply"></a></td>
         <td th:text="${job.jobTitle}"></td>
