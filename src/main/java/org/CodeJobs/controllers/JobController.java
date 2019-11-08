@@ -1,6 +1,6 @@
 package org.CodeJobs.controllers;
 
-import org.CodeJobs.models.data.AppDao;
+import org.CodeJobs.models.data.ApplyDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +26,7 @@ public class JobController {
     private UserDao userDao;
 
     @Autowired
-    private AppDao appDao;
+    private ApplyDao applyDao;
 
     @RequestMapping(value="")
     public String index(Model model, HttpSession session){

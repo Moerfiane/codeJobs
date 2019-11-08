@@ -2,7 +2,6 @@ package org.CodeJobs.controllers;
 
 
 import org.CodeJobs.models.Apply;
-import org.CodeJobs.models.Job;
 import org.CodeJobs.models.data.JobDao;
 import org.CodeJobs.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import org.CodeJobs.models.data.AppDao;
+import org.CodeJobs.models.data.ApplyDao;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -25,7 +23,7 @@ public class ApplicationPortalController
 {
 
     @Autowired
-    private AppDao appDao;
+    private ApplyDao applyDao;
 
     @Autowired
     private JobDao jobDao;
@@ -57,7 +55,7 @@ public class ApplicationPortalController
         System.out.println(jobId + "is job id");
         newApply.setSession(name);
         newApply.setJob_Id(jobId);
-        appDao.save(newApply);
+        applyDao.save(newApply);
 
         return "redirect:/apply";
     }

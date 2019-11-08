@@ -8,5 +8,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface AppDao extends CrudRepository <Apply, Integer> {
+public interface ApplyDao extends CrudRepository <Apply, Integer> {
 }
