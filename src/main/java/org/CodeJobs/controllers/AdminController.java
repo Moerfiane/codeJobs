@@ -61,10 +61,12 @@ public class AdminController {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
         return userId == null ? null : userDao.findOne(userId);*/
 
+/*
 
         Integer username =(Integer) session.getAttribute("user_id");
         System.out.println(username + "new");
         model.addAttribute("jobs", (jobDao.session(username)));
+*/
 
 
         model.addAttribute("title", "Admin: Education Listings");
@@ -89,6 +91,7 @@ public class AdminController {
     public String indexStatement(Model model) {
         model.addAttribute("title", "Admin: Statements");
         model.addAttribute("statements", statementDao.findAll());
+        model.addAttribute("user", userDao.findAll());
 
         return "admin/statement";
     }
