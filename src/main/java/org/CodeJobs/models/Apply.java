@@ -10,15 +10,22 @@ public class Apply {
     @GeneratedValue
     private int id;
 
-    private Integer job_Id;
+    private int job_Id;
 
-    private Integer session;
+    private int session;
 
     public Apply() {
     }
 
-    public Apply(Integer jobId, Integer session) {
+    public int getJob_Id() {
+        return job_Id;
+    }
+
+    public void setJob_Id(int job_Id) {
         this.job_Id = job_Id;
+    }
+
+    public void setSession(int session) {
         this.session = session;
     }
 

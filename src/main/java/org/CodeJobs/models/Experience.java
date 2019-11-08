@@ -9,13 +9,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class Experience {
 
-    //      * Job Title
-    //      * Company
-    //      * Start date (MM/DD/YYYY)
-    //      * End Date (MM/DD/YYYY)
-    //      * I currently work here (checkbox)
-    //         * If currently working there - end date not required
-    //      * Description  (character limit)
+
     @Id
     @GeneratedValue
     private int id;

@@ -2,6 +2,7 @@ package org.CodeJobs.controllers;
 
 
 import org.CodeJobs.models.Apply;
+import org.CodeJobs.models.Job;
 import org.CodeJobs.models.data.JobDao;
 import org.CodeJobs.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -43,18 +45,19 @@ public class ApplicationPortalController
         return "apply/index";
     }
 
-    @RequestMapping(value="index/{jobId}", method = RequestMethod.POST)
-    public String processApply(Model model, int jobId, @ModelAttribute @Valid Apply newApply, HttpSession session, Errors errors) {
+    @RequestMapping(value="", method = RequestMethod.POST)
+    public String processApply(Model model, @ModelAttribute @Valid Apply newApply, Job job, HttpSession session, Errors errors) {
 
         if(errors.hasErrors()){
             model.addAttribute("name", "Enter your name");
             return "apply/apply";
         }
+        Integer name2 =(Integer) job.getId();
         Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name2 +" is job name");
         System.out.println(name +" is session name");
-        System.out.println(jobId + "is job id");
         newApply.setSession(name);
-        newApply.setJob_Id(jobId);
+        newApply.setJob_Id(job.getId());
         applyDao.save(newApply);
 
         return "redirect:/apply";

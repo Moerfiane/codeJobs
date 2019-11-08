@@ -11,7 +11,7 @@ public class Job {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private int id;
 
     @NotNull
     //@Size(min=3, max=50)
@@ -74,8 +74,8 @@ public class Job {
         this.closingDate = closingDate;
     }
 
-    public Integer getId() {
-        return id;
+    public int getId() {
+        return this.id;
     }
 
     public String getJobTitle() {
