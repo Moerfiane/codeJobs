@@ -11,7 +11,7 @@ public class Job {
 
     @Id
     @GeneratedValue
-    private int id;
+    public int id;
 
     @NotNull
     //@Size(min=3, max=50)
