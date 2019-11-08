@@ -1,5 +1,6 @@
 package org.CodeJobs.controllers;
 
+import org.CodeJobs.models.data.ApplyDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,11 +25,14 @@ public class JobController {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private ApplyDao applyDao;
+
     @RequestMapping(value="")
     public String index(Model model, HttpSession session){
-        Integer username =(Integer) session.getAttribute("user_id");
-        System.out.println(username + "new");
-        model.addAttribute("jobs", (jobDao.session(username)));
+        Integer identify =(Integer) session.getAttribute("user_id");
+        System.out.println(identify + "new");
+        model.addAttribute("jobs", (jobDao.session(identify)));
 
         return "job/index";
     }
@@ -53,8 +57,7 @@ public class JobController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processJobAdd(@ModelAttribute @Valid Job newJob, HttpSession session, Errors errors, Model model,
-                                HttpServletRequest request, HttpServletResponse response) {
+    public String processJobAdd(@ModelAttribute @Valid Job newJob, HttpSession session, Errors errors, Model model) {
 
 
         if (errors.hasErrors()) {
