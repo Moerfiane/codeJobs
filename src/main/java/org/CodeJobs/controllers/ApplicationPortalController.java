@@ -33,30 +33,30 @@ public class ApplicationPortalController
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(value="")
-    public String index(Model model, HttpSession session){
-        Integer identify =(Integer) session.getAttribute("user_id");
-        System.out.println(identify + "new");
-//        Integer job_id =(Integer) Job.getJobId();
-//        System.out.println(job_id + "is job id");
+    @RequestMapping(value="", method = RequestMethod.GET)
+    public String processIndex(Model model, HttpSession session){
+//        Integer identify =(Integer) session.getAttribute("user_id");
+//        System.out.println(identify + "new");
+////        Integer job_id =(Integer) Job.getJobId();
+////        System.out.println(job_id + "is job id");
+        model.addAttribute("title", "Edit Job");
         model.addAttribute("jobs", (jobDao.findAll()));
 
         return "apply/index";
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public String processApply(Model model, @PathVariable int jobId, @ModelAttribute @Valid Apply newApply, HttpSession session, Errors errors) {
+    @RequestMapping(value="index/{jobId}", method = RequestMethod.POST)
+    public String processApply(Model model, int jobId, @ModelAttribute @Valid Apply newApply, HttpSession session, Errors errors) {
 
         if(errors.hasErrors()){
             model.addAttribute("name", "Enter your name");
             return "apply/apply";
         }
         Integer name =(Integer) session.getAttribute("user_id");
-        Integer job_id = jobId;
         System.out.println(name +" is session name");
-        System.out.println(job_id + "is job id");
+        System.out.println(jobId + "is job id");
         newApply.setSession(name);
-        newApply.setJob_Id(job_id);
+        newApply.setJob_Id(jobId);
         appDao.save(newApply);
 
         return "redirect:/apply";

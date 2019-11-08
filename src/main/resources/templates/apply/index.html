@@ -8,7 +8,6 @@
 
 <div class="main">
 <table class="table table-bordered">
-    <div class="form-group">
     <tr>
         <th></th>
         <th>Job Title</th>
@@ -24,8 +23,11 @@
         <th>Closing Date</th>
     </tr>
 
-    <tr th:each="job : ${jobs}">
-        <td><form method="post" th:object="${app}"><input class="btn btn-primary btn-xs" type="submit" value="apply" /></form></td>
+    <tr  th:each="job : ${jobs}" method="post" th:object="${job}">
+        <td> <form method="post" th:object="${job}">
+            <input class="btn btn-primary btn-xs"  type="submit" value="apply" />
+        </form></td>
+
         <td th:text="${job.jobTitle}"></td>
         <td th:text="${job.address}"></td>
         <td th:text="${job.jobCategory}"></td>
@@ -37,11 +39,13 @@
         <td th:text="${job.dressCode}"></td>
         <td th:text="${job.payRate}"></td>
         <td th:text="${job.closingDate}"></td>
+
     </tr>
-        </div>
 
 </table>
+
 </div>
+
 </body>
 
 </html>
