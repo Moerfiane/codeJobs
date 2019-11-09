@@ -4,6 +4,7 @@ package org.CodeJobs.controllers;
 import org.CodeJobs.models.Applicant;
 import org.CodeJobs.models.Apply;
 import org.CodeJobs.models.Job;
+import org.CodeJobs.models.data.ApplicantDao;
 import org.CodeJobs.models.data.JobDao;
 import org.CodeJobs.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,9 @@ public class ApplicationPortalController
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private ApplicantDao applicantDao;
 
     @RequestMapping(value="", method = RequestMethod.GET)
     public String processIndex(Model model, HttpSession session){
@@ -75,17 +79,18 @@ public class ApplicationPortalController
     }
 
     @RequestMapping(value="apply/{applyId}", method = RequestMethod.POST)
-    public String jobber(@PathVariable int applyId, @ModelAttribute Apply apply, @ModelAttribute @Valid Job newJob, HttpSession session,
+    public String jobber(@PathVariable int applicantId, @ModelAttribute Apply apply, @ModelAttribute Applicant applicant, @ModelAttribute @Valid Job newJob, HttpSession session,
                          Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("name", "Enter your name");
             return "apply/applicant";
         }
 
-        Apply newApply = applyDao.findOne(applyId);
+        Applicant newApplicant = applicantDao.findOne(applicantId);
+        //Apply newApply = applyDao.findOne(applyId);
         Integer name = (Integer) session.getAttribute("user_id");
         newJob.setSession(name);
-        newJob.setApply_Id(newApply.getId());
+        newJob.setApply_Id(newApplicant.getId());
         jobDao.save(newJob);
 
         return "redirect:/applicant";

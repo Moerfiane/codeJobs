@@ -14,6 +14,9 @@ public class Applicant {
 
     private int apply_Id;
 
+    private int session;
+
+
     public Applicant(){}
 
     public int getId() {
@@ -26,5 +29,13 @@ public class Applicant {
 
     public void setApply_Id(int apply_Id) {
         this.apply_Id = apply_Id;
+    }
+
+    public int getSession() {
+        return session;
+    }
+
+    public void setSession(int session) {
+        this.session = session;
     }
 }
