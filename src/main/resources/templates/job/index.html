@@ -49,6 +49,7 @@
             <td th:text="${job.dressCode}"></td>
             <td th:text="${job.payRate}"></td>
             <td th:text="${job.closingDate}"></td>
+            <td><a th:href="'apply/applicant/' + ${job.session}" th:text="Applicants"></a></td>
         </tr>
 
     </table>

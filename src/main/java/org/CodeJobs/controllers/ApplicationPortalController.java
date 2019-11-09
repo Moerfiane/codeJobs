@@ -1,6 +1,7 @@
 package org.CodeJobs.controllers;
 
 
+import org.CodeJobs.models.Applicant;
 import org.CodeJobs.models.Apply;
 import org.CodeJobs.models.Job;
 import org.CodeJobs.models.data.JobDao;
@@ -66,7 +67,27 @@ public class ApplicationPortalController
         return "redirect:/apply";
     }
 
+    @RequestMapping(value="apply/{applyId}", method = RequestMethod.GET)
+    public String applied(Model model, @PathVariable int applicantId, HttpSession session){
+        model.addAttribute("applied", (applyDao.findOne(applicantId)));
 
+        return "applicant";
+    }
 
+    @RequestMapping(value="apply/{applyId}", method = RequestMethod.POST)
+    public String jobber(@PathVariable int applyId, @ModelAttribute Apply apply, @ModelAttribute @Valid Job newJob, HttpSession session,
+                         Errors errors, Model model) {
+        if (errors.hasErrors()) {
+            model.addAttribute("name", "Enter your name");
+            return "apply/applicant";
+        }
 
+        Apply newApply = applyDao.findOne(applyId);
+        Integer name = (Integer) session.getAttribute("user_id");
+        newJob.setSession(name);
+        newJob.setApply_Id(newApply.getId());
+        jobDao.save(newJob);
+
+        return "redirect:/applicant";
+    }
 }
