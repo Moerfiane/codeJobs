@@ -71,28 +71,28 @@ public class ApplicationPortalController
         return "redirect:/apply";
     }
 
-    @RequestMapping(value="apply/{applyId}", method = RequestMethod.GET)
-    public String applied(Model model, @PathVariable int applicantId, HttpSession session){
-        model.addAttribute("applied", (applyDao.findOne(applicantId)));
+    /*@RequestMapping(value="applicant/{applyId}", method = RequestMethod.GET)
+    public String applied(Model model, @PathVariable int applyId, HttpSession session){
+        model.addAttribute("apply", (applyDao.findOne(applyId)));
 
-        return "applicant";
+        return "job/applicant";
     }
 
-    @RequestMapping(value="apply/{applyId}", method = RequestMethod.POST)
-    public String jobber(@PathVariable int applyId, @ModelAttribute Apply apply, @ModelAttribute Applicant applicant, @ModelAttribute @Valid Job newJob, HttpSession session,
-                         Errors errors, Model model) {
-        if (errors.hasErrors()) {
+    @RequestMapping(value="applicant/{applyId}", method = RequestMethod.POST)
+    public String Jobber(@PathVariable int jobId, @ModelAttribute Job job, @ModelAttribute @Valid Apply newApply, HttpSession session,
+                               Errors errors, Model model) {
+
+        if(errors.hasErrors()){
             model.addAttribute("name", "Enter your name");
-            return "apply/applicant";
+            return "job/job";
         }
 
-        //Applicant newApplicant = applicantDao.findOne(applyId);
-        Apply newApply = applyDao.findOne(applyId);
-        Integer name = (Integer) session.getAttribute("user_id");
-        newJob.setSession(name);
-        newJob.setApply_Id(newApply.getId());
-        jobDao.save(newJob);
+        Job newJob = jobDao.findOne(jobId);
+        Integer name =(Integer) session.getAttribute("user_id");
+        newApply.setSession(name);
+        newApply.setJob_Id(newJob.getId());
+        applyDao.save(newApply);
 
         return "redirect:/applicant";
-    }
+    }*/
 }
