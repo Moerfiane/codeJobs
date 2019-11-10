@@ -18,7 +18,7 @@
     </tr>
 
     <tr th:each="job : ${jobs}">
-        <td><a th:href="'apply/job/' + ${job.id}" th:text="view all"></a></td>
+        <td><a th:href="'apply/job/' + ${job.id}" th:text="View all"></a></td>
 
         <td th:text="${job.jobTitle}"></td>
         <td th:text="${job.jobSummary}"></td>
