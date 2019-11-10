@@ -35,12 +35,9 @@ public class ApplicationPortalController
     @Autowired
     private ApplicantDao applicantDao;
 
-    @RequestMapping(value="", method = RequestMethod.GET)
+    @RequestMapping(value="")
     public String processIndex(Model model, HttpSession session){
-//        Integer identify =(Integer) session.getAttribute("user_id");
-//        System.out.println(identify + "new");
-////        Integer job_id =(Integer) Job.getJobId();
-////        System.out.println(job_id + "is job id");
+
         model.addAttribute("jobs", (jobDao.findAll()));
 
         return "apply/index";

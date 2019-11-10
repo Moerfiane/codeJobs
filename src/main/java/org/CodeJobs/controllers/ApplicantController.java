@@ -26,10 +26,16 @@ public class ApplicantController {
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(value="applicant/{applyId}", method = RequestMethod.GET)
+    @RequestMapping(value="")
+    public String processIndex(Model model, HttpSession session){
+        model.addAttribute("applies", (applyDao.findAll()));
+        return "applicant/index";
+    }
+
+    @RequestMapping(value="apply/{applyId}", method = RequestMethod.GET)
     public String applied(Model model, @PathVariable int applyId, HttpSession session){
         model.addAttribute("apply", (applyDao.findOne(applyId)));
 
-        return "apply/applicant";
+        return "applicant/applicant";
     }
 }
