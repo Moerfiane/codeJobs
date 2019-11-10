@@ -44,13 +44,16 @@ public class Employer {
         @NotNull
         private String closingDate;
 
-        @ManyToMany
+        /*@ManyToMany
         @JoinTable(
                 name = "apply_job",
                 joinColumns = @JoinColumn(name = "user_id"),
                 inverseJoinColumns = @JoinColumn(name = "job_id")
         )
         Set<Job> applyJobs;
+
+         */
+
 
         //empty constructor
         public Employer(){}
