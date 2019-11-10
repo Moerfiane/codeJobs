@@ -14,17 +14,16 @@
 
     <table class="table table-bordered">
         <tr>
-            <th></th>
             <th>Job Title</th>
             <th>Applicants</th>
 
         </tr>
 
-        <tr th:each="apply : ${applys}">
-            <!--<td><a th:href="'apply/job/' + ${job.id}" th:text="view"></a></td>-->
-
-            <td th:text="${apply.id}"></td>
+        <tr th:each="job : ${job}" method="get" th:object="${job}">
+            <td><a th:href="'apply/job/' + ${job.id}" th:text="view"></a></td>
             <td th:text="${job.jobTitle}"></td>
+            <td th:text="${apply.id}"></td>
+
 
         </tr>
     </table>
