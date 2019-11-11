@@ -4,51 +4,59 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../css/jobmain.css" />
 </head>
-<header>
-    <img th:src="@{../../photos/dev1.png}" />
-</header>
 
-    <body class="container">
-    <h1 th:text="${title}">Default Title</h1>
+<div class="grid-container">
+    <div class="logo"> <img th:src="@{../../photos/dev1.png}" />
+        </div>
+    <div class="logo-name"></div>
+    <div class="user-nav"> <a href="#">login</a> | <a href="#">logout</a></div>
+    <div class="content">  <h1 th:text="${title}">Default Title</h1>
 
-<nav>
-    <a class="btn btn-primary btn-xs" href="/job/add">Add New Job</a>
-</nav>
+        <a href="/job/add" class="button">Add New Job</a>
 
-    <p th:unless="${jobs} and ${jobs.size()}">No Jobs have been added</p>
+        <br />
+        <br />
 
-    <table class="table table-bordered">
-        <tr>
-            <th></th>
-            <th>Job Title</th>
-            <th>Address</th>
-            <th>Job Category</th>
-            <th>Job Summary</th>
-            <th>Location</th>
-            <th>Schedule</th>
-            <th>Position Type</th>
-            <th>Number of Positions</th>
-            <th>Dress Code</th>
-            <th>Pay Rate</th>
-            <th>Closing Date</th>
-        </tr>
+        <p th:unless="${jobs} and ${jobs.size()}">No Jobs have been added</p>
 
-        <tr th:each="job : ${jobs}">
-            <td><a th:href="'job/edit/' + ${job.id}" th:text="Edit"></a></td>
-            <td th:text="${job.jobTitle}"></td>
-            <td th:text="${job.address}"></td>
-            <td th:text="${job.jobCategory}"></td>
-            <td th:text="${job.jobSummary}"></td>
-            <td th:text="${job.location}"></td>
-            <td th:text="${job.schedule}"></td>
-            <td th:text="${job.positionType}"></td>
-            <td th:text="${job.numOfPositions}"></td>
-            <td th:text="${job.dressCode}"></td>
-            <td th:text="${job.payRate}"></td>
-            <td th:text="${job.closingDate}"></td>
-        </tr>
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th>Job Title</th>
+                <th>Address</th>
+                <th>Job Category</th>
+                <th>Job Summary</th>
+                <th>Location</th>
+                <th>Schedule</th>
+                <th>Position Type</th>
+                <th>Number of Positions</th>
+                <th>Dress Code</th>
+                <th>Pay Rate</th>
+                <th>Closing Date</th>
+            </tr>
+            </thead>
 
-    </table>
-    </body>
+            <tbody>
+            <tr th:each="job : ${jobs}">
+                <td><a th:href="'job/edit/' + ${job.id}" th:text="Edit"></a></td>
+                <td th:text="${job.jobTitle}"></td>
+                <td th:text="${job.address}"></td>
+                <td th:text="${job.jobCategory}"></td>
+                <td th:text="${job.jobSummary}"></td>
+                <td th:text="${job.location}"></td>
+                <td th:text="${job.schedule}"></td>
+                <td th:text="${job.positionType}"></td>
+                <td th:text="${job.numOfPositions}"></td>
+                <td th:text="${job.dressCode}"></td>
+                <td th:text="${job.payRate}"></td>
+                <td th:text="${job.closingDate}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
 
 </html>

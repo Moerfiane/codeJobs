@@ -9,14 +9,27 @@
 
 <div th:replace="fragments :: secondnav"></div>
 
-<p th:unless="${results}">No user could be found by that name.</p>
 
-<p th:if="${results}">
+<p th:unless="${results}">No users were found by that name.</p>
 
-<p th:text="${results.username}"></p>
-<p th:text="${results.uid}"></p>
-<p th:text="${results.access}"></p>
+<table class="table table-bordered">
 
-</p>
+    <p th:text="${param.searchTerm}"></p>
+
+    <p th:if="${results}">
+
+    <th></th>
+    <th>ID</th>
+    <th>Username</th>
+    <th>Access Level</th>
+
+    <tr th:each="result : ${results}">
+        <td><a th:href="'edit/users/' + ${result.uid}" th:text="Edit"></a></td>
+        <td th:text="${result.uid}"></td>
+        <td th:text="${result.username}"></td>
+        <td th:text="${result.access}"></td>
+    </tr>
+    </p>
+</table>
 </body>
 </html>

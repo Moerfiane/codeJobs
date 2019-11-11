@@ -13,6 +13,6 @@ public interface UserDao extends CrudRepository<User, Integer> {
 
     User findByUsername(String username);
 
+    User findByUid(Integer uid);
 
-//    User findByuid(Integer uid);
 }

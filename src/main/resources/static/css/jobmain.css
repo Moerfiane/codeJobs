@@ -1,10 +1,117 @@
 body {
     background: aquamarine;
     font-family: sans-serif;
-    padding: 20px;
+    margin: 0px;
 }
 
 img {
-    height: 150px;
+    height: 50px;
     width: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #292f30;
+}
+
+a:active, a:hover, a:visited {
+    text-decoration: underline;
+    color: #6e8186
+}
+
+table {
+  width: 100%;
+  background-color: #ebfaf8;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #334a5c;;
+  border-style: solid;
+  color: #000000;
+}
+
+table a:link {
+    color: #334a5c;
+}
+
+table td, table th {
+  border-width: 2px;
+  border-color: #334a5c;;
+  border-style: solid;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+table tr:hover td {
+    background-color: #dcf7f4;
+}
+
+table thead {
+  background-color: #334a5c;
+  color: #ebfaf8;
+}
+
+.button a:link, a:visited, a:hover {
+    color: black;
+}
+
+.button {
+	background-color: #435e73;
+	border-radius:28px;
+	border: 1px solid #18ab29;
+	cursor: pointer;
+	color: black;
+	font-family: sans-serif;
+	font-size:17px;
+	padding:16px 19px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #2f6627;
+	display: inline-block;
+}
+
+.button:hover {
+	background-color: #334a5c;
+	color: black;
+}
+
+.button:active {
+    color: black;
+	position: relative;
+	top: 1px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "logo logo-name user-nav" "content content content" "footer footer footer";
+}
+
+.user-nav, .logo, .logo-name {
+    background-color: #2d9480;
+}
+
+.user-nav, .content, .footer {
+    padding: 20px;
+}
+
+.logo {
+    grid-area: logo;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.user-nav {
+    grid-area: user-nav;
+    text-align: right;
+}
+
+.content {
+    grid-area: content;
+    background-color: aquamarine;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: yellow;
+    text-align: center;
 }
