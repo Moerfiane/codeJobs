@@ -168,7 +168,7 @@ public class AuthenticationController extends AbstractController {
         if (theUser.getAccess().equals("3")) {
             return "redirect:/job";
         } else {
-            return "/";
+            return "welcome/index";
         }
     }
 
