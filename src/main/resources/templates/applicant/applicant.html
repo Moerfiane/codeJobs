@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head" />
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/dashboard.css" />
 </head>
-<body>
-<h1 th:text="${title}"></h1>
 
 
 
-<div class="main">
 
+
+<div class="applies">
     <table class="table table-bordered">
         <tr>
+            <th>Stuff</th>
             <th>Job Title</th>
-            <th>Applicants</th>
-
         </tr>
 
-        <tr th:each="apply : ${applys}" method="get" th:object="${apply}">
-            <td><a th:href="'apply/job/' + ${apply.id}" th:text="view"></a></td>
+        <tr th:each="apply : ${applies}">
+            <td th:text="${apply.job_Id}"></td>
             <td th:text="${apply.session}"></td>
-            <td th:text="${apply.id}"></td>
-
-
         </tr>
-    </table>
 
+    </table>
 </div>
-</body>
+
+
 </html>

@@ -1,37 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<body class="container">
+
 <head>
     <link rel="stylesheet" type="text/css" href="../css/dashboard.css" />
 </head>
-<header>
-    <img th:src="@{../../photos/dev1.png}" />
-</header>
 
 
-    <div class="main">
-    <h1 th:text="${title}">Default Title</h1>
-    <nav th:replace="fragments :: navigation"></nav>
 
 
-<nav>
-    <a class="btn btn-primary btn-xs" href="/job/add">Add New Job</a>
-</nav>
 
-        <table class="table">
-        <tr>
-            <th>Job</th>
-            <th>User</th>
-        </tr>
+    <div class="applies">
+        <table class="table table-bordered">
+            <tr>
+                <th>Stuff</th>
+                <th>Job Title</th>
+            </tr>
 
-        <tr th:each="apply : ${applies}">
+            <tr th:each="apply : ${applies}">
+                <td th:text="${apply.job_Id}"></td>
+                <td th:text="${apply.session}"></td>
+            </tr>
 
-            <td th:text="${apply.job_Id}"></td>
-            <td th:text="${apply.session}"></td>
-        </tr>
-
-    </table>
+        </table>
     </div>
-    </body>
+
 
 </html>

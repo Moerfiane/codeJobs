@@ -18,7 +18,7 @@ public class Apply {
     }
 
     public int getJob_Id() {
-        return job_Id;
+        return job_Id = job_Id;
     }
 
     public void setJob_Id(int job_Id) {

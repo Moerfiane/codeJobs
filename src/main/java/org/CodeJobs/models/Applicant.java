@@ -12,23 +12,29 @@ public class Applicant {
     @GeneratedValue
     private int id;
 
-    private int apply_Id;
+    private int applyId;
 
     private int session;
 
 
     public Applicant(){}
 
+    public Applicant(int id, int applyId, int session) {
+        this.id = id;
+        this.applyId = applyId;
+        this.session = session;
+    }
+
     public int getId() {
         return id;
     }
 
-    public int getApply_Id() {
-        return apply_Id;
+    public int getApplyId() {
+        return applyId;
     }
 
-    public void setApply_Id(int apply_Id) {
-        this.apply_Id = apply_Id;
+    public void setApplyId(int applyId) {
+        this.applyId = applyId;
     }
 
     public int getSession() {
