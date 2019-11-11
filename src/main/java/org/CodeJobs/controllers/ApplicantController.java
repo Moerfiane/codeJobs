@@ -34,7 +34,7 @@ public class ApplicantController {
 
     @RequestMapping(value="apply/{applyId}", method = RequestMethod.GET)
     public String applied(Model model, @PathVariable int applyId, HttpSession session){
-        model.addAttribute("apply", (applyDao.findOne(applyId)));
+        model.addAttribute("applys", (applyDao.findOne(applyId)));
 
         return "applicant/applicant";
     }
