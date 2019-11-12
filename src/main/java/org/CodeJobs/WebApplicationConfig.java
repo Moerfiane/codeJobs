@@ -29,20 +29,20 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
         http
                 .authorizeRequests()
                     .antMatchers("/", "/index").permitAll()
-                    .anyRequest().authenticated()
-                    .and()
-                /*.formLogin()
+                    .anyRequest().authenticated();
+                    /*.and()
+                .formLogin()
                     .loginPage("/register/login")
                     .permitAll()
-                    .and()*/
+                    .and()
                 .logout()
-                    .permitAll();
+                    .permitAll();*/
     }
-    @Autowired
+    /*@Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
                 .withUser("user").password("password").roles("USER");
-    }
+    }*/
 
 }
