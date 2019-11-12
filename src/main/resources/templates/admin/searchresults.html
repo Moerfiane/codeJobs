@@ -14,7 +14,7 @@
 
 <table class="table table-bordered">
 
-    <p th:text="${param.searchTerm}"></p>
+    Search results for <em><span th:text="${param.searchTerm[0]}"></span></em>....
 
     <p th:if="${results}">
 

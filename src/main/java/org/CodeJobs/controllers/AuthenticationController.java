@@ -14,10 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-/**
- * Created by LaunchCode
- */
-
 @Controller
 @RequestMapping("register")
 public class AuthenticationController extends AbstractController {
@@ -122,7 +118,7 @@ public class AuthenticationController extends AbstractController {
 
 
         if (form.getAccess().equals("1")){
-            return "redirect:/job";
+            return "redirect:/admin";
         }
         return "redirect:/register";
     }
