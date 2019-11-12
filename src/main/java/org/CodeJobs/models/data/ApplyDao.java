@@ -10,6 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface ApplyDao extends CrudRepository <Apply, Integer> {
 
-    Iterable<Integer> session(Integer identify);
+    Iterable<Integer> jobId(Integer identify);
 
 }

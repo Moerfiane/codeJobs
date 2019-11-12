@@ -12,13 +12,13 @@
     <div class="applies">
         <table class="table table-bordered">
             <tr>
-                <th>JobID</th>
-                <th>User</th>
+                <th>Stuff</th>
+                <th>Job Title</th>
             </tr>
 
             <tr th:each="apply : ${applies}">
+                <td th:text="${apply.jobId}"></td>
                 <td th:text="${apply.session}"></td>
-                <td th:text="${apply.job_Id}"></td>
             </tr>
 
         </table>

@@ -121,9 +121,9 @@ public class JobController {
     }
 
     @RequestMapping(value="view/{applyId}",  method = RequestMethod.GET)
-    public String viewer(Model model, @RequestParam int applyId){
+    public String viewer(Model model, @PathVariable int applyId){
         System.out.println(applyId + "new");
-        model.addAttribute("applies", (applyDao.session(applyId)));
+        model.addAttribute("applies", (applyDao.jobId(applyId)));
 
         return "job/view";
     }

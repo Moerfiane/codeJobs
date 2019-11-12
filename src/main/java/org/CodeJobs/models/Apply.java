@@ -10,16 +10,16 @@ public class Apply {
     @GeneratedValue
     private int id;
 
-    private int job_Id;
+    private int jobId;
 
     private int session;
 
     public Apply() {
     }
 
-    public Apply(int id, int job_Id, int session) {
+    public Apply(int id, int jobId, int session) {
         this.id = id;
-        this.job_Id = job_Id;
+        this.jobId = jobId;
         this.session = session;
     }
 
@@ -31,12 +31,12 @@ public class Apply {
         this.id = id;
     }
 
-    public int getJob_Id() {
-        return job_Id;
+    public int getJobId() {
+        return jobId;
     }
 
-    public void setJob_Id(int job_Id) {
-        this.job_Id = job_Id;
+    public void setJobId(int jobId) {
+        this.jobId = jobId;
     }
 
     public int getSession() {

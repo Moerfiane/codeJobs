@@ -62,7 +62,7 @@ public class ApplicationPortalController
         Job newJob = jobDao.findOne(jobId);
         Integer name =(Integer) session.getAttribute("user_id");
         newApply.setSession(name);
-        newApply.setJob_Id(newJob.getId());
+        newApply.setJobId(newJob.getId());
         applyDao.save(newApply);
 
         return "redirect:/apply";
