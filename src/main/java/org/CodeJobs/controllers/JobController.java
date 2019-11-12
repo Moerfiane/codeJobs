@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import javax.websocket.server.PathParam;
 
 
 @Controller
@@ -31,7 +32,7 @@ public class JobController {
     @RequestMapping(value="")
     public String index(Model model, HttpSession session){
         Integer identify =(Integer) session.getAttribute("user_id");
-        System.out.println(identify + "new");
+        System.out.println(identify + "new2");
         model.addAttribute("jobs", (jobDao.session(identify)));
 
         return "job/index";
@@ -117,6 +118,14 @@ public class JobController {
         jobDao.save(editedJob);
 
         return "redirect:/job";
+    }
+
+    @RequestMapping(value="view/{applyId}",  method = RequestMethod.GET)
+    public String viewer(Model model, @RequestParam int applyId){
+        System.out.println(applyId + "new");
+        model.addAttribute("applies", (applyDao.session(applyId)));
+
+        return "job/view";
     }
 
 }

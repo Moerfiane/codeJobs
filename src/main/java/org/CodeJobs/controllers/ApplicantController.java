@@ -1,8 +1,6 @@
 package org.CodeJobs.controllers;
 
 
-import org.CodeJobs.models.Apply;
-import org.CodeJobs.models.Job;
 import org.CodeJobs.models.data.ApplyDao;
 import org.CodeJobs.models.data.JobDao;
 import org.CodeJobs.models.data.UserDao;
@@ -11,8 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
+import javax.websocket.server.PathParam;
 
 @Controller
 @RequestMapping("applicant")
@@ -34,11 +31,9 @@ public class ApplicantController {
 //    }
 
     @RequestMapping(value="")
-    public String index(Model model, HttpSession session){
-        Integer userSession =(Integer) session.getAttribute("user_id");
-        System.out.println(userSession + "new");
-        model.addAttribute("applies", (applyDao.session(userSession)));
-
+    public String index(@PathParam("Apply.getJob_Id") Integer jobId,Model model){
+        System.out.println(jobId + "new");
+        model.addAttribute("applies", (applyDao.session(jobId)));
         return "applicant/index";
     }
 }

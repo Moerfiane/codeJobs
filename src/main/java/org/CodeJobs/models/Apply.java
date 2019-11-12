@@ -17,15 +17,9 @@ public class Apply {
     public Apply() {
     }
 
-    public int getJob_Id() {
-        return job_Id = job_Id;
-    }
-
-    public void setJob_Id(int job_Id) {
+    public Apply(int id, int job_Id, int session) {
+        this.id = id;
         this.job_Id = job_Id;
-    }
-
-    public void setSession(int session) {
         this.session = session;
     }
 
@@ -33,16 +27,23 @@ public class Apply {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public void setJob_Id(Integer job_Id) {
+    public int getJob_Id() {
+        return job_Id;
+    }
+
+    public void setJob_Id(int job_Id) {
         this.job_Id = job_Id;
     }
 
-    public Integer getSession() {
+    public int getSession() {
         return session;
     }
 
-    public void setSession(Integer session) {
+    public void setSession(int session) {
         this.session = session;
     }
 }
