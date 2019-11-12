@@ -9,9 +9,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class SecurityController extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/index").setViewName("welcome");
+        registry.addViewController("/welcome/index").setViewName("welcome");
         registry.addViewController("/").setViewName("welcome");
-        registry.addViewController("/index").setViewName("welcome");
-        registry.addViewController("/register/login").setViewName("login");
+        registry.addViewController("/welcome/index").setViewName("welcome");
+        registry.addViewController("/register/login").setViewName("register/login");
     }
 }
