@@ -28,7 +28,7 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/index").permitAll();
+                    .antMatchers("/", "/welcome/index").permitAll();
                     //.anyRequest().authenticated();
                     /*.and()
                 .formLogin()
