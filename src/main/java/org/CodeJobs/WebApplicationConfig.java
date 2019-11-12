@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class WebApplicationConfig extends WebMvcConfigurerAdapter {
 
     // Create managed bean to allow autowiring
@@ -25,7 +25,7 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
         registry.addInterceptor( authenticationInterceptor() );
     }
 
-    protected void configure(HttpSecurity http) throws Exception {
+   /* protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                     .antMatchers("/", "/index").permitAll()
@@ -43,6 +43,6 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
         auth
                 .inMemoryAuthentication()
                 .withUser("user").password("password").roles("USER");
-    }
+    }*/
 
 }
