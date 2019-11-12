@@ -19,6 +19,12 @@ a:active, a:hover, a:visited {
     color: #000;
 }
 
+.none {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
 table {
   width: 100%;
   background-color: #ebfaf8;
@@ -193,7 +199,7 @@ ul li {
 }
 
 .user-nav-second a:hover {
-  background-color: #ce0606;
+  background-color: #f0fcf8;
   cursor: pointer;
 }
 

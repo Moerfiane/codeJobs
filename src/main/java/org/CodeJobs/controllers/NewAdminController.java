@@ -48,9 +48,6 @@ public class NewAdminController extends AbstractController {
 
         User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
         userDao.save(newUser);
-        session.setAttribute("username",newUser.getUsername());
-        setUserInSession(request.getSession(), newUser);
-
 
         if (form.getAccess().equals("1")) {
             return "redirect:/admin";

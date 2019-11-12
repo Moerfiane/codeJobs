@@ -26,9 +26,9 @@
         <br />
         <br />
 
-        <p th:unless="${jobs} and ${jobs.size()}">No Jobs have been added</p>
+        <p class="none" th:unless="${jobs} and ${jobs.size()}">No jobs have been added.</p>
 
-        <table>
+        <p th:if="${jobs} and ${jobs.size()}"><table>
             <thead>
             <tr>
                 <th></th>
@@ -63,7 +63,7 @@
             </tr>
             </tbody>
         </table>
-
+    </p>
 
     </div>
     <div class="footer"></div>
