@@ -1,5 +1,5 @@
 body {
-    background: aquamarine;
+    background-image: linear-gradient(aquamarine, #b2f8e0);
     font-family: sans-serif;
     margin: 0px;
 }
@@ -204,6 +204,6 @@ ul li {
 
 .footer {
     grid-area: footer;
-    background-color: yellow;
     text-align: center;
+    background-color: aquamarine;
 }
