@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 @Controller
-@RequestMapping(value = "")
 public class HomePage {
-    public String welcome(){
 
-        return "welcome/index";
+    @RequestMapping(value = "")
+    public String index(){
+
+        return "index";
     }
 }
