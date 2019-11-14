@@ -38,7 +38,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
             // If user not logged in, redirect to login page
             if (!isLoggedIn) {
-                response.sendRedirect("/");
+                response.sendRedirect("register/login");
                 return false;
             }
         }
