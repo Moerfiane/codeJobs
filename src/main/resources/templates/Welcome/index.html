@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-
+<http>
+    <intercept-url pattern="/**" access="authenticated"/>
+    <form-login />
+    <http-basic />
+</http>
 <head>
     <link rel="stylesheet" type="text/css" href="../css/dashboard.css" />
 </head>
