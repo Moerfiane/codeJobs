@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 @Controller
-@RequestMapping("")
+@RequestMapping(value = "")
 public class HomePage {
-    @RequestMapping(value="")
     public String welcome(){
 
         return "welcome/index";
