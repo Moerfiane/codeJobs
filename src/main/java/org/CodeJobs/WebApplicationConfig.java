@@ -25,12 +25,12 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
         registry.addInterceptor( authenticationInterceptor() );
     }
 
-    protected void configure(HttpSecurity http) throws Exception {
+    /*protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .anyRequest().authenticated()
                 .and().httpBasic();
     }
-    /*@Autowired
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
