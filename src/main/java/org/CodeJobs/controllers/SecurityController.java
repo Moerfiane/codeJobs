@@ -1,4 +1,4 @@
-package org.CodeJobs.controllers;
+/*package org.CodeJobs.controllers;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -14,4 +14,4 @@ public class SecurityController extends WebMvcConfigurerAdapter {
         registry.addViewController("/welcome/index").setViewName("welcome");
         registry.addViewController("/register/login").setViewName("register/login");
     }
-}
+}*/
