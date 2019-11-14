@@ -12,6 +12,6 @@ public class HomePage {
     @RequestMapping(value = "")
     public String index(){
 
-        return "index";
+        return "welcome/index";
     }
 }
