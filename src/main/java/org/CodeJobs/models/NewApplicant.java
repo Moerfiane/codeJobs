@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 public class NewApplicant {
 
     @Id
-    private Integer session;
+    public int session;
 
 
     @NotNull
@@ -43,7 +43,7 @@ public class NewApplicant {
 
     public NewApplicant() { }
 
-    public NewApplicant(String gitHub, String linkedIn, String name, String phoneNum, String email, Integer session) {
+    public NewApplicant(String gitHub, String linkedIn, String name, String phoneNum, String email, int session) {
         this.gitHub = gitHub;
         this.linkedIn = linkedIn;
         this.name = name;
@@ -52,11 +52,11 @@ public class NewApplicant {
         this.session = session;
     }
 
-    public Integer getSession() {
+    public int getSession() {
         return session;
     }
 
-    public void setSession(Integer session) {
+    public void setSession(int session) {
         this.session = session;
     }
 
@@ -100,4 +100,5 @@ public class NewApplicant {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }

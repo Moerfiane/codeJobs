@@ -19,13 +19,135 @@
         <table class="table table-bordered">
             <tr>
                 <th>Job</th>
+            </tr>
+
+            <tr th:each="job : ${jobs}">
+                <td th:text="${job.jobTitle}"></td>
+            </tr>
+            <tr>
                 <th>Applicant</th>
             </tr>
 
-            <tr th:each="apply : ${applies}">
-                <td th:text="${apply.jobId}"></td>
-                <td th:text="${apply.session}"></td>
-            </tr>
+                <tr>
+                    <th></th>
+                    <th>Description</th>
+                </tr>
+
+                <tr th:each="statement : ${statements}">
+                    <td th:text="${statement.description}"></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Skills</th>
+                    <th>Skills</th>
+                    <th>Skills</th>
+                    <th>Skills</th>
+                    <th>Skills</th>
+                    <th>Skills</th>
+                    <th>Skills</th>
+                    <th>Skills</th>
+                    <th>Skills</th>
+                    <th>Skills</th>
+                    <th>Skills</th>
+                    <th>Skills</th>
+                    <th>Database</th>
+                    <th>Database</th>
+                    <th>Database</th>
+                    <th>Tool</th>
+                    <th>Tool</th>
+                    <th>Tool</th>
+                </tr>
+
+                <tr th:each="skills : ${skills}">
+                    <td th:text="${skills.language1}"></td>
+                    <td th:text="${skills.language2}"></td>
+                    <td th:text="${skills.language3}"></td>
+                    <td th:text="${skills.language4}"></td>
+                    <td th:text="${skills.language5}"></td>
+                    <td th:text="${skills.language6}"></td>
+                    <td th:text="${skills.framework1}"></td>
+                    <td th:text="${skills.framework2}"></td>
+                    <td th:text="${skills.framework3}"></td>
+                    <td th:text="${skills.framework4}"></td>
+                    <td th:text="${skills.framework5}"></td>
+                    <td th:text="${skills.framework6}"></td>
+                    <td th:text="${skills.database1}"></td>
+                    <td th:text="${skills.database2}"></td>
+                    <td th:text="${skills.database3}"></td>
+                    <td th:text="${skills.tool1}"></td>
+                    <td th:text="${skills.tool2}"></td>
+                    <td th:text="${skills.tool3}"></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Summary</th>
+                    <th>Detail</th>
+                    <th>Detail</th>
+                    <th>Detail</th>
+                </tr>
+                <tr th:each="projectExperience : ${projectExperiences}">
+                    <td th:text="${projectExperience.name}"></td>
+                    <td th:text="${projectExperience.summary}"></td>
+                    <td th:text="${projectExperience.detail1}"></td>
+                    <td th:text="${projectExperience.detail2}"></td>
+                    <td th:text="${projectExperience.detail3}"></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Company</th>
+                    <th>Location</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Current</th>
+                    <th>Detail</th>
+                    <th>Detail</th>
+                    <th>Detail</th>
+                </tr>
+                <tr th:each="workExperience : ${workExperiences}">
+                    <td th:text="${workExperience.jobTitle}"></td>
+                    <td th:text="${workExperience.companyName}"></td>
+                    <td th:text="${workExperience.location}"></td>
+                    <td th:text="${workExperience.startDate}"></td>
+                    <td th:text="${workExperience.endDate}"></td>
+                    <td th:text="${workExperience.current}"></td>
+                    <td th:text="${workExperience.detail1}"></td>
+                    <td th:text="${workExperience.detail2}"></td>
+                    <td th:text="${workExperience.detail3}"></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>degree</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Current</th>
+                </tr>
+                <tr th:each="education : ${educations}">
+                    <td th:text="${education.schoolName}"></td>
+                    <td th:text="${education.degree}"></td>
+                    <td th:text="${education.startDate}"></td>
+                    <td th:text="${education.completionDate}"></td>
+                    <td th:text="${education.current}"></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>degree</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Current</th>
+                </tr>
+                <tr th:each="newApplicant : ${newApplicants}">
+                    <td th:text="${newApplicant.gitHub}"></td>
+                    <td th:text="${newApplicant.linkedIn}"></td>
+                    <td th:text="${newApplicant.name}"></td>
+                    <td th:text="${newApplicant.phoneNum}"></td>
+                    <td th:text="${newApplicant.email}"></td>
+                </tr>
+            
+
 
         </table>
     </div>

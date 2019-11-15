@@ -1,14 +1,14 @@
 package org.CodeJobs.controllers;
 
-import org.CodeJobs.models.data.ApplyDao;
+import org.CodeJobs.models.NewApplicant;
+import org.CodeJobs.models.data.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.CodeJobs.models.Job;
-import org.CodeJobs.models.data.JobDao;
-import org.CodeJobs.models.data.UserDao;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,16 +24,34 @@ public class JobController {
     private JobDao jobDao;
 
     @Autowired
+    private NewApplicantDao newApplicantDao;
+
+    @Autowired
     private UserDao userDao;
 
     @Autowired
     private ApplyDao applyDao;
 
+    @Autowired
+    private StatementDao statementDao;
+
+    @Autowired
+    private SkillsDao skillsDao;
+
+    @Autowired
+    private ProjectExperienceDao projectExperienceDao;
+
+    @Autowired
+    private WorkExperienceDao workExperienceDao;
+
+    @Autowired
+    private EducationDao educationDao;
+
     @RequestMapping(value="")
     public String index(Model model, HttpSession session){
-        Integer identify =(Integer) session.getAttribute("user_id");
-        System.out.println(identify + "new2");
-        model.addAttribute("jobs", (jobDao.session(identify)));
+        Integer name =(Integer) session.getAttribute("user_id");
+        System.out.println(name + "new2");
+        model.addAttribute("jobs", (jobDao.session(name)));
 
         return "job/index";
     }
@@ -123,7 +141,14 @@ public class JobController {
     @RequestMapping(value="view/{applyId}",  method = RequestMethod.GET)
     public String viewer(Model model, @PathVariable int applyId){
         System.out.println(applyId + "new");
-        model.addAttribute("applies", (applyDao.jobId(applyId)));
+        model.addAttribute("applies", applyDao.jobId(applyId));
+        model.addAttribute("jobs", jobDao.Id(applyId));
+        model.addAttribute("statements", (statementDao.findOne(applyId)));
+        model.addAttribute("skills", (skillsDao.findOne(applyId)));
+        model.addAttribute("projectExperiences", (projectExperienceDao.findOne(applyId)));
+        model.addAttribute("workExperiences", (workExperienceDao.findOne(applyId)));
+        model.addAttribute("educations", (educationDao.findOne(applyId)));
+        model.addAttribute("newApplicants", (newApplicantDao.findOne(applyId)));
 
         return "job/view";
     }

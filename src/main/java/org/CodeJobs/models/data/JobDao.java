@@ -13,4 +13,5 @@ import javax.transaction.Transactional;
 public interface JobDao extends CrudRepository<Job, Integer> {
 
     Iterable<Integer> session(Integer identify);
+    Iterable<Integer> Id(Integer identify);
 }
