@@ -9,22 +9,22 @@ body {
      width: auto;
  }
 .page {
-    display: grid;
-    grid-template-columns: 30% 1fr% 30%;
-}
-.container {
-    display: grid;
-    grid-template-columns: 35% 35% 35%;
+     display: grid;
+     grid-template-columns: 30% 1fr% 30%;
+ }
+ .container {
+     display: grid;
+     grid-template-columns: 35% 35% 35%;
 
-}
-.applies {
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 4;
-    width: 325px;
-    padding: 40px;
-    background: steelblue;
-    display: grid;
-    text-align: center;
-}
+ }
+ .applies {
+     grid-column-start: 2;
+     grid-column-end: 4;
+     grid-row-start: 2;
+     grid-row-end: 4;
+     width: 325px;
+     padding: 40px;
+     background: steelblue;
+     display: grid;
+     text-align: center;
+ }

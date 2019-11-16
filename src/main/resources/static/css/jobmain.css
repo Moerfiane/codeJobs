@@ -8,3 +8,11 @@ body {
      height: 150px;
      width: auto;
  }
+
+.jobs {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 3% 1fr% 3%;
+    text-align: center;
+}

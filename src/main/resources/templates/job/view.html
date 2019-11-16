@@ -12,24 +12,23 @@
     <div class="page">
     <h1 th:text="${title}">Default Title</h1>
 
-
+        <nav>
+            <a href="/job">Return to Jobs</a>
+        </nav>
 
 
     <div class="applies">
         <table class="table table-bordered">
             <tr>
                 <th>Job</th>
+                <th>Applicant</th>
             </tr>
 
             <tr th:each="apply : ${applies}">
                 <td th:text="${apply.jobId}"></td>
+                <td><a th:href="'/job/final/' + ${apply.session}" th:text="${apply.session}"></a></td>
             </tr>
-            <tr>
-                <th>Applicant</th>
-            </tr>
-            <tr th:each="apply : ${applies}">
-                <td th:text="${apply.session}"></td>
-            </tr>
+
 
         </table>
     </div>

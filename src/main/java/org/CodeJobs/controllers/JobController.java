@@ -142,15 +142,23 @@ public class JobController {
     public String viewer(Model model, @PathVariable int applyId){
         System.out.println(applyId + "new");
         model.addAttribute("applies", applyDao.jobId(applyId));
-//        model.addAttribute("jobs", jobDao.Id(applyId));
-//        model.addAttribute("statements", (statementDao.findOne(applyId)));
-//        model.addAttribute("skills", (skillsDao.findOne(applyId)));
-//        model.addAttribute("projectExperiences", (projectExperienceDao.findOne(applyId)));
-//        model.addAttribute("workExperiences", (workExperienceDao.findOne(applyId)));
-//        model.addAttribute("educations", (educationDao.findOne(applyId)));
-//        model.addAttribute("newApplicants", (newApplicantDao.findOne(applyId)));
 
         return "job/view";
+    }
+
+    @RequestMapping(value = "final/{applyId}")
+    public String displayResume(Model model,  @PathVariable int applyId){
+
+        model.addAttribute("jobs", (jobDao.session(applyId)));
+        model.addAttribute("applies", applyDao.jobId(applyId));
+        model.addAttribute("statements", (statementDao.findOne(applyId)));
+        model.addAttribute("skills", (skillsDao.findOne(applyId)));
+        model.addAttribute("projectExperiences", (projectExperienceDao.findOne(applyId)));
+        model.addAttribute("workExperiences", (workExperienceDao.findOne(applyId)));
+        model.addAttribute("educations", (educationDao.findOne(applyId)));
+        model.addAttribute("newApplicants", (newApplicantDao.findOne(applyId)));
+
+        return "job/final";
     }
 
 }
