@@ -21,14 +21,14 @@
                 <th>Job</th>
             </tr>
 
-            <tr th:each="job : ${jobs}">
-                <td th:text="${job.jobTitle}"></td>
+            <tr th:each="apply : ${applies}">
+                <td th:text="${apply.jobId}"></td>
             </tr>
             <tr>
                 <th>Applicant</th>
             </tr>
-            <tr th:each="job : ${jobs}">
-                <td th:text="${job.jobTitle}"></td>
+            <tr th:each="apply : ${applies}">
+                <td th:text="${apply.session}"></td>
             </tr>
 
         </table>
