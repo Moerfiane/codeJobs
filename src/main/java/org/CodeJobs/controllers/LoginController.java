@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 public class LoginController extends AbstractController{
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String login(Model model) {
         model.addAttribute(new LoginForm());
         model.addAttribute("title", "Log In");
