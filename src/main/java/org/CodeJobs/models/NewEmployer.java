@@ -24,14 +24,12 @@ public class NewEmployer {
     private String website;
 
     @NotNull(message = "Invalid EIN")
-    //@Pattern(regexp = "\\d{9}|(?:\\d{2}-)({2}\\d{7})")
-    //@Max(9)
+
+    @Pattern(regexp = "\\d{9}|(?:\\d{2}-){2}\\d{7}", message = "Incorrect format")
     private Long ein;
 
     @NotNull(message = "Invalid phone number")
-    //@Pattern(regexp = "\\d{10}|(?:\\d{3}-)({2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4})")
-    //@Min(10)
-    //@Max(13)
+    @Pattern(regexp = "\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}")
     private Long phoneNumber;
 
     @NotNull
