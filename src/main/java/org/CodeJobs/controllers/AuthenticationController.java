@@ -112,7 +112,7 @@ public class AuthenticationController extends AbstractController {
 
         if (existingUser != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
-            return "register/index";
+            return "register";
         }
 
         User newUser = new User(form.getUsername(), form.getPassword(), form.getAccess());
@@ -124,7 +124,7 @@ public class AuthenticationController extends AbstractController {
         if (form.getAccess().equals("1")){
             return "redirect:/job";
         }
-        return "redirect:/register/index";
+        return "redirect:/register";
     }
 
 
@@ -132,14 +132,14 @@ public class AuthenticationController extends AbstractController {
     public String login(Model model) {
         model.addAttribute(new LoginForm());
         model.addAttribute("title", "Log In");
-        return "register/index";
+        return "register";
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String login(HttpSession  session, @ModelAttribute @Valid LoginForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            return "register/index";
+            return "register";
         }
 
         User theUser = userDao.findByUsername(form.getUsername());
@@ -147,13 +147,13 @@ public class AuthenticationController extends AbstractController {
 
         if (theUser == null) {
             errors.rejectValue("username", "user.invalid", "The given username does not exist");
-            return "register/index";
+            return "register";
         }
 
 
         if (!theUser.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
-            return "register/index";
+            return "register";
         }
         session.setAttribute("userId",theUser.getUid());
         setUserInSession(request.getSession(), theUser);
@@ -168,7 +168,7 @@ public class AuthenticationController extends AbstractController {
         if (theUser.getAccess().equals("3")) {
             return "redirect:/job";
         } else {
-            return "redirect:register/index";
+            return "redirect:register";
         }
     }
 
