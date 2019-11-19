@@ -135,7 +135,7 @@ public class AuthenticationController extends AbstractController {
         return "/register/index";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public String login(HttpSession  session, @ModelAttribute @Valid LoginForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
