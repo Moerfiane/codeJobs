@@ -19,7 +19,7 @@ import javax.validation.Valid;
  */
 
 @Controller
-@RequestMapping("register")
+@RequestMapping("")
 public class AuthenticationController extends AbstractController {
 
 
