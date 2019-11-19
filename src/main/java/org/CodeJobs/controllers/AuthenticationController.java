@@ -128,18 +128,18 @@ public class AuthenticationController extends AbstractController {
     }
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String login(Model model) {
         model.addAttribute(new LoginForm());
         model.addAttribute("title", "Log In");
-        return "/register/login";
+        return "/register/index";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpSession  session, @ModelAttribute @Valid LoginForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            return "/register/login";
+            return "/register/index";
         }
 
         User theUser = userDao.findByUsername(form.getUsername());
@@ -147,13 +147,13 @@ public class AuthenticationController extends AbstractController {
 
         if (theUser == null) {
             errors.rejectValue("username", "user.invalid", "The given username does not exist");
-            return "/register/login";
+            return "/register/index";
         }
 
 
         if (!theUser.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
-            return "/register/login";
+            return "/register/index";
         }
         session.setAttribute("userId",theUser.getUid());
         setUserInSession(request.getSession(), theUser);
@@ -168,7 +168,7 @@ public class AuthenticationController extends AbstractController {
         if (theUser.getAccess().equals("3")) {
             return "redirect:/job";
         } else {
-            return "redirect:register/login";
+            return "redirect:register/index";
         }
     }
 
