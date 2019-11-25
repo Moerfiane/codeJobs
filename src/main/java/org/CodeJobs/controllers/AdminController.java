@@ -1,5 +1,6 @@
 package org.CodeJobs.controllers;
 
+import org.CodeJobs.models.User;
 import org.CodeJobs.models.data.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -124,4 +125,35 @@ public class AdminController {
         return "admin/users";
 
     }
+
+    @RequestMapping(value = "applicant")
+    public String indexApplicant(Model model) {
+
+        model.addAttribute("title", "Admin: Applicants");
+        model.addAttribute("users", userDao.findByAccess("2"));
+
+        return "admin/applicant";
+
+    }
+
+    @RequestMapping(value = "employer")
+    public String indexEmployer(Model model) {
+
+        model.addAttribute("title", "Admin: Employers");
+        model.addAttribute("users", userDao.findByAccess("3"));
+
+        return "admin/applicant";
+
+    }
+
+    @RequestMapping(value = "admin")
+    public String indexAdmin(Model model) {
+
+        model.addAttribute("title", "Admin: Administrative Users");
+        model.addAttribute("users", userDao.findByAccess("1"));
+
+        return "admin/applicant";
+
+    }
+
 }

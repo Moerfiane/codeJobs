@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 
 @Transactional
@@ -12,6 +13,8 @@ import javax.transaction.Transactional;
 public interface UserDao extends CrudRepository<User, Integer> {
 
     User findByUsername(String username);
+
+    List<String> findByAccess(String access);
 
     User findByUid(Integer uid);
 

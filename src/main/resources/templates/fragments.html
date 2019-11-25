@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/admin.css" />
 
 </head>
 <body>
@@ -14,17 +15,36 @@
 </nav>
 
 <div th:fragment="secondnav">
-    <a href="/admin">admin portal</a> |
-    <a href="/admin/register">register admin</a> |
-    <a href="/admin/job">job</a> |
-    <a href="/admin/education">education</a> |
-    <a href="/admin/workexperience">work experience</a> |
-    <a href="/admin/statement">statement</a> |
-    <a href="/admin/skills">skills</a> |
-    <a href="/admin/projectexperience">project experience</a> |
-    <a href="/admin/users">users</a>
+    <nav id="nav-wrap">
+        <ul>
+            <li><a href="/admin">admin home</a></li>
+            <li><a href="/admin/admin">administrator</a>
+                <ul>
+                    <li><a href="/admin/register">register new administrator</a></li>
+                </ul>
+            </li>
+            <li><a href="/admin/employer">employers</a>
+                <ul>
+                    <li><a href="/admin/job">jobs</a></li>
+                </ul>
+            </li>
+            <li><a href="/admin/applicant">applicant</a>
+                <ul>
+                    <li><a href="/admin/education">education</a></li>
+                    <li><a href="/admin/workexperience">work experience</a></li>
+                    <li><a href="/admin/statement">statement</a></li>
+                    <li><a href="/admin/skills">skills</a></li>
+                    <li><a href="/admin/projectexperience">project experience</a></li>
+                </ul>
+            </li>
+            <li><a href="/admin/users">users</a></li>
+        </ul>
+    </nav>
     <br />
     <br />
+    <br />
+    <br />
+
 </div>
 
 </body>

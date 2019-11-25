@@ -201,6 +201,7 @@ ul li {
 .user-nav-second a:hover {
   background-color: #f0fcf8;
   cursor: pointer;
+  box-shadow: 0 5px 0 #E9DDB1;
 }
 
 .content {
