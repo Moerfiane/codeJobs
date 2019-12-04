@@ -13,14 +13,14 @@ import javax.validation.Valid;
 
 public class LoginController extends AbstractController{
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "login", method = RequestMethod.GET)
     public String login(Model model) {
         model.addAttribute(new LoginForm());
         model.addAttribute("title", "Log In");
         return "register/index";
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(@ModelAttribute @Valid LoginForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
