@@ -43,10 +43,9 @@ public class NewApplicantController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAdd(Model model , @ModelAttribute @Valid NewApplicant newApplicant, HttpSession session, Errors errors){
+    public String processAdd(@ModelAttribute @Valid NewApplicant newApplicant, HttpSession session, Errors errors){
         if (errors.hasErrors()) {
-            model.addAttribute("Applicant Info", "Add Applicant Info");
-            return "newapplicant/add";
+            return "/newapplicant/add";
         }
 
         Integer name = (Integer) session.getAttribute("user_id");
