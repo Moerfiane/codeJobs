@@ -24,15 +24,15 @@ public class NewEmployer {
     private String website;
 
     @NotNull(message = "Invalid EIN")
-    //@Pattern(regexp = "\\d{9}|(?:\\d{2}-)({2}\\d{7})")
+    @Pattern(regexp = "\\d{9}|(?:\\d{2}-)({2}\\d{7})", message = "EIN must be a 9 digit number")
     //@Max(9)
-    private Long ein;
+    private String ein;
 
     @NotNull(message = "Invalid phone number")
-    //@Pattern(regexp = "\\d{10}|(?:\\d{3}-)({2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4})")
+    @Pattern(regexp = "\\d{10}|(?:\\d{3}-)({2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4})")
     //@Min(10)
     //@Max(13)
-    private Long phoneNumber;
+    private String phoneNumber;
 
     @NotNull
     @Email
@@ -52,7 +52,7 @@ public class NewEmployer {
 
     public NewEmployer () {}
 
-    public NewEmployer(String organizationName, String contactName, String website, Long ein, Long phoneNumber, String email, String confirmEmail, int id, Integer session) {
+    public NewEmployer(String organizationName, String contactName, String website, String ein, String phoneNumber, String email, String confirmEmail, int id, Integer session) {
         this.organizationName = organizationName;
         this.contactName = contactName;
         this.website = website;
@@ -100,19 +100,19 @@ public class NewEmployer {
         this.website = website;
     }
 
-    public Long getEin() {
+    public String getEin() {
         return ein;
     }
 
-    public void setEin(Long ein) {
+    public void setEin(String ein) {
         this.ein = ein;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
