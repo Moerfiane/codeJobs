@@ -38,7 +38,7 @@ public class SkillsController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAdd(Model model , @ModelAttribute @Valid Skills newSkills, HttpSession session, Errors errors){
+    public String processAdd(Model model , @ModelAttribute @Valid Skills newSkills, Errors errors, HttpSession session){
         if (errors.hasErrors()) {
             model.addAttribute("skills", "Add Skills");
             return "skills/add";
