@@ -43,8 +43,8 @@ public class ProjectExperienceController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAdd(Model model , @ModelAttribute @Valid ProjectExperience newProjectExperience, Errors errors,
-                             HttpSession session){
+    public String processAdd(Model model , @ModelAttribute @Valid ProjectExperience newProjectExperience,
+                             HttpSession session, Errors errors){
         if (errors.hasErrors()) {
             model.addAttribute("Statement", "Add Project Experience");
             return "projectexperience/add";

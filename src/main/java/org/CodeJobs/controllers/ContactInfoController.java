@@ -30,7 +30,7 @@ public class ContactInfoController {
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid ContactInfo newcontactInfo, Errors errors, HttpSession session) {
+    public String add(Model model, @ModelAttribute @Valid ContactInfo newcontactInfo, HttpSession session, Errors errors) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Contact");

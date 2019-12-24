@@ -38,7 +38,7 @@ public class EducationController {
     }
 
     @RequestMapping(value = "add", method=RequestMethod.POST)
-    public String processAdd(Model model , @ModelAttribute @Valid Education newEducation, Errors errors, HttpSession session){
+    public String processAdd(Model model , @ModelAttribute @Valid Education newEducation, HttpSession session, Errors errors){
         if (errors.hasErrors()){
             model.addAttribute("schoolName", "Add School Name");
             model.addAttribute("degree", "Add Degree");

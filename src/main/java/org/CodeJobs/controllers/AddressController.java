@@ -34,7 +34,7 @@ public class AddressController {
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
-    public String employerAddy (Model model, @ModelAttribute @Valid Address address, Errors errors, HttpSession session) {
+    public String employerAddy (Model model, @ModelAttribute @Valid Address address, HttpSession session, Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("streetNumber", "Street Number");
             model.addAttribute("streetName", "Street Name");

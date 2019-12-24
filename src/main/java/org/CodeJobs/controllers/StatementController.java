@@ -37,7 +37,7 @@ public class StatementController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAdd(Model model , @ModelAttribute @Valid Statement newStatement, Errors errors, HttpSession session){
+    public String processAdd(Model model , @ModelAttribute @Valid Statement newStatement, HttpSession session, Errors errors){
         if (errors.hasErrors()) {
             model.addAttribute("Statement", "Add Statement");
             return "statement/add";

@@ -53,7 +53,7 @@ public class JobController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processJobAdd(@ModelAttribute @Valid Job newJob, Errors errors, HttpSession session, Model model,
+    public String processJobAdd(@ModelAttribute @Valid Job newJob, HttpSession session, Errors errors, Model model,
                                 HttpServletRequest request, HttpServletResponse response) {
 
 

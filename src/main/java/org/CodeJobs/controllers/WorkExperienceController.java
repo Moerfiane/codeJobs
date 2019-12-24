@@ -40,7 +40,7 @@ public class WorkExperienceController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAdd(Model model , @ModelAttribute @Valid WorkExperience newWorkExperience, Errors errors, HttpSession session){
+    public String processAdd(Model model , @ModelAttribute @Valid WorkExperience newWorkExperience, HttpSession session,  Errors errors){
         if (errors.hasErrors()) {
             model.addAttribute("Statement", "Add Job Experience");
             return "workexperience/add";
