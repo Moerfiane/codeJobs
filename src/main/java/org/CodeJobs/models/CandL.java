@@ -14,11 +14,11 @@ public class CandL {
     @GeneratedValue
     private int id;
 
-    @NotNull
+
     @Size(min = 3, max = 20, message = "Name must be between 3 and 20 Characters")
     private String name;
 
-    @NotNull
+
     @Size(min = 2, max = 30)
     private String issuer;
 
