@@ -35,14 +35,14 @@ public class NewEmployerController {
     }
 
     @RequestMapping(value="add", method= RequestMethod.POST)
-    public String employerRegisterForm (Model model, @ModelAttribute @Valid NewEmployer newEmployer, HttpSession session, Errors errors) {
+    public String employerRegisterForm (Model model, @ModelAttribute @Valid NewEmployer newEmployer, Errors errors, @ModelAttribute Address address, HttpSession session) {
         if (errors.hasErrors()) {
             model.addAttribute("organizationName", "Organization Name");
             model.addAttribute("contactName", "Contact Name");
             model.addAttribute("website", "Website");
             model.addAttribute("ein", "EIN");
-            model.addAttribute("phoneNumber", "Phone Number");
-            model.addAttribute(new NewEmployer());
+            model.addAttribute("phoneNumber", "Phone Number");/*
+            model.addAttribute(new NewEmployer());*/
             return "newemployer/add";
         }
 
