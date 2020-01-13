@@ -17,14 +17,14 @@ public class LoginController extends AbstractController{
     public String login(Model model) {
         model.addAttribute(new LoginForm());
         model.addAttribute("title", "Log In");
-        return "register/index";
+        return "register/login";
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(@ModelAttribute @Valid LoginForm form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            return "register/index";
+            return "register/login";
         }
 
         User theUser = userDao.findByUsername(form.getUsername());
@@ -32,14 +32,14 @@ public class LoginController extends AbstractController{
 
         if (theUser == null) {
             errors.rejectValue("username", "user.invalid", "The given username does not exist");
-            return "register/index";
+            return "register/login";
         }
 
 
 
         if (!theUser.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
-            return "register/index";
+            return "register/login";
         }
 
         setUserInSession(request.getSession(), theUser);
