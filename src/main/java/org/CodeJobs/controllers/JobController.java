@@ -1,19 +1,18 @@
 package org.CodeJobs.controllers;
 
-import org.CodeJobs.models.NewApplicant;
+import org.CodeJobs.models.Job;
 import org.CodeJobs.models.data.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
-import org.CodeJobs.models.Job;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 
 
 @Controller
@@ -76,7 +75,7 @@ public class JobController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processJobAdd(@ModelAttribute @Valid Job newJob, HttpSession session, Errors errors, Model model) {
+    public String processJobAdd(@ModelAttribute @Valid Job newJob, Errors errors, HttpSession session, Model model) {
 
 
         if (errors.hasErrors()) {

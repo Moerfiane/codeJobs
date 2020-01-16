@@ -1,19 +1,20 @@
 package org.CodeJobs.controllers;
 
 
-import org.CodeJobs.models.Applicant;
 import org.CodeJobs.models.Apply;
 import org.CodeJobs.models.Job;
 import org.CodeJobs.models.data.ApplicantDao;
+import org.CodeJobs.models.data.ApplyDao;
 import org.CodeJobs.models.data.JobDao;
 import org.CodeJobs.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
-
-import org.CodeJobs.models.data.ApplyDao;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -51,8 +52,8 @@ public class ApplicationPortalController
     }
 
     @RequestMapping(value="job/{jobId}", method = RequestMethod.POST)
-    public String processApply(@PathVariable int jobId, @ModelAttribute Job job, @ModelAttribute @Valid Apply newApply, HttpSession session,
-                               Errors errors, Model model) {
+    public String processApply(@PathVariable int jobId, @ModelAttribute Job job, @ModelAttribute @Valid Apply newApply, Errors errors, HttpSession session,
+                               Model model) {
 
         if(errors.hasErrors()){
             model.addAttribute("name", "Enter your name");
