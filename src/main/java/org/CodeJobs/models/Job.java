@@ -9,9 +9,12 @@ import javax.validation.constraints.Size;
 public class Job {
 
 
+
     @Id
     @GeneratedValue
-    private int id;
+    public int id;
+
+    private int apply_Id;
 
     @NotNull
     //@Size(min=3, max=50)
@@ -173,4 +176,11 @@ public class Job {
         this.session = session;
     }
 
+    public int getApply_Id() {
+        return apply_Id;
+    }
+
+    public void setApply_Id(int apply_Id) {
+        this.apply_Id = apply_Id;
+    }
 }

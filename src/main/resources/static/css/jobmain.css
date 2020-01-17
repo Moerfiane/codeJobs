@@ -1,10 +1,18 @@
 body {
-    background: aquamarine;
-    font-family: sans-serif;
-    padding: 20px;
-}
+     background: aquamarine;
+     font-family: sans-serif;
+     padding: 20px;
+ }
 
-img {
-    height: 150px;
-    width: auto;
+ img {
+     height: 150px;
+     width: auto;
+ }
+
+.jobs {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 3% 1fr% 3%;
+    text-align: center;
 }

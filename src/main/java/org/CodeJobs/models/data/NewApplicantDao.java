@@ -9,4 +9,6 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface NewApplicantDao extends CrudRepository<NewApplicant, Integer> {
+
+    Iterable<Integer> session(Integer identify);
 }

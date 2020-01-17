@@ -1,0 +1,79 @@
+body {
+    background: aquamarine;
+    font-family: sans-serif;
+    padding: 20px;
+}
+.page {
+    display: grid;
+    grid-template-columns: 30% 1fr% 30%;
+}
+
+img {
+    height: 150px;
+    width: auto;
+}
+.jobs {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 3% 1fr% 3%;
+}
+​
+
+/*.statement {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 3% 1fr% 3%;
+}
+​
+​
+​
+.skills {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+​
+.language {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr%;
+}
+.framework {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    display: grid;
+    grid-template-columns: 1fr 1fr%;
+}
+.databases {
+    grid-column-start: 5;
+    grid-column-end: 6;
+}
+.tools {
+    grid-column-start: 6;
+    grid-column-end: 7;
+}
+​
+​
+.project {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 3% 1fr% 3%;
+}
+.workexperience {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 3% 1fr% 3%;
+}
+.education {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 3% 1fr% 3%;
+}
+*/

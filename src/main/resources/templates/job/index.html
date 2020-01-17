@@ -9,16 +9,18 @@
 </header>
 
     <body class="container">
+    <div class="page">
     <h1 th:text="${title}">Default Title</h1>
     <nav th:replace="fragments :: navigation"></nav>
+
 
 <nav>
     <a class="btn btn-primary btn-xs" href="/job/add">Add New Job</a>
 </nav>
 
     <p th:unless="${jobs} and ${jobs.size()}">No Jobs have been added</p>
-
-    <table class="table table-bordered">
+        <div class="jobs">
+            <table class="table table-bordered">
         <tr>
             <th></th>
             <th>Job Title</th>
@@ -35,7 +37,7 @@
         </tr>
 
         <tr th:each="job : ${jobs}">
-            <td><a th:href="'job/edit/' + ${job.id}" th:text="Edit"></a></td>
+            <td><a th:href="'job/edit/' + ${job.session}" th:text="Edit"></a></td>
             <td th:text="${job.jobTitle}"></td>
             <td th:text="${job.address}"></td>
             <td th:text="${job.jobCategory}"></td>
@@ -47,9 +49,12 @@
             <td th:text="${job.dressCode}"></td>
             <td th:text="${job.payRate}"></td>
             <td th:text="${job.closingDate}"></td>
+            <td><a th:href="'job/view/' + ${job.id}" th:text="Applicants"></a></td>
         </tr>
 
     </table>
+    </div>
+    </div>
     </body>
 
 </html>
